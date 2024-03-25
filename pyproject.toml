@@ -1,0 +1,21 @@
+[project]
+name = "anki_connect"
+dynamic = ["version"]
+license = {file = "LICENSE"}
+authors = [
+  { name="bitmonster" },
+]
+description = "Use the Anki-Connect plugin from Python code"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+[project.urls]
+Homepage = "https://github.com/bbitmonster/anki-connect-api"
+[tool.setuptools]
+py-modules = ["anki_connect"]
+[tool.setuptools.dynamic]
+version = {attr = "anki_connect.__version__"}

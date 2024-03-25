@@ -9,6 +9,7 @@
 !make_doc.py
 !pyproject.toml
 !requirements.txt
+!setup.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -1,5 +1,8 @@
+__version__ = '0.0.2'
+
 import json
 from urllib.request import urlopen, Request
+
 
 def invoke(action, **params):
     requestJson = json.dumps({
