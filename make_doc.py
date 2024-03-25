@@ -4,7 +4,7 @@ from pathlib import Path
 import ast_comments
 
 source_path = Path("anki_connect.py")
-dest_path = Path("anki_connect.python.md")
+dest_path = Path("README.python.md")
 code_header = """\
 <details>
 <summary><i>Example:</i></summary>

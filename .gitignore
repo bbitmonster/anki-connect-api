@@ -4,6 +4,7 @@
 !.gitignore
 !anki_connect.py
 !README.md
+!README.python.md
 !LICENSE
 !make_doc.py
 !pyproject.toml
