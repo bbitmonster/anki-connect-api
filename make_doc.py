@@ -43,27 +43,3 @@ with dest_path.open("w", encoding="utf-8") as f:
         elif isinstance(node, ast_comments.Comment):
             writeln("##" + node.value)
 
-from github import Github, Auth
-
-# using an access token
-auth = Auth.Token("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")
-
-# First create a Github instance:
-
-# Public Web Github
-g = Github(auth=auth)
-
-# Find your repository and path of README.md
-repo = g.get_user().get_repo("misc")
-file = repo.get_contents("anki/anki_connect.python.md")
-
-# content = file.decoded_content.decode()
-# for line in content.splitlines():
-#     print(line)
-
-# The new contents of your README.md
-with dest_path.open("r", encoding="utf-8") as f:
-    content = f.read()
-repo.update_file(file.path, "more tests", content, file.sha)
-
-g.close()
