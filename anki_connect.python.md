@@ -6,13 +6,13 @@
     order).
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> getEaseFactors([1483959291685, 1483959293217])
         [4100, 3900]
-```
-</details>
+    ```
+    </details>
 
 
 `setEaseFactors(cards, easeFactors)`
@@ -21,13 +21,13 @@
     existed) or `false` otherwise.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> setEaseFactors([1483959291685, 1483959293217], [4100, 3900])
         [True, True]
-```
-</details>
+    ```
+    </details>
 
 
 `setSpecificValueOfCard(card, keys, newValues)`
@@ -41,13 +41,13 @@
     wiki](https://github.com/ankidroid/Anki-Android/wiki/Database-Structure).
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> setSpecificValueOfCard(1483959291685, ["flags", "odue"], ["1", "-100"])
         [True, True]
-```
-</details>
+    ```
+    </details>
 
 
 `suspend(cards)`
@@ -56,13 +56,13 @@
     already suspended) or `false` otherwise.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> suspend([1483959291685, 1483959293217])
         True
-```
-</details>
+    ```
+    </details>
 
 
 `unsuspend(cards)`
@@ -71,13 +71,13 @@
     previously suspended) or `false` otherwise.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> unsuspend([1483959291685, 1483959293217])
         True
-```
-</details>
+    ```
+    </details>
 
 
 `suspended(card)`
@@ -86,13 +86,13 @@
     otherwise.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> suspended(1483959293217)
         True
-```
-</details>
+    ```
+    </details>
 
 
 `areSuspended(cards)`
@@ -101,13 +101,13 @@
     same order). If card doesn't exist returns `null`.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> areSuspended([1483959291685, 1483959293217, 1234567891234])
         [False, True, None]
-```
-</details>
+    ```
+    </details>
 
 
 `areDue(cards)`
@@ -118,13 +118,13 @@
     Anki treats them when reviewing.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> areDue([1483959291685, 1483959293217])
         [False, True]
-```
-</details>
+    ```
+    </details>
 
 
 `getIntervals(cards, complete)`
@@ -134,13 +134,13 @@
     `true`. Negative intervals are in seconds and positive intervals in days.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> getIntervals([1502298033753, 1502298036657])
         [-14400, 3]
-```
-</details>
+    ```
+    </details>
 
 
 `findCards(query)`
@@ -149,13 +149,13 @@
     `guiBrowse` but doesn't use the GUI for better performance.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> findCards("deck:current")
         [1494723142483, 1494703460437, 1494703479525]
-```
-</details>
+    ```
+    </details>
 
 
 `cardsToNotes(cards)`
@@ -164,13 +164,13 @@
     same note, the ID is only given once in the array.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> cardsToNotes([1502098034045, 1502098034048, 1502298033753])
         [1502098029797, 1502298025183]
-```
-</details>
+    ```
+    </details>
 
 
 `cardsModTime(cards)`
@@ -179,13 +179,13 @@
     function is about 15 times faster than executing `cardsInfo`.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> cardsModTime([1498938915662, 1502098034048])
         [{"cardId": 1498938915662, "mod": 1629454092}]
-```
-</details>
+    ```
+    </details>
 
 
 `cardsInfo(cards)`
@@ -195,9 +195,9 @@
     last modification timestamp as well as ease and interval.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> cardsInfo([1498938915662, 1502098034048])
         [
             {
@@ -246,8 +246,8 @@
                 "left": 6,
             },
         ]
-```
-</details>
+    ```
+    </details>
 
 
 `forgetCards(cards)`
@@ -255,13 +255,13 @@
 *   Forget cards, making the cards new again.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> forgetCards([1498938915662, 1502098034048])
         None
-```
-</details>
+    ```
+    </details>
 
 
 `relearnCards(cards)`
@@ -269,13 +269,13 @@
 *   Make cards be "relearning".
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> relearnCards([1498938915662, 1502098034048])
         None
-```
-</details>
+    ```
+    </details>
 
 
 `answerCards(answers)`
@@ -284,15 +284,15 @@
     immediately before answering. Returns `true` if card exists, `false` otherwise.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> answerCards(
         ...     [{"cardId": 1498938915662, "ease": 2}, {"cardId": 1502098034048, "ease": 4}]
         ... )
         [True, True]
-```
-</details>
+    ```
+    </details>
 
 ### Deck Actions
 
@@ -301,13 +301,13 @@
 *   Gets the complete list of deck names for the current user.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> deckNames()
         ["Default"]
-```
-</details>
+    ```
+    </details>
 
 
 `deckNamesAndIds()`
@@ -315,13 +315,13 @@
 *   Gets the complete list of deck names and their respective IDs for the current user.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> deckNamesAndIds()
         {"Default": 1}
-```
-</details>
+    ```
+    </details>
 
 
 `getDecks(cards)`
@@ -330,13 +330,13 @@
     and its value an array of the given cards which belong to it.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> getDecks([1502298036657, 1502298033753, 1502032366472])
         {"Default": [1502032366472], "Japanese::JLPT N3": [1502298036657, 1502298033753]}
-```
-</details>
+    ```
+    </details>
 
 
 `createDeck(deck)`
@@ -344,13 +344,13 @@
 *   Create a new empty deck. Will not overwrite a deck that exists with the same name.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> createDeck("Japanese::Tokyo")
         1519323742721
-```
-</details>
+    ```
+    </details>
 
 
 `changeDeck(cards, deck)`
@@ -359,13 +359,13 @@
     exist yet.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> changeDeck([1502098034045, 1502098034048, 1502298033753], "Japanese::JLPT N3")
         None
-```
-</details>
+    ```
+    </details>
 
 
 `deleteDecks(decks, cardsToo)`
@@ -374,13 +374,13 @@
     set to `true`.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> deleteDecks(["Japanese::JLPT N5", "Easy Spanish"], True)
         None
-```
-</details>
+    ```
+    </details>
 
 
 `getDeckConfig(deck)`
@@ -388,9 +388,9 @@
 *   Gets the configuration group object for the given deck.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> getDeckConfig("Default")
         {
             "lapse": {
@@ -428,8 +428,8 @@
             "replayq": True,
             "usn": -1,
         }
-```
-</details>
+    ```
+    </details>
 
 
 `saveDeckConfig(config)`
@@ -438,9 +438,9 @@
     ID of the configuration group is invalid (such as when it does not exist).
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> saveDeckConfig(
         ...     {
         ...         "lapse": {
@@ -480,8 +480,8 @@
         ...     }
         ... )
         True
-```
-</details>
+    ```
+    </details>
 
 
 `setDeckConfigId(decks, configId)`
@@ -491,13 +491,13 @@
     given decks do not exist.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> setDeckConfigId(["Default"], 1)
         True
-```
-</details>
+    ```
+    </details>
 
 
 `cloneDeckConfigId(name, cloneFrom)`
@@ -508,13 +508,13 @@
     exist.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> cloneDeckConfigId("Copy of Default", 1)
         1502972374573
-```
-</details>
+    ```
+    </details>
 
 
 `removeDeckConfigId(configId)`
@@ -524,13 +524,13 @@
     a configuration group that does not exist.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> removeDeckConfigId(1502972374573)
         True
-```
-</details>
+    ```
+    </details>
 
 
 `getDeckStats(decks)`
@@ -538,9 +538,9 @@
 *   Gets statistics such as total cards and cards due for the given decks.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> getDeckStats(["Japanese::JLPT N5", "Easy Spanish"])
         {
             "1651445861967": {
@@ -560,8 +560,8 @@
                 "total_in_deck": 852,
             },
         }
-```
-</details>
+    ```
+    </details>
 
 ### Graphical Actions
 
@@ -579,13 +579,13 @@
     specified column needs to be visible in the *Card Browser*.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> guiBrowse("deck:current", {"order": "descending", "columnId": "noteCrt"})
         [1494723142483, 1494703460437, 1494703479525]
-```
-</details>
+    ```
+    </details>
 
 
 `guiSelectNote(note)`
@@ -594,13 +594,13 @@
     note identifier. Returns `True` if the *Card Browser* is open, `False` otherwise.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> guiSelectNote(1494723142483)
         True
-```
-</details>
+    ```
+    </details>
 
 
 `guiSelectedNotes()`
@@ -610,13 +610,13 @@
     not open.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> guiSelectedNotes()
         [1494723142483, 1494703460437, 1494703479525]
-```
-</details>
+    ```
+    </details>
 
 
 `guiAddCards(note)`
@@ -633,9 +633,9 @@
     the *Add Cards* dialogue.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> guiAddCards(
         ...     {
         ...         "deckName": "Default",
@@ -655,8 +655,8 @@
         ...     }
         ... )
         1496198395707
-```
-</details>
+    ```
+    </details>
 
 
 `guiEditNote(note)`
@@ -670,13 +670,13 @@
     * has no bar with the Close button
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> guiEditNote(1649198355435)
         None
-```
-</details>
+    ```
+    </details>
 
 
 `guiCurrentCard()`
@@ -684,9 +684,9 @@
 *   Returns information about the current card or `null` if not in review mode.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> guiCurrentCard()
         {
             "answer": "back content",
@@ -703,8 +703,8 @@
             "buttons": [1, 2, 3],
             "nextReviews": ["<1m", "<10m", "4d"],
         }
-```
-</details>
+    ```
+    </details>
 
 
 `guiStartCardTimer()`
@@ -714,13 +714,13 @@
     time taken to answer the card to be more accurate when calling `guiAnswerCard`.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> guiStartCardTimer()
         True
-```
-</details>
+    ```
+    </details>
 
 
 `guiShowQuestion()`
@@ -729,13 +729,13 @@
     `false` otherwise.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> guiShowQuestion()
         True
-```
-</details>
+    ```
+    </details>
 
 
 `guiShowAnswer()`
@@ -744,13 +744,13 @@
     otherwise.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> guiShowAnswer()
         True
-```
-</details>
+    ```
+    </details>
 
 
 `guiAnswerCard(ease)`
@@ -760,13 +760,13 @@
     accepted by Anki.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> guiAnswerCard(1)
         True
-```
-</details>
+    ```
+    </details>
 
 
 `guiUndo()`
@@ -774,13 +774,13 @@
 *   Undo the last action / card; returns `true` if succeeded or `false` otherwise.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> guiUndo()
         True
-```
-</details>
+    ```
+    </details>
 
 
 `guiDeckOverview(name)`
@@ -789,13 +789,13 @@
     if succeeded or `false` otherwise.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> guiDeckOverview("Default")
         True
-```
-</details>
+    ```
+    </details>
 
 
 `guiDeckBrowser()`
@@ -803,13 +803,13 @@
 *   Opens the *Deck Browser* dialog.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> guiDeckBrowser()
         None
-```
-</details>
+    ```
+    </details>
 
 
 `guiDeckReview(name)`
@@ -818,13 +818,13 @@
     `false` otherwise.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> guiDeckReview("Default")
         True
-```
-</details>
+    ```
+    </details>
 
 
 `guiImportFile(path)`
@@ -835,13 +835,13 @@
     path on Windows. Only supported for Anki 2.1.52+.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> guiImportFile("C:/Users/Desktop/cards.txt")
         None
-```
-</details>
+    ```
+    </details>
 
 
 `guiExitAnki()`
@@ -850,13 +850,13 @@
     will return immediately and won't wait until the Anki process actually terminates.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> guiExitAnki()
         None
-```
-</details>
+    ```
+    </details>
 
 
 `guiCheckDatabase()`
@@ -866,13 +866,13 @@
     during the database check.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> guiCheckDatabase()
         True
-```
-</details>
+    ```
+    </details>
 
 ### Media Actions
 
@@ -890,13 +890,13 @@
     iles.rs#L194).
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> storeMediaFile("_hello.txt", "SGVsbG8sIHdvcmxkIQ==")
         "_hello.txt"
-```
-</details>
+    ```
+    </details>
 
 
 `retrieveMediaFile(filename)`
@@ -905,13 +905,13 @@
     the file does not exist.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> retrieveMediaFile("_hello.txt")
         "SGVsbG8sIHdvcmxkIQ=="
-```
-</details>
+    ```
+    </details>
 
 
 `getMediaFilesNames(pattern)`
@@ -919,13 +919,13 @@
 *   Gets the names of media files matched the pattern. Returning all names by default.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> getMediaFilesNames("_hell*.txt")
         ["_hello.txt"]
-```
-</details>
+    ```
+    </details>
 
 
 `getMediaDirPath()`
@@ -934,13 +934,13 @@
     profile.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> getMediaDirPath()
         "/home/user/.local/share/Anki2/Main/collection.media"
-```
-</details>
+    ```
+    </details>
 
 
 `deleteMediaFile(filename)`
@@ -948,13 +948,13 @@
 *   Deletes the specified file inside the media folder.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> deleteMediaFile("_hello.txt")
         None
-```
-</details>
+    ```
+    </details>
 
 ### Miscellaneous Actions
 
@@ -982,13 +982,13 @@
     reported Anki-Connect version or earlier, everything should work fine.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> requestPermission()
         {"permission": "granted", "requireApiKey": False, "version": 6}
-```
-</details>
+    ```
+    </details>
 
 
 `version()`
@@ -997,13 +997,13 @@
     `6` are defined.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> version()
         6
-```
-</details>
+    ```
+    </details>
 
 
 `apiReflect(scopes, actions)`
@@ -1022,13 +1022,13 @@
     a list of supported action names.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> apiReflect(["actions", "invalidType"], ["apiReflect", "invalidMethod"])
         {"scopes": ["actions"], "actions": ["apiReflect"]}
-```
-</details>
+    ```
+    </details>
 
 
 `sync()`
@@ -1036,13 +1036,13 @@
 *   Synchronizes the local Anki collections with AnkiWeb.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> sync()
         None
-```
-</details>
+    ```
+    </details>
 
 
 `getProfiles()`
@@ -1050,13 +1050,13 @@
 *   Retrieve the list of profiles.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> getProfiles()
         ["User 1"]
-```
-</details>
+    ```
+    </details>
 
 
 `loadProfile(name)`
@@ -1064,13 +1064,13 @@
 *   Selects the profile specified in request.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> loadProfile("user1")
         True
-```
-</details>
+    ```
+    </details>
 
 
 `multi(actions)`
@@ -1079,9 +1079,9 @@
     each action (in the given order).
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> multi(
         ...     [
         ...         {"action": "deckNames"},
@@ -1096,8 +1096,8 @@
             {"result": None, "error": "unsupported action"},
             {"result": None, "error": "unsupported action"},
         ]
-```
-</details>
+    ```
+    </details>
 
 
 `exportPackage(deck, path, includeSched)`
@@ -1107,13 +1107,13 @@
     to include the cards' scheduling data.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> exportPackage("Default", "/data/Deck.apkg", True)
         True
-```
-</details>
+    ```
+    </details>
 
 
 `importPackage(path)`
@@ -1123,13 +1123,13 @@
     folder, not to the client.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> importPackage("/data/Deck.apkg")
         True
-```
-</details>
+    ```
+    </details>
 
 
 `reloadCollection()`
@@ -1137,13 +1137,13 @@
 *   Tells anki to reload all data from the database.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> reloadCollection()
         None
-```
-</details>
+    ```
+    </details>
 
 ### Model Actions
 
@@ -1152,13 +1152,13 @@
 *   Gets the complete list of model names for the current user.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> modelNames()
         ["Basic", "Basic (and reversed card)"]
-```
-</details>
+    ```
+    </details>
 
 
 `modelNamesAndIds()`
@@ -1167,9 +1167,9 @@
     user.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> modelNamesAndIds()
         {
             "Basic": 1483883011648,
@@ -1177,8 +1177,8 @@
             "Basic (optional reversed card)": 1483883011631,
             "Cloze": 1483883011630,
         }
-```
-</details>
+    ```
+    </details>
 
 
 `findModelsById(modelIds)`
@@ -1186,9 +1186,9 @@
 *   Gets a list of models  for the provided model IDs from the current user.
     
         <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
             >>> findModelsById([1704387367119, 1704387398570])
             [
                 {
@@ -1367,8 +1367,8 @@
                 },
             ]
     
-```
-</details>
+    ```
+    </details>
 
 
 `findModelsByName(modelNames)`
@@ -1376,9 +1376,9 @@
 *   Gets a list of models for the provided model names from the current user.
     
         <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
             >>> findModelsByName(["Basic", "Basic (and reversed card)"])
             [
                 {
@@ -1557,8 +1557,8 @@
                 },
             ]
     
-```
-</details>
+    ```
+    </details>
 
 
 `modelFieldNames(modelName)`
@@ -1566,13 +1566,13 @@
 *   Gets the complete list of field names for the provided model name.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> modelFieldNames("Basic")
         ["Front", "Back"]
-```
-</details>
+    ```
+    </details>
 
 
 `modelFieldDescriptions(modelName)`
@@ -1581,13 +1581,13 @@
     a field is empty) for the provided model name.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> modelFieldDescriptions("Basic")
         ["", ""]
-```
-</details>
+    ```
+    </details>
 
 
 `modelFieldFonts(modelName)`
@@ -1595,13 +1595,13 @@
 *   Gets the complete list of fonts along with their font sizes.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> modelFieldFonts("Basic")
         {"Front": {"font": "Arial", "size": 20}, "Back": {"font": "Arial", "size": 20}}
-```
-</details>
+    ```
+    </details>
 
 
 `modelFieldsOnTemplates(modelName)`
@@ -1611,13 +1611,13 @@
     array.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> modelFieldsOnTemplates("Basic (and reversed card)")
         {"Card 1": [["Front"], ["Back"]], "Card 2": [["Back"], ["Front"]]}
-```
-</details>
+    ```
+    </details>
 
 
 `createModel(modelName, inOrderFields, css, isCloze, cardTemplates)`
@@ -1632,9 +1632,9 @@
         default the card names will be `Card 1`, `Card 2`, and so on.
     
         <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
             >>> createModel(
             ...     "newModelName",
             ...     ["Field1", "Field2", "Field3"],
@@ -1709,8 +1709,8 @@
                 "req": [[0, "none", []]],
             }
     
-```
-</details>
+    ```
+    </details>
 
 
 `modelTemplates(modelName)`
@@ -1719,9 +1719,9 @@
         provided model by name.
     
         <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
             >>> modelTemplates("Basic (and reversed card)")
             {
                 "Card 1": {
@@ -1742,8 +1742,8 @@
                 },
             }
     
-```
-</details>
+    ```
+    </details>
 
 
 `modelStyling(modelName)`
@@ -1751,9 +1751,9 @@
 *   Gets the CSS styling for the provided model by name.
     
         <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
             >>> modelStyling("Basic (and reversed card)")
             {
                 "css": ".card {
@@ -1766,8 +1766,8 @@
     "
             }
     
-```
-</details>
+    ```
+    </details>
 
 
 `updateModelTemplates(model)`
@@ -1777,9 +1777,9 @@
     request, it will be left unchanged.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> updateModelTemplates(
         ...     {
         ...         "name": "Custom",
@@ -1787,8 +1787,8 @@
         ...     }
         ... )
         None
-```
-</details>
+    ```
+    </details>
 
 
 `updateModelStyling(model)`
@@ -1796,13 +1796,13 @@
 *   Modify the CSS styling of an existing model by name.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> updateModelStyling({"name": "Custom", "css": "p { color: blue; }"})
         None
-```
-</details>
+    ```
+    </details>
 
 
 `findAndReplaceInModels(model)`
@@ -1811,9 +1811,9 @@
     front, back or css by setting to true/false.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> findAndReplaceInModels(
         ...     {
         ...         "modelName": "",
@@ -1825,8 +1825,8 @@
         ...     }
         ... )
         1
-```
-</details>
+    ```
+    </details>
 
 
 `modelTemplateRename(modelName, oldTemplateName, newTemplateName)`
@@ -1834,13 +1834,13 @@
 *   Renames a template in an existing model.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> modelTemplateRename("Basic", "Card 1", "Card 1 renamed")
         None
-```
-</details>
+    ```
+    </details>
 
 
 `modelTemplateReposition(modelName, templateName, index)`
@@ -1851,13 +1851,13 @@
     the first position, and an index of `2` puts the template in the third position.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> modelTemplateReposition("Basic", "Card 1", 1)
         None
-```
-</details>
+    ```
+    </details>
 
 
 `modelTemplateAdd(modelName, template)`
@@ -1866,9 +1866,9 @@
     template, use `updateModelTemplates`.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> modelTemplateAdd(
         ...     "Basic",
         ...     {
@@ -1878,8 +1878,8 @@
         ...     },
         ... )
         None
-```
-</details>
+    ```
+    </details>
 
 
 `modelTemplateRemove(modelName, templateName)`
@@ -1887,13 +1887,13 @@
 *   Removes a template from an existing model.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> modelTemplateRemove("Basic", "Card 1")
         None
-```
-</details>
+    ```
+    </details>
 
 
 `modelFieldRename(modelName, oldFieldName, newFieldName)`
@@ -1901,13 +1901,13 @@
 *   Rename the field name of a given model.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> modelFieldRename("Basic", "Front", "FrontRenamed")
         None
-```
-</details>
+    ```
+    </details>
 
 
 `modelFieldReposition(modelName, fieldName, index)`
@@ -1918,13 +1918,13 @@
     first position, and an index of `2` puts the field in the third position.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> modelFieldReposition("Basic", "Back", 0)
         None
-```
-</details>
+    ```
+    </details>
 
 
 `modelFieldAdd(modelName, fieldName, index)`
@@ -1936,13 +1936,13 @@
     field list.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> modelFieldAdd("Basic", "NewField", 0)
         None
-```
-</details>
+    ```
+    </details>
 
 
 `modelFieldRemove(modelName, fieldName)`
@@ -1950,13 +1950,13 @@
 *   Deletes a field within a given model.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> modelFieldRemove("Basic", "Front")
         None
-```
-</details>
+    ```
+    </details>
 
 
 `modelFieldSetFont(modelName, fieldName, font)`
@@ -1964,13 +1964,13 @@
 *   Sets the font for a field within a given model.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> modelFieldSetFont("Basic", "Front", "Courier")
         None
-```
-</details>
+    ```
+    </details>
 
 
 `modelFieldSetFontSize(modelName, fieldName, fontSize)`
@@ -1978,13 +1978,13 @@
 *   Sets the font size for a field within a given model.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> modelFieldSetFontSize("Basic", "Front", 10)
         None
-```
-</details>
+    ```
+    </details>
 
 
 `modelFieldSetDescription(modelName, fieldName, description)`
@@ -1996,13 +1996,13 @@
     case, this will return with `false`.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> modelFieldSetDescription("Basic", "Front", "example field description")
         True
-```
-</details>
+    ```
+    </details>
 
 ### Note Actions
 
@@ -2039,9 +2039,9 @@
     performed across all note types. The default value is `false`.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> addNote(
         ...     {
         ...         "deckName": "Default",
@@ -2084,8 +2084,8 @@
         ...     }
         ... )
         1496198395707
-```
-</details>
+    ```
+    </details>
 
 
 `addNotes(notes)`
@@ -2096,9 +2096,9 @@
     `addNote` for an explanation of objects in the `notes` array.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> addNotes(
         ...     [
         ...         {
@@ -2134,8 +2134,8 @@
         ...     ]
         ... )
         [1496198395707, None]
-```
-</details>
+    ```
+    </details>
 
 
 `canAddNotes(notes)`
@@ -2145,9 +2145,9 @@
     at the corresponding index could be used to create a new note.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> canAddNotes(
         ...     [
         ...         {
@@ -2159,8 +2159,8 @@
         ...     ]
         ... )
         [True]
-```
-</details>
+    ```
+    </details>
 
 
 `canAddNotesWithErrorDetail(notes)`
@@ -2173,9 +2173,9 @@
     * `error` contains an explanation of why a note cannot be added.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> canAddNotesWithErrorDetail(
         ...     [
         ...         {
@@ -2196,8 +2196,8 @@
             {"canAdd": False, "error": "cannot create note because it is a duplicate"},
             {"canAdd": True},
         ]
-```
-</details>
+    ```
+    </details>
 
 
 `updateNoteFields(note)`
@@ -2212,9 +2212,9 @@
     issue](https://github.com/FooSoft/anki-connect/issues/82) for further details.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> updateNoteFields(
         ...     {
         ...         "id": 1514547547030,
@@ -2230,8 +2230,8 @@
         ...     }
         ... )
         None
-```
-</details>
+    ```
+    </details>
 
 
 `updateNote(note)`
@@ -2254,9 +2254,9 @@
     issue](https://github.com/FooSoft/anki-connect/issues/82) for further details.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> updateNote(
         ...     {
         ...         "id": 1514547547030,
@@ -2265,8 +2265,8 @@
         ...     }
         ... )
         None
-```
-</details>
+    ```
+    </details>
 
 
 `updateNoteTags(note, tags)`
@@ -2274,13 +2274,13 @@
 *   Set a note's tags by note ID. Old tags will be removed.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> updateNoteTags(1483959289817, ["european-languages"])
         None
-```
-</details>
+    ```
+    </details>
 
 
 `getNoteTags(note)`
@@ -2288,13 +2288,13 @@
 *   Get a note's tags by note ID.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> getNoteTags(1483959289817)
         ["european-languages"]
-```
-</details>
+    ```
+    </details>
 
 
 `addTags(notes, tags)`
@@ -2302,13 +2302,13 @@
 *   Adds tags to notes by note ID.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> addTags([1483959289817, 1483959291695], "european-languages")
         None
-```
-</details>
+    ```
+    </details>
 
 
 `removeTags(notes, tags)`
@@ -2316,13 +2316,13 @@
 *   Remove tags from notes by note ID.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> removeTags([1483959289817, 1483959291695], "european-languages")
         None
-```
-</details>
+    ```
+    </details>
 
 
 `getTags()`
@@ -2330,13 +2330,13 @@
 *   Gets the complete list of tags for the current user.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> getTags()
         ["european-languages", "idioms"]
-```
-</details>
+    ```
+    </details>
 
 
 `clearUnusedTags()`
@@ -2344,13 +2344,13 @@
 *   Clears all the unused tags in the notes for the current user.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> clearUnusedTags()
         None
-```
-</details>
+    ```
+    </details>
 
 
 `replaceTags(notes, tag_to_replace, replace_with_tag)`
@@ -2358,13 +2358,13 @@
 *   Replace tags in notes by note ID.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> replaceTags([1483959289817, 1483959291695], "european-languages", "french-languages")
         None
-```
-</details>
+    ```
+    </details>
 
 
 `replaceTagsInAllNotes(tag_to_replace, replace_with_tag)`
@@ -2372,13 +2372,13 @@
 *   Replace tags in all the notes for the current user.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> replaceTagsInAllNotes("european-languages", "french-languages")
         None
-```
-</details>
+    ```
+    </details>
 
 
 `findNotes(query)`
@@ -2387,13 +2387,13 @@
     here](https://docs.ankiweb.net/searching.html).
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> findNotes("deck:current")
         [1483959289817, 1483959291695]
-```
-</details>
+    ```
+    </details>
 
 
 `notesInfo(notes)`
@@ -2402,9 +2402,9 @@
     type and the cards belonging to the note.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> notesInfo([1502298033753])
         [
             {
@@ -2417,8 +2417,8 @@
                 },
             }
         ]
-```
-</details>
+    ```
+    </details>
 
 
 `deleteNotes(notes)`
@@ -2427,13 +2427,13 @@
     all associated cards will be deleted.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> deleteNotes([1502298033753])
         None
-```
-</details>
+    ```
+    </details>
 
 
 `removeEmptyNotes()`
@@ -2441,13 +2441,13 @@
 *   Removes all the empty notes for the current user.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> removeEmptyNotes()
         None
-```
-</details>
+    ```
+    </details>
 
 ### Statistic Actions
 
@@ -2457,13 +2457,13 @@
     time as configured by user in anki)
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> getNumCardsReviewedToday()
         0
-```
-</details>
+    ```
+    </details>
 
 
 `getNumCardsReviewedByDay()`
@@ -2471,13 +2471,13 @@
 *   Gets the number of cards reviewed as a list of pairs of `(dateString, number)`
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> getNumCardsReviewedByDay()
         [["2021-02-28", 124], ["2021-02-27", 261]]
-```
-</details>
+    ```
+    </details>
 
 
 `getCollectionStatsHTML(wholeCollection)`
@@ -2485,13 +2485,13 @@
 *   Gets the collection statistics report
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> getCollectionStatsHTML(True)
         "<center> lots of HTML here </center>"
-```
-</details>
+    ```
+    </details>
 
 
 `cardReviews(deck, startID)`
@@ -2502,16 +2502,16 @@
     reviewDuration, reviewType)`
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> cardReviews("default", 1594194095740)
         [
             [1594194095746, 1485369733217, -1, 3, 4, -60, 2500, 6157, 0],
             [1594201393292, 1485369902086, -1, 1, -60, -60, 0, 4846, 0],
         ]
-```
-</details>
+    ```
+    </details>
 
 
 `getReviewsOfCards(cards)`
@@ -2534,9 +2534,9 @@
     is because these are the exact key values used in Anki's database.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> getReviewsOfCards(["1653613948202"])
         {
             "1653613948202": [
@@ -2562,8 +2562,8 @@
                 },
             ]
         }
-```
-</details>
+    ```
+    </details>
 
 
 `getLatestReviewID(deck)`
@@ -2572,13 +2572,13 @@
     ever been made for the deck.
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> getLatestReviewID("default")
         1594194095746
-```
-</details>
+    ```
+    </details>
 
 
 `insertReviews(reviews)`
@@ -2588,9 +2588,9 @@
     reviewDuration, reviewType)`
 
     <details>
-<summary><i>Example:</i></summary>
+    <summary><i>Example:</i></summary>
 
-```py
+    ```py
         >>> insertReviews(
         ...     [
         ...         [1594194095746, 1485369733217, -1, 3, 4, -60, 2500, 6157, 0],
@@ -2598,6 +2598,6 @@
         ...     ]
         ... )
         None
-```
-</details>
+    ```
+    </details>
 

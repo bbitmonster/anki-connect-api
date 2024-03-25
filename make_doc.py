@@ -22,11 +22,12 @@ def show_info(functionNode):
     args = ", ".join(arg.arg for arg in functionNode.args.args)
     writeln()
     writeln(f"`{func}({args})`\n")
+    docstring = docstring.replace("Example::", code_header)
     docstring = textwrap.indent(docstring, "    ")
     docstring = "*" + docstring[1:]
-    docstring = docstring.replace("Example::", code_header)
     writeln(docstring)
-    writeln(code_footer)
+    writeln(textwrap.indent(code_footer, "    ")
+)
 
 def writeln(s=""):
     f.write(s + "\n")
