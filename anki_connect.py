@@ -736,12 +736,14 @@ def storeMediaFile(filename: str, *, data=None, path: str=None, url=None, delete
         >>> storeMediaFile("_hello.txt", "SGVsbG8sIHdvcmxkIQ==")
         "_hello.txt"
     """
-    if data:
+    if data is not None:
         return invoke("storeMediaFile", filename=filename, data=data, deleteExisting=deleteExisting)
-    elif path:
+    elif path is not None:
         return invoke("storeMediaFile", filename=filename, path=str(path), deleteExisting=deleteExisting)
-    else:
+    elif url is not None:
         return invoke("storeMediaFile", filename=filename, url=url, deleteExisting=deleteExisting)
+    else:
+        raise Exception("one argument of data, path or url must be supplied")
 
 def retrieveMediaFile(filename: str) -> str:
     """Retrieves the base64-encoded contents of the specified file, returning `false` if
