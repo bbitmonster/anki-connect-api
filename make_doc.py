@@ -21,7 +21,7 @@ def show_info(functionNode):
     func = functionNode.name
     args = ", ".join(arg.arg for arg in functionNode.args.args)
     writeln()
-    writeln(f"`{func}({args})`\n")
+    writeln(f"# `{func}({args})`\n")
     docstring = docstring.replace("Example::", code_header)
     docstring = textwrap.indent(docstring, "    ")
     docstring = "*" + docstring[1:]
