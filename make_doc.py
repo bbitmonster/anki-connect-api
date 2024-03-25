@@ -9,7 +9,7 @@ code_header = """\
 <details>
 <summary><i>Example:</i></summary>
 
-```py"""
+```python"""
 code_footer = """\
 ```
 </details>

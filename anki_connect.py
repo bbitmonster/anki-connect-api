@@ -965,7 +965,7 @@ def modelNamesAndIds() -> dict:
 
 
 def findModelsById(modelIds: list) -> list:
-    """Gets a list of models  for the provided model IDs from the current user.
+    r"""Gets a list of models  for the provided model IDs from the current user.
     
     Example::
         >>> findModelsById([1704387367119, 1704387398570])
@@ -1110,7 +1110,7 @@ def findModelsById(modelIds: list) -> list:
 
 
 def findModelsByName(modelNames: list) -> list:
-    """Gets a list of models for the provided model names from the current user.
+    r"""Gets a list of models for the provided model names from the current user.
     
     Example::
         >>> findModelsByName(["Basic", "Basic (and reversed card)"])
@@ -1298,7 +1298,7 @@ def modelFieldsOnTemplates(modelName: str) -> dict:
 
 
 def createModel(modelName: str, inOrderFields: list, css: str, isCloze: bool, cardTemplates: list) -> dict:
-    """Creates a new model to be used in Anki. User must provide the `modelName`,
+    r"""Creates a new model to be used in Anki. User must provide the `modelName`,
     `inOrderFields` and `cardTemplates` to be used in the model. There are optional fields
     `css` and `isCloze`. If not specified, `css` will use the default Anki css and
     `isCloze` will be equal to `False`. If `isCloze` is `True` then model will be created
@@ -1372,7 +1372,7 @@ def createModel(modelName: str, inOrderFields: list, css: str, isCloze: bool, ca
 
 
 def modelTemplates(modelName: str) -> dict:
-    """Returns an object indicating the template content for each card connected to the
+    r"""Returns an object indicating the template content for each card connected to the
     provided model by name.
     
     Example::
@@ -1392,7 +1392,7 @@ def modelTemplates(modelName: str) -> dict:
 
 
 def modelStyling(modelName: str) -> dict:
-    """Gets the CSS styling for the provided model by name.
+    r"""Gets the CSS styling for the provided model by name.
     
     Example::
         >>> modelStyling("Basic (and reversed card)")

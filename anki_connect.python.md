@@ -8,7 +8,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> getEaseFactors([1483959291685, 1483959293217])
         [4100, 3900]
     ```
@@ -23,7 +23,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> setEaseFactors([1483959291685, 1483959293217], [4100, 3900])
         [True, True]
     ```
@@ -43,7 +43,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> setSpecificValueOfCard(1483959291685, ["flags", "odue"], ["1", "-100"])
         [True, True]
     ```
@@ -58,7 +58,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> suspend([1483959291685, 1483959293217])
         True
     ```
@@ -73,7 +73,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> unsuspend([1483959291685, 1483959293217])
         True
     ```
@@ -88,7 +88,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> suspended(1483959293217)
         True
     ```
@@ -103,7 +103,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> areSuspended([1483959291685, 1483959293217, 1234567891234])
         [False, True, None]
     ```
@@ -120,7 +120,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> areDue([1483959291685, 1483959293217])
         [False, True]
     ```
@@ -136,7 +136,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> getIntervals([1502298033753, 1502298036657])
         [-14400, 3]
     ```
@@ -151,7 +151,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> findCards("deck:current")
         [1494723142483, 1494703460437, 1494703479525]
     ```
@@ -166,7 +166,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> cardsToNotes([1502098034045, 1502098034048, 1502298033753])
         [1502098029797, 1502298025183]
     ```
@@ -181,7 +181,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> cardsModTime([1498938915662, 1502098034048])
         [{"cardId": 1498938915662, "mod": 1629454092}]
     ```
@@ -197,7 +197,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> cardsInfo([1498938915662, 1502098034048])
         [
             {
@@ -257,7 +257,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> forgetCards([1498938915662, 1502098034048])
         None
     ```
@@ -271,7 +271,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> relearnCards([1498938915662, 1502098034048])
         None
     ```
@@ -286,7 +286,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> answerCards(
         ...     [{"cardId": 1498938915662, "ease": 2}, {"cardId": 1502098034048, "ease": 4}]
         ... )
@@ -303,7 +303,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> deckNames()
         ["Default"]
     ```
@@ -317,7 +317,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> deckNamesAndIds()
         {"Default": 1}
     ```
@@ -332,7 +332,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> getDecks([1502298036657, 1502298033753, 1502032366472])
         {"Default": [1502032366472], "Japanese::JLPT N3": [1502298036657, 1502298033753]}
     ```
@@ -346,7 +346,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> createDeck("Japanese::Tokyo")
         1519323742721
     ```
@@ -361,7 +361,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> changeDeck([1502098034045, 1502098034048, 1502298033753], "Japanese::JLPT N3")
         None
     ```
@@ -376,7 +376,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> deleteDecks(["Japanese::JLPT N5", "Easy Spanish"], True)
         None
     ```
@@ -390,7 +390,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> getDeckConfig("Default")
         {
             "lapse": {
@@ -440,7 +440,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> saveDeckConfig(
         ...     {
         ...         "lapse": {
@@ -493,7 +493,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> setDeckConfigId(["Default"], 1)
         True
     ```
@@ -510,7 +510,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> cloneDeckConfigId("Copy of Default", 1)
         1502972374573
     ```
@@ -526,7 +526,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> removeDeckConfigId(1502972374573)
         True
     ```
@@ -540,7 +540,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> getDeckStats(["Japanese::JLPT N5", "Easy Spanish"])
         {
             "1651445861967": {
@@ -581,7 +581,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> guiBrowse("deck:current", {"order": "descending", "columnId": "noteCrt"})
         [1494723142483, 1494703460437, 1494703479525]
     ```
@@ -596,7 +596,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> guiSelectNote(1494723142483)
         True
     ```
@@ -612,7 +612,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> guiSelectedNotes()
         [1494723142483, 1494703460437, 1494703479525]
     ```
@@ -635,7 +635,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> guiAddCards(
         ...     {
         ...         "deckName": "Default",
@@ -672,7 +672,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> guiEditNote(1649198355435)
         None
     ```
@@ -686,7 +686,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> guiCurrentCard()
         {
             "answer": "back content",
@@ -716,7 +716,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> guiStartCardTimer()
         True
     ```
@@ -731,7 +731,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> guiShowQuestion()
         True
     ```
@@ -746,7 +746,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> guiShowAnswer()
         True
     ```
@@ -762,7 +762,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> guiAnswerCard(1)
         True
     ```
@@ -776,7 +776,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> guiUndo()
         True
     ```
@@ -791,7 +791,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> guiDeckOverview("Default")
         True
     ```
@@ -805,7 +805,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> guiDeckBrowser()
         None
     ```
@@ -820,7 +820,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> guiDeckReview("Default")
         True
     ```
@@ -837,7 +837,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> guiImportFile("C:/Users/Desktop/cards.txt")
         None
     ```
@@ -852,7 +852,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> guiExitAnki()
         None
     ```
@@ -868,7 +868,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> guiCheckDatabase()
         True
     ```
@@ -892,7 +892,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> storeMediaFile("_hello.txt", "SGVsbG8sIHdvcmxkIQ==")
         "_hello.txt"
     ```
@@ -907,7 +907,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> retrieveMediaFile("_hello.txt")
         "SGVsbG8sIHdvcmxkIQ=="
     ```
@@ -921,7 +921,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> getMediaFilesNames("_hell*.txt")
         ["_hello.txt"]
     ```
@@ -936,7 +936,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> getMediaDirPath()
         "/home/user/.local/share/Anki2/Main/collection.media"
     ```
@@ -950,7 +950,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> deleteMediaFile("_hello.txt")
         None
     ```
@@ -984,7 +984,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> requestPermission()
         {"permission": "granted", "requireApiKey": False, "version": 6}
     ```
@@ -999,7 +999,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> version()
         6
     ```
@@ -1024,7 +1024,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> apiReflect(["actions", "invalidType"], ["apiReflect", "invalidMethod"])
         {"scopes": ["actions"], "actions": ["apiReflect"]}
     ```
@@ -1038,7 +1038,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> sync()
         None
     ```
@@ -1052,7 +1052,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> getProfiles()
         ["User 1"]
     ```
@@ -1066,7 +1066,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> loadProfile("user1")
         True
     ```
@@ -1081,7 +1081,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> multi(
         ...     [
         ...         {"action": "deckNames"},
@@ -1109,7 +1109,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> exportPackage("Default", "/data/Deck.apkg", True)
         True
     ```
@@ -1125,7 +1125,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> importPackage("/data/Deck.apkg")
         True
     ```
@@ -1139,7 +1139,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> reloadCollection()
         None
     ```
@@ -1154,7 +1154,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> modelNames()
         ["Basic", "Basic (and reversed card)"]
     ```
@@ -1169,7 +1169,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> modelNamesAndIds()
         {
             "Basic": 1483883011648,
@@ -1184,189 +1184,148 @@
 `findModelsById(modelIds)`
 
 *   Gets a list of models  for the provided model IDs from the current user.
-    
-        <details>
+
+    <details>
     <summary><i>Example:</i></summary>
 
-    ```py
-            >>> findModelsById([1704387367119, 1704387398570])
-            [
-                {
-                    "id": 1704387367119,
-                    "name": "Basic",
-                    "type": 0,
-                    "mod": 1704387367,
-                    "usn": -1,
-                    "sortf": 0,
-                    "did": None,
-                    "tmpls": [
-                        {
-                            "name": "Card 1",
-                            "ord": 0,
-                            "qfmt": "{{Front}}",
-                            "afmt": "{{FrontSide}}
-
-    <hr id=answer>
-
-    {{Back}}",
-                            "bqfmt": "",
-                            "bafmt": "",
-                            "did": None,
-                            "bfont": "",
-                            "bsize": 0,
-                            "id": 9176047152973362695,
-                        }
-                    ],
-                    "flds": [
-                        {
-                            "name": "Front",
-                            "ord": 0,
-                            "sticky": False,
-                            "rtl": False,
-                            "font": "Arial",
-                            "size": 20,
-                            "description": "",
-                            "plainText": False,
-                            "collapsed": False,
-                            "excludeFromSearch": False,
-                            "id": 2453723143453745216,
-                            "tag": None,
-                            "preventDeletion": False,
-                        },
-                        {
-                            "name": "Back",
-                            "ord": 1,
-                            "sticky": False,
-                            "rtl": False,
-                            "font": "Arial",
-                            "size": 20,
-                            "description": "",
-                            "plainText": False,
-                            "collapsed": False,
-                            "excludeFromSearch": False,
-                            "id": -4853200230425436781,
-                            "tag": None,
-                            "preventDeletion": False,
-                        },
-                    ],
-                    "css": ".card {
-        font-family: arial;
-        font-size: 20px;
-        text-align: center;
-        color: black;
-        background-color: white;
-    }
-    ",
-                    "latexPre": "\documentclass[12pt]{article}
-    \special{papersize=3in,5in}
-    \usepackage[utf8]{inputenc}
-    \usepackage{amssymb,amsmath}
-    \pagestyle{empty}
-    \setlength{\parindent}{0in}
-    \begin{document}
-    ",
-                    "latexPost": "\end{document}",
-                    "latexsvg": False,
-                    "req": [[0, "any", [0]]],
-                    "originalStockKind": 1,
-                },
-                {
-                    "id": 1704387398570,
-                    "name": "Basic (and reversed card)",
-                    "type": 0,
-                    "mod": 1704387398,
-                    "usn": -1,
-                    "sortf": 0,
-                    "did": None,
-                    "tmpls": [
-                        {
-                            "name": "Card 1",
-                            "ord": 0,
-                            "qfmt": "{{Front}}",
-                            "afmt": "{{FrontSide}}
-
-    <hr id=answer>
-
-    {{Back}}",
-                            "bqfmt": "",
-                            "bafmt": "",
-                            "did": None,
-                            "bfont": "",
-                            "bsize": 0,
-                            "id": 1689886528158874152,
-                        },
-                        {
-                            "name": "Card 2",
-                            "ord": 1,
-                            "qfmt": "{{Back}}",
-                            "afmt": "{{FrontSide}}
-
-    <hr id=answer>
-
-    {{Front}}",
-                            "bqfmt": "",
-                            "bafmt": "",
-                            "did": None,
-                            "bfont": "",
-                            "bsize": 0,
-                            "id": -7839609225644824587,
-                        },
-                    ],
-                    "flds": [
-                        {
-                            "name": "Front",
-                            "ord": 0,
-                            "sticky": False,
-                            "rtl": False,
-                            "font": "Arial",
-                            "size": 20,
-                            "description": "",
-                            "plainText": False,
-                            "collapsed": False,
-                            "excludeFromSearch": False,
-                            "id": -7787837672455357996,
-                            "tag": None,
-                            "preventDeletion": False,
-                        },
-                        {
-                            "name": "Back",
-                            "ord": 1,
-                            "sticky": False,
-                            "rtl": False,
-                            "font": "Arial",
-                            "size": 20,
-                            "description": "",
-                            "plainText": False,
-                            "collapsed": False,
-                            "excludeFromSearch": False,
-                            "id": 6364828289839985081,
-                            "tag": None,
-                            "preventDeletion": False,
-                        },
-                    ],
-                    "css": ".card {
-        font-family: arial;
-        font-size: 20px;
-        text-align: center;
-        color: black;
-        background-color: white;
-    }
-    ",
-                    "latexPre": "\documentclass[12pt]{article}
-    \special{papersize=3in,5in}
-    \usepackage[utf8]{inputenc}
-    \usepackage{amssymb,amsmath}
-    \pagestyle{empty}
-    \setlength{\parindent}{0in}
-    \begin{document}
-    ",
-                    "latexPost": "\end{document}",
-                    "latexsvg": False,
-                    "req": [[0, "any", [0]], [1, "any", [1]]],
-                    "originalStockKind": 1,
-                },
-            ]
-    
+    ```python
+        >>> findModelsById([1704387367119, 1704387398570])
+        [
+            {
+                "id": 1704387367119,
+                "name": "Basic",
+                "type": 0,
+                "mod": 1704387367,
+                "usn": -1,
+                "sortf": 0,
+                "did": None,
+                "tmpls": [
+                    {
+                        "name": "Card 1",
+                        "ord": 0,
+                        "qfmt": "{{Front}}",
+                        "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Back}}",
+                        "bqfmt": "",
+                        "bafmt": "",
+                        "did": None,
+                        "bfont": "",
+                        "bsize": 0,
+                        "id": 9176047152973362695,
+                    }
+                ],
+                "flds": [
+                    {
+                        "name": "Front",
+                        "ord": 0,
+                        "sticky": False,
+                        "rtl": False,
+                        "font": "Arial",
+                        "size": 20,
+                        "description": "",
+                        "plainText": False,
+                        "collapsed": False,
+                        "excludeFromSearch": False,
+                        "id": 2453723143453745216,
+                        "tag": None,
+                        "preventDeletion": False,
+                    },
+                    {
+                        "name": "Back",
+                        "ord": 1,
+                        "sticky": False,
+                        "rtl": False,
+                        "font": "Arial",
+                        "size": 20,
+                        "description": "",
+                        "plainText": False,
+                        "collapsed": False,
+                        "excludeFromSearch": False,
+                        "id": -4853200230425436781,
+                        "tag": None,
+                        "preventDeletion": False,
+                    },
+                ],
+                "css": ".card {\n    font-family: arial;\n    font-size: 20px;\n    text-align: center;\n    color: black;\n    background-color: white;\n}\n",
+                "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+                "latexPost": "\\end{document}",
+                "latexsvg": False,
+                "req": [[0, "any", [0]]],
+                "originalStockKind": 1,
+            },
+            {
+                "id": 1704387398570,
+                "name": "Basic (and reversed card)",
+                "type": 0,
+                "mod": 1704387398,
+                "usn": -1,
+                "sortf": 0,
+                "did": None,
+                "tmpls": [
+                    {
+                        "name": "Card 1",
+                        "ord": 0,
+                        "qfmt": "{{Front}}",
+                        "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Back}}",
+                        "bqfmt": "",
+                        "bafmt": "",
+                        "did": None,
+                        "bfont": "",
+                        "bsize": 0,
+                        "id": 1689886528158874152,
+                    },
+                    {
+                        "name": "Card 2",
+                        "ord": 1,
+                        "qfmt": "{{Back}}",
+                        "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Front}}",
+                        "bqfmt": "",
+                        "bafmt": "",
+                        "did": None,
+                        "bfont": "",
+                        "bsize": 0,
+                        "id": -7839609225644824587,
+                    },
+                ],
+                "flds": [
+                    {
+                        "name": "Front",
+                        "ord": 0,
+                        "sticky": False,
+                        "rtl": False,
+                        "font": "Arial",
+                        "size": 20,
+                        "description": "",
+                        "plainText": False,
+                        "collapsed": False,
+                        "excludeFromSearch": False,
+                        "id": -7787837672455357996,
+                        "tag": None,
+                        "preventDeletion": False,
+                    },
+                    {
+                        "name": "Back",
+                        "ord": 1,
+                        "sticky": False,
+                        "rtl": False,
+                        "font": "Arial",
+                        "size": 20,
+                        "description": "",
+                        "plainText": False,
+                        "collapsed": False,
+                        "excludeFromSearch": False,
+                        "id": 6364828289839985081,
+                        "tag": None,
+                        "preventDeletion": False,
+                    },
+                ],
+                "css": ".card {\n    font-family: arial;\n    font-size: 20px;\n    text-align: center;\n    color: black;\n    background-color: white;\n}\n",
+                "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+                "latexPost": "\\end{document}",
+                "latexsvg": False,
+                "req": [[0, "any", [0]], [1, "any", [1]]],
+                "originalStockKind": 1,
+            },
+        ]
     ```
     </details>
 
@@ -1374,189 +1333,148 @@
 `findModelsByName(modelNames)`
 
 *   Gets a list of models for the provided model names from the current user.
-    
-        <details>
+
+    <details>
     <summary><i>Example:</i></summary>
 
-    ```py
-            >>> findModelsByName(["Basic", "Basic (and reversed card)"])
-            [
-                {
-                    "id": 1704387367119,
-                    "name": "Basic",
-                    "type": 0,
-                    "mod": 1704387367,
-                    "usn": -1,
-                    "sortf": 0,
-                    "did": None,
-                    "tmpls": [
-                        {
-                            "name": "Card 1",
-                            "ord": 0,
-                            "qfmt": "{{Front}}",
-                            "afmt": "{{FrontSide}}
-
-    <hr id=answer>
-
-    {{Back}}",
-                            "bqfmt": "",
-                            "bafmt": "",
-                            "did": None,
-                            "bfont": "",
-                            "bsize": 0,
-                            "id": 9176047152973362695,
-                        }
-                    ],
-                    "flds": [
-                        {
-                            "name": "Front",
-                            "ord": 0,
-                            "sticky": False,
-                            "rtl": False,
-                            "font": "Arial",
-                            "size": 20,
-                            "description": "",
-                            "plainText": False,
-                            "collapsed": False,
-                            "excludeFromSearch": False,
-                            "id": 2453723143453745216,
-                            "tag": None,
-                            "preventDeletion": False,
-                        },
-                        {
-                            "name": "Back",
-                            "ord": 1,
-                            "sticky": False,
-                            "rtl": False,
-                            "font": "Arial",
-                            "size": 20,
-                            "description": "",
-                            "plainText": False,
-                            "collapsed": False,
-                            "excludeFromSearch": False,
-                            "id": -4853200230425436781,
-                            "tag": None,
-                            "preventDeletion": False,
-                        },
-                    ],
-                    "css": ".card {
-        font-family: arial;
-        font-size: 20px;
-        text-align: center;
-        color: black;
-        background-color: white;
-    }
-    ",
-                    "latexPre": "\documentclass[12pt]{article}
-    \special{papersize=3in,5in}
-    \usepackage[utf8]{inputenc}
-    \usepackage{amssymb,amsmath}
-    \pagestyle{empty}
-    \setlength{\parindent}{0in}
-    \begin{document}
-    ",
-                    "latexPost": "\end{document}",
-                    "latexsvg": False,
-                    "req": [[0, "any", [0]]],
-                    "originalStockKind": 1,
-                },
-                {
-                    "id": 1704387398570,
-                    "name": "Basic (and reversed card)",
-                    "type": 0,
-                    "mod": 1704387398,
-                    "usn": -1,
-                    "sortf": 0,
-                    "did": None,
-                    "tmpls": [
-                        {
-                            "name": "Card 1",
-                            "ord": 0,
-                            "qfmt": "{{Front}}",
-                            "afmt": "{{FrontSide}}
-
-    <hr id=answer>
-
-    {{Back}}",
-                            "bqfmt": "",
-                            "bafmt": "",
-                            "did": None,
-                            "bfont": "",
-                            "bsize": 0,
-                            "id": 1689886528158874152,
-                        },
-                        {
-                            "name": "Card 2",
-                            "ord": 1,
-                            "qfmt": "{{Back}}",
-                            "afmt": "{{FrontSide}}
-
-    <hr id=answer>
-
-    {{Front}}",
-                            "bqfmt": "",
-                            "bafmt": "",
-                            "did": None,
-                            "bfont": "",
-                            "bsize": 0,
-                            "id": -7839609225644824587,
-                        },
-                    ],
-                    "flds": [
-                        {
-                            "name": "Front",
-                            "ord": 0,
-                            "sticky": False,
-                            "rtl": False,
-                            "font": "Arial",
-                            "size": 20,
-                            "description": "",
-                            "plainText": False,
-                            "collapsed": False,
-                            "excludeFromSearch": False,
-                            "id": -7787837672455357996,
-                            "tag": None,
-                            "preventDeletion": False,
-                        },
-                        {
-                            "name": "Back",
-                            "ord": 1,
-                            "sticky": False,
-                            "rtl": False,
-                            "font": "Arial",
-                            "size": 20,
-                            "description": "",
-                            "plainText": False,
-                            "collapsed": False,
-                            "excludeFromSearch": False,
-                            "id": 6364828289839985081,
-                            "tag": None,
-                            "preventDeletion": False,
-                        },
-                    ],
-                    "css": ".card {
-        font-family: arial;
-        font-size: 20px;
-        text-align: center;
-        color: black;
-        background-color: white;
-    }
-    ",
-                    "latexPre": "\documentclass[12pt]{article}
-    \special{papersize=3in,5in}
-    \usepackage[utf8]{inputenc}
-    \usepackage{amssymb,amsmath}
-    \pagestyle{empty}
-    \setlength{\parindent}{0in}
-    \begin{document}
-    ",
-                    "latexPost": "\end{document}",
-                    "latexsvg": False,
-                    "req": [[0, "any", [0]], [1, "any", [1]]],
-                    "originalStockKind": 1,
-                },
-            ]
-    
+    ```python
+        >>> findModelsByName(["Basic", "Basic (and reversed card)"])
+        [
+            {
+                "id": 1704387367119,
+                "name": "Basic",
+                "type": 0,
+                "mod": 1704387367,
+                "usn": -1,
+                "sortf": 0,
+                "did": None,
+                "tmpls": [
+                    {
+                        "name": "Card 1",
+                        "ord": 0,
+                        "qfmt": "{{Front}}",
+                        "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Back}}",
+                        "bqfmt": "",
+                        "bafmt": "",
+                        "did": None,
+                        "bfont": "",
+                        "bsize": 0,
+                        "id": 9176047152973362695,
+                    }
+                ],
+                "flds": [
+                    {
+                        "name": "Front",
+                        "ord": 0,
+                        "sticky": False,
+                        "rtl": False,
+                        "font": "Arial",
+                        "size": 20,
+                        "description": "",
+                        "plainText": False,
+                        "collapsed": False,
+                        "excludeFromSearch": False,
+                        "id": 2453723143453745216,
+                        "tag": None,
+                        "preventDeletion": False,
+                    },
+                    {
+                        "name": "Back",
+                        "ord": 1,
+                        "sticky": False,
+                        "rtl": False,
+                        "font": "Arial",
+                        "size": 20,
+                        "description": "",
+                        "plainText": False,
+                        "collapsed": False,
+                        "excludeFromSearch": False,
+                        "id": -4853200230425436781,
+                        "tag": None,
+                        "preventDeletion": False,
+                    },
+                ],
+                "css": ".card {\n    font-family: arial;\n    font-size: 20px;\n    text-align: center;\n    color: black;\n    background-color: white;\n}\n",
+                "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+                "latexPost": "\\end{document}",
+                "latexsvg": False,
+                "req": [[0, "any", [0]]],
+                "originalStockKind": 1,
+            },
+            {
+                "id": 1704387398570,
+                "name": "Basic (and reversed card)",
+                "type": 0,
+                "mod": 1704387398,
+                "usn": -1,
+                "sortf": 0,
+                "did": None,
+                "tmpls": [
+                    {
+                        "name": "Card 1",
+                        "ord": 0,
+                        "qfmt": "{{Front}}",
+                        "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Back}}",
+                        "bqfmt": "",
+                        "bafmt": "",
+                        "did": None,
+                        "bfont": "",
+                        "bsize": 0,
+                        "id": 1689886528158874152,
+                    },
+                    {
+                        "name": "Card 2",
+                        "ord": 1,
+                        "qfmt": "{{Back}}",
+                        "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Front}}",
+                        "bqfmt": "",
+                        "bafmt": "",
+                        "did": None,
+                        "bfont": "",
+                        "bsize": 0,
+                        "id": -7839609225644824587,
+                    },
+                ],
+                "flds": [
+                    {
+                        "name": "Front",
+                        "ord": 0,
+                        "sticky": False,
+                        "rtl": False,
+                        "font": "Arial",
+                        "size": 20,
+                        "description": "",
+                        "plainText": False,
+                        "collapsed": False,
+                        "excludeFromSearch": False,
+                        "id": -7787837672455357996,
+                        "tag": None,
+                        "preventDeletion": False,
+                    },
+                    {
+                        "name": "Back",
+                        "ord": 1,
+                        "sticky": False,
+                        "rtl": False,
+                        "font": "Arial",
+                        "size": 20,
+                        "description": "",
+                        "plainText": False,
+                        "collapsed": False,
+                        "excludeFromSearch": False,
+                        "id": 6364828289839985081,
+                        "tag": None,
+                        "preventDeletion": False,
+                    },
+                ],
+                "css": ".card {\n    font-family: arial;\n    font-size: 20px;\n    text-align: center;\n    color: black;\n    background-color: white;\n}\n",
+                "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+                "latexPost": "\\end{document}",
+                "latexsvg": False,
+                "req": [[0, "any", [0]], [1, "any", [1]]],
+                "originalStockKind": 1,
+            },
+        ]
     ```
     </details>
 
@@ -1568,7 +1486,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> modelFieldNames("Basic")
         ["Front", "Back"]
     ```
@@ -1583,7 +1501,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> modelFieldDescriptions("Basic")
         ["", ""]
     ```
@@ -1597,7 +1515,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> modelFieldFonts("Basic")
         {"Front": {"font": "Arial", "size": 20}, "Back": {"font": "Arial", "size": 20}}
     ```
@@ -1613,7 +1531,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> modelFieldsOnTemplates("Basic (and reversed card)")
         {"Card 1": [["Front"], ["Back"]], "Card 2": [["Back"], ["Front"]]}
     ```
@@ -1623,92 +1541,77 @@
 `createModel(modelName, inOrderFields, css, isCloze, cardTemplates)`
 
 *   Creates a new model to be used in Anki. User must provide the `modelName`,
-        `inOrderFields` and `cardTemplates` to be used in the model. There are optional fields
-        `css` and `isCloze`. If not specified, `css` will use the default Anki css and
-        `isCloze` will be equal to `False`. If `isCloze` is `True` then model will be created
-        as Cloze.
+    `inOrderFields` and `cardTemplates` to be used in the model. There are optional fields
+    `css` and `isCloze`. If not specified, `css` will use the default Anki css and
+    `isCloze` will be equal to `False`. If `isCloze` is `True` then model will be created
+    as Cloze.
 
-        Optionally the `Name` field can be provided for each entry of `cardTemplates`. By
-        default the card names will be `Card 1`, `Card 2`, and so on.
-    
-        <details>
+    Optionally the `Name` field can be provided for each entry of `cardTemplates`. By
+    default the card names will be `Card 1`, `Card 2`, and so on.
+
+    <details>
     <summary><i>Example:</i></summary>
 
-    ```py
-            >>> createModel(
-            ...     "newModelName",
-            ...     ["Field1", "Field2", "Field3"],
-            ...     "Optional CSS with default to builtin css",
-            ...     False,
-            ...     [
-            ...         {
-            ...             "Name": "My Card 1",
-            ...             "Front": "Front html {{Field1}}",
-            ...             "Back": "Back html  {{Field2}}",
-            ...         }
-            ...     ],
-            ... )
-            {
-                "sortf": 0,
-                "did": 1,
-                "latexPre": "\documentclass[12pt]{article}
-    \special{papersize=3in,5in}
-    \usepackage[utf8]{inputenc}
-    \usepackage{amssymb,amsmath}
-    \pagestyle{empty}
-    \setlength{\parindent}{0in}
-    \begin{document}
-    ",
-                "latexPost": "\end{document}",
-                "mod": 1551462107,
-                "usn": -1,
-                "vers": [],
-                "type": 0,
-                "css": ".card {
-     font-family: arial;
-     font-size: 20px;
-     text-align: center;
-     color: black;
-     background-color: white;
-    }
-    ",
-                "name": "TestApiModel",
-                "flds": [
-                    {
-                        "name": "Field1",
-                        "ord": 0,
-                        "sticky": False,
-                        "rtl": False,
-                        "font": "Arial",
-                        "size": 20,
-                        "media": [],
-                    },
-                    {
-                        "name": "Field2",
-                        "ord": 1,
-                        "sticky": False,
-                        "rtl": False,
-                        "font": "Arial",
-                        "size": 20,
-                        "media": [],
-                    },
-                ],
-                "tmpls": [
-                    {
-                        "name": "My Card 1",
-                        "ord": 0,
-                        "qfmt": "",
-                        "afmt": "This is the back of the card {{Field2}}",
-                        "did": None,
-                        "bqfmt": "",
-                        "bafmt": "",
-                    }
-                ],
-                "tags": [],
-                "id": 1551462107104,
-                "req": [[0, "none", []]],
-            }
-    
+    ```python
+        >>> createModel(
+        ...     "newModelName",
+        ...     ["Field1", "Field2", "Field3"],
+        ...     "Optional CSS with default to builtin css",
+        ...     False,
+        ...     [
+        ...         {
+        ...             "Name": "My Card 1",
+        ...             "Front": "Front html {{Field1}}",
+        ...             "Back": "Back html  {{Field2}}",
+        ...         }
+        ...     ],
+        ... )
+        {
+            "sortf": 0,
+            "did": 1,
+            "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+            "latexPost": "\\end{document}",
+            "mod": 1551462107,
+            "usn": -1,
+            "vers": [],
+            "type": 0,
+            "css": ".card {\n font-family: arial;\n font-size: 20px;\n text-align: center;\n color: black;\n background-color: white;\n}\n",
+            "name": "TestApiModel",
+            "flds": [
+                {
+                    "name": "Field1",
+                    "ord": 0,
+                    "sticky": False,
+                    "rtl": False,
+                    "font": "Arial",
+                    "size": 20,
+                    "media": [],
+                },
+                {
+                    "name": "Field2",
+                    "ord": 1,
+                    "sticky": False,
+                    "rtl": False,
+                    "font": "Arial",
+                    "size": 20,
+                    "media": [],
+                },
+            ],
+            "tmpls": [
+                {
+                    "name": "My Card 1",
+                    "ord": 0,
+                    "qfmt": "",
+                    "afmt": "This is the back of the card {{Field2}}",
+                    "did": None,
+                    "bqfmt": "",
+                    "bafmt": "",
+                }
+            ],
+            "tags": [],
+            "id": 1551462107104,
+            "req": [[0, "none", []]],
+        }
     ```
     </details>
 
@@ -1716,32 +1619,23 @@
 `modelTemplates(modelName)`
 
 *   Returns an object indicating the template content for each card connected to the
-        provided model by name.
-    
-        <details>
+    provided model by name.
+
+    <details>
     <summary><i>Example:</i></summary>
 
-    ```py
-            >>> modelTemplates("Basic (and reversed card)")
-            {
-                "Card 1": {
-                    "Front": "{{Front}}",
-                    "Back": "{{FrontSide}}
-
-    <hr id=answer>
-
-    {{Back}}",
-                },
-                "Card 2": {
-                    "Front": "{{Back}}",
-                    "Back": "{{FrontSide}}
-
-    <hr id=answer>
-
-    {{Front}}",
-                },
-            }
-    
+    ```python
+        >>> modelTemplates("Basic (and reversed card)")
+        {
+            "Card 1": {
+                "Front": "{{Front}}",
+                "Back": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Back}}",
+            },
+            "Card 2": {
+                "Front": "{{Back}}",
+                "Back": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Front}}",
+            },
+        }
     ```
     </details>
 
@@ -1749,23 +1643,15 @@
 `modelStyling(modelName)`
 
 *   Gets the CSS styling for the provided model by name.
-    
-        <details>
+
+    <details>
     <summary><i>Example:</i></summary>
 
-    ```py
-            >>> modelStyling("Basic (and reversed card)")
-            {
-                "css": ".card {
-     font-family: arial;
-     font-size: 20px;
-     text-align: center;
-     color: black;
-     background-color: white;
-    }
-    "
-            }
-    
+    ```python
+        >>> modelStyling("Basic (and reversed card)")
+        {
+            "css": ".card {\n font-family: arial;\n font-size: 20px;\n text-align: center;\n color: black;\n background-color: white;\n}\n"
+        }
     ```
     </details>
 
@@ -1779,7 +1665,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> updateModelTemplates(
         ...     {
         ...         "name": "Custom",
@@ -1798,7 +1684,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> updateModelStyling({"name": "Custom", "css": "p { color: blue; }"})
         None
     ```
@@ -1813,7 +1699,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> findAndReplaceInModels(
         ...     {
         ...         "modelName": "",
@@ -1836,7 +1722,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> modelTemplateRename("Basic", "Card 1", "Card 1 renamed")
         None
     ```
@@ -1853,7 +1739,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> modelTemplateReposition("Basic", "Card 1", 1)
         None
     ```
@@ -1868,7 +1754,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> modelTemplateAdd(
         ...     "Basic",
         ...     {
@@ -1889,7 +1775,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> modelTemplateRemove("Basic", "Card 1")
         None
     ```
@@ -1903,7 +1789,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> modelFieldRename("Basic", "Front", "FrontRenamed")
         None
     ```
@@ -1920,7 +1806,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> modelFieldReposition("Basic", "Back", 0)
         None
     ```
@@ -1938,7 +1824,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> modelFieldAdd("Basic", "NewField", 0)
         None
     ```
@@ -1952,7 +1838,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> modelFieldRemove("Basic", "Front")
         None
     ```
@@ -1966,7 +1852,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> modelFieldSetFont("Basic", "Front", "Courier")
         None
     ```
@@ -1980,7 +1866,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> modelFieldSetFontSize("Basic", "Front", 10)
         None
     ```
@@ -1998,7 +1884,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> modelFieldSetDescription("Basic", "Front", "example field description")
         True
     ```
@@ -2041,7 +1927,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> addNote(
         ...     {
         ...         "deckName": "Default",
@@ -2098,7 +1984,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> addNotes(
         ...     [
         ...         {
@@ -2147,7 +2033,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> canAddNotes(
         ...     [
         ...         {
@@ -2175,7 +2061,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> canAddNotesWithErrorDetail(
         ...     [
         ...         {
@@ -2214,7 +2100,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> updateNoteFields(
         ...     {
         ...         "id": 1514547547030,
@@ -2256,7 +2142,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> updateNote(
         ...     {
         ...         "id": 1514547547030,
@@ -2276,7 +2162,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> updateNoteTags(1483959289817, ["european-languages"])
         None
     ```
@@ -2290,7 +2176,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> getNoteTags(1483959289817)
         ["european-languages"]
     ```
@@ -2304,7 +2190,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> addTags([1483959289817, 1483959291695], "european-languages")
         None
     ```
@@ -2318,7 +2204,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> removeTags([1483959289817, 1483959291695], "european-languages")
         None
     ```
@@ -2332,7 +2218,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> getTags()
         ["european-languages", "idioms"]
     ```
@@ -2346,7 +2232,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> clearUnusedTags()
         None
     ```
@@ -2360,7 +2246,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> replaceTags([1483959289817, 1483959291695], "european-languages", "french-languages")
         None
     ```
@@ -2374,7 +2260,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> replaceTagsInAllNotes("european-languages", "french-languages")
         None
     ```
@@ -2389,7 +2275,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> findNotes("deck:current")
         [1483959289817, 1483959291695]
     ```
@@ -2404,7 +2290,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> notesInfo([1502298033753])
         [
             {
@@ -2429,7 +2315,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> deleteNotes([1502298033753])
         None
     ```
@@ -2443,7 +2329,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> removeEmptyNotes()
         None
     ```
@@ -2459,7 +2345,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> getNumCardsReviewedToday()
         0
     ```
@@ -2473,7 +2359,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> getNumCardsReviewedByDay()
         [["2021-02-28", 124], ["2021-02-27", 261]]
     ```
@@ -2487,7 +2373,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> getCollectionStatsHTML(True)
         "<center> lots of HTML here </center>"
     ```
@@ -2504,7 +2390,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> cardReviews("default", 1594194095740)
         [
             [1594194095746, 1485369733217, -1, 3, 4, -60, 2500, 6157, 0],
@@ -2536,7 +2422,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> getReviewsOfCards(["1653613948202"])
         {
             "1653613948202": [
@@ -2574,7 +2460,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> getLatestReviewID("default")
         1594194095746
     ```
@@ -2590,7 +2476,7 @@
     <details>
     <summary><i>Example:</i></summary>
 
-    ```py
+    ```python
         >>> insertReviews(
         ...     [
         ...         [1594194095746, 1485369733217, -1, 3, 4, -60, 2500, 6157, 0],
