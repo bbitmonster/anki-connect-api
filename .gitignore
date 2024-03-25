@@ -1,15 +1,18 @@
 # Ignore everything in this directory
 *
-# Except this file
+# Except these files
 !.gitignore
-!anki_connect.py
-!anki_connect.python.md
-!anki_connect.header.md
 !README.md
 !LICENSE
-!make_doc.py
 !pyproject.toml
+!anki_connect.py
+
+!tools/
+!make_doc.py
 !requirements.txt
+!anki_connect.json.md
+!anki_connect.python.md
+!anki_connect.header.md
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

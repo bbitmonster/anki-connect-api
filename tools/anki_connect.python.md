@@ -1,3 +1,6 @@
+
+<!-- This file is auto-generated from <anki_connect.py>, do not edit it by hand. -->
+
 # Anki-Connect
 
 Anki-Connect enables external applications such as [Yomichan](https://foosoft.net/projects/yomichan/) to communicate
@@ -208,6 +211,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> getEaseFactors([1483959291685, 1483959293217])
         [4100, 3900]
     ```
@@ -222,6 +226,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> setEaseFactors([1483959291685, 1483959293217], [4100, 3900])
         [True, True]
     ```
@@ -241,6 +246,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> setSpecificValueOfCard(1483959291685, ["flags", "odue"], ["1", "-100"])
         [True, True]
     ```
@@ -255,6 +261,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> suspend([1483959291685, 1483959293217])
         True
     ```
@@ -269,6 +276,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> unsuspend([1483959291685, 1483959293217])
         True
     ```
@@ -283,6 +291,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> suspended(1483959293217)
         True
     ```
@@ -297,6 +306,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> areSuspended([1483959291685, 1483959293217, 1234567891234])
         [False, True, None]
     ```
@@ -313,6 +323,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> areDue([1483959291685, 1483959293217])
         [False, True]
     ```
@@ -328,6 +339,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> getIntervals([1502298033753, 1502298036657])
         [-14400, 3]
     ```
@@ -342,6 +354,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> findCards("deck:current")
         [1494723142483, 1494703460437, 1494703479525]
     ```
@@ -356,6 +369,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> cardsToNotes([1502098034045, 1502098034048, 1502298033753])
         [1502098029797, 1502298025183]
     ```
@@ -370,6 +384,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> cardsModTime([1498938915662, 1502098034048])
         [{"cardId": 1498938915662, "mod": 1629454092}]
     ```
@@ -385,6 +400,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> cardsInfo([1498938915662, 1502098034048])
         [
             {
@@ -444,6 +460,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> forgetCards([1498938915662, 1502098034048])
         None
     ```
@@ -457,6 +474,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> relearnCards([1498938915662, 1502098034048])
         None
     ```
@@ -471,6 +489,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> answerCards(
         ...     [{"cardId": 1498938915662, "ease": 2}, {"cardId": 1502098034048, "ease": 4}]
         ... )
@@ -488,6 +507,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> deckNames()
         ["Default"]
     ```
@@ -501,6 +521,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> deckNamesAndIds()
         {"Default": 1}
     ```
@@ -515,6 +536,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> getDecks([1502298036657, 1502298033753, 1502032366472])
         {"Default": [1502032366472], "Japanese::JLPT N3": [1502298036657, 1502298033753]}
     ```
@@ -528,6 +550,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> createDeck("Japanese::Tokyo")
         1519323742721
     ```
@@ -542,6 +565,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> changeDeck([1502098034045, 1502098034048, 1502298033753], "Japanese::JLPT N3")
         None
     ```
@@ -556,6 +580,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> deleteDecks(["Japanese::JLPT N5", "Easy Spanish"], True)
         None
     ```
@@ -569,6 +594,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> getDeckConfig("Default")
         {
             "lapse": {
@@ -618,6 +644,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> saveDeckConfig(
         ...     {
         ...         "lapse": {
@@ -670,6 +697,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> setDeckConfigId(["Default"], 1)
         True
     ```
@@ -686,6 +714,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> cloneDeckConfigId("Copy of Default", 1)
         1502972374573
     ```
@@ -701,6 +730,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> removeDeckConfigId(1502972374573)
         True
     ```
@@ -714,6 +744,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> getDeckStats(["Japanese::JLPT N5", "Easy Spanish"])
         {
             "1651445861967": {
@@ -755,6 +786,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> guiBrowse("deck:current", {"order": "descending", "columnId": "noteCrt"})
         [1494723142483, 1494703460437, 1494703479525]
     ```
@@ -769,6 +801,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> guiSelectNote(1494723142483)
         True
     ```
@@ -784,6 +817,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> guiSelectedNotes()
         [1494723142483, 1494703460437, 1494703479525]
     ```
@@ -806,6 +840,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> guiAddCards(
         ...     {
         ...         "deckName": "Default",
@@ -842,6 +877,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> guiEditNote(1649198355435)
         None
     ```
@@ -855,6 +891,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> guiCurrentCard()
         {
             "answer": "back content",
@@ -884,6 +921,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> guiStartCardTimer()
         True
     ```
@@ -898,6 +936,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> guiShowQuestion()
         True
     ```
@@ -912,6 +951,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> guiShowAnswer()
         True
     ```
@@ -927,6 +967,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> guiAnswerCard(1)
         True
     ```
@@ -940,6 +981,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> guiUndo()
         True
     ```
@@ -954,6 +996,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> guiDeckOverview("Default")
         True
     ```
@@ -967,6 +1010,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> guiDeckBrowser()
         None
     ```
@@ -981,6 +1025,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> guiDeckReview("Default")
         True
     ```
@@ -997,6 +1042,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> guiImportFile("C:/Users/Desktop/cards.txt")
         None
     ```
@@ -1011,6 +1057,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> guiExitAnki()
         None
     ```
@@ -1026,6 +1073,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> guiCheckDatabase()
         True
     ```
@@ -1049,6 +1097,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> storeMediaFile("_hello.txt", "SGVsbG8sIHdvcmxkIQ==")
         "_hello.txt"
     ```
@@ -1063,6 +1112,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> retrieveMediaFile("_hello.txt")
         "SGVsbG8sIHdvcmxkIQ=="
     ```
@@ -1076,6 +1126,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> getMediaFilesNames("_hell*.txt")
         ["_hello.txt"]
     ```
@@ -1090,6 +1141,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> getMediaDirPath()
         "/home/user/.local/share/Anki2/Main/collection.media"
     ```
@@ -1103,6 +1155,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> deleteMediaFile("_hello.txt")
         None
     ```
@@ -1137,6 +1190,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> requestPermission()
         {"permission": "granted", "requireApiKey": False, "version": 6}
     ```
@@ -1151,6 +1205,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> version()
         6
     ```
@@ -1175,6 +1230,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> apiReflect(["actions", "invalidType"], ["apiReflect", "invalidMethod"])
         {"scopes": ["actions"], "actions": ["apiReflect"]}
     ```
@@ -1188,6 +1244,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> sync()
         None
     ```
@@ -1201,6 +1258,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> getProfiles()
         ["User 1"]
     ```
@@ -1214,6 +1272,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> loadProfile("user1")
         True
     ```
@@ -1228,6 +1287,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> multi(
         ...     [
         ...         {"action": "deckNames"},
@@ -1255,6 +1315,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> exportPackage("Default", "/data/Deck.apkg", True)
         True
     ```
@@ -1270,6 +1331,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> importPackage("/data/Deck.apkg")
         True
     ```
@@ -1283,6 +1345,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> reloadCollection()
         None
     ```
@@ -1298,6 +1361,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> modelNames()
         ["Basic", "Basic (and reversed card)"]
     ```
@@ -1312,6 +1376,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> modelNamesAndIds()
         {
             "Basic": 1483883011648,
@@ -1330,6 +1395,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> findModelsById([1704387367119, 1704387398570])
         [
             {
@@ -1478,6 +1544,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> findModelsByName(["Basic", "Basic (and reversed card)"])
         [
             {
@@ -1626,6 +1693,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> modelFieldNames("Basic")
         ["Front", "Back"]
     ```
@@ -1640,6 +1708,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> modelFieldDescriptions("Basic")
         ["", ""]
     ```
@@ -1653,6 +1722,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> modelFieldFonts("Basic")
         {"Front": {"font": "Arial", "size": 20}, "Back": {"font": "Arial", "size": 20}}
     ```
@@ -1668,6 +1738,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> modelFieldsOnTemplates("Basic (and reversed card)")
         {"Card 1": [["Front"], ["Back"]], "Card 2": [["Back"], ["Front"]]}
     ```
@@ -1688,6 +1759,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> createModel(
         ...     "newModelName",
         ...     ["Field1", "Field2", "Field3"],
@@ -1759,6 +1831,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> modelTemplates("Basic (and reversed card)")
         {
             "Card 1": {
@@ -1781,6 +1854,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> modelStyling("Basic (and reversed card)")
         {
             "css": ".card {\n font-family: arial;\n font-size: 20px;\n text-align: center;\n color: black;\n background-color: white;\n}\n"
@@ -1798,6 +1872,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> updateModelTemplates(
         ...     {
         ...         "name": "Custom",
@@ -1816,6 +1891,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> updateModelStyling({"name": "Custom", "css": "p { color: blue; }"})
         None
     ```
@@ -1830,6 +1906,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> findAndReplaceInModels(
         ...     {
         ...         "modelName": "",
@@ -1852,6 +1929,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> modelTemplateRename("Basic", "Card 1", "Card 1 renamed")
         None
     ```
@@ -1868,6 +1946,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> modelTemplateReposition("Basic", "Card 1", 1)
         None
     ```
@@ -1882,6 +1961,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> modelTemplateAdd(
         ...     "Basic",
         ...     {
@@ -1902,6 +1982,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> modelTemplateRemove("Basic", "Card 1")
         None
     ```
@@ -1915,6 +1996,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> modelFieldRename("Basic", "Front", "FrontRenamed")
         None
     ```
@@ -1931,6 +2013,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> modelFieldReposition("Basic", "Back", 0)
         None
     ```
@@ -1948,6 +2031,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> modelFieldAdd("Basic", "NewField", 0)
         None
     ```
@@ -1961,6 +2045,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> modelFieldRemove("Basic", "Front")
         None
     ```
@@ -1974,6 +2059,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> modelFieldSetFont("Basic", "Front", "Courier")
         None
     ```
@@ -1987,6 +2073,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> modelFieldSetFontSize("Basic", "Front", 10)
         None
     ```
@@ -2004,6 +2091,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> modelFieldSetDescription("Basic", "Front", "example field description")
         True
     ```
@@ -2047,6 +2135,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> addNote(
         ...     {
         ...         "deckName": "Default",
@@ -2103,6 +2192,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> addNotes(
         ...     [
         ...         {
@@ -2151,6 +2241,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> canAddNotes(
         ...     [
         ...         {
@@ -2178,6 +2269,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> canAddNotesWithErrorDetail(
         ...     [
         ...         {
@@ -2216,6 +2308,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> updateNoteFields(
         ...     {
         ...         "id": 1514547547030,
@@ -2257,6 +2350,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> updateNote(
         ...     {
         ...         "id": 1514547547030,
@@ -2276,6 +2370,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> updateNoteTags(1483959289817, ["european-languages"])
         None
     ```
@@ -2289,6 +2384,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> getNoteTags(1483959289817)
         ["european-languages"]
     ```
@@ -2302,6 +2398,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> addTags([1483959289817, 1483959291695], "european-languages")
         None
     ```
@@ -2315,6 +2412,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> removeTags([1483959289817, 1483959291695], "european-languages")
         None
     ```
@@ -2328,6 +2426,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> getTags()
         ["european-languages", "idioms"]
     ```
@@ -2341,6 +2440,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> clearUnusedTags()
         None
     ```
@@ -2354,6 +2454,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> replaceTags([1483959289817, 1483959291695], "european-languages", "french-languages")
         None
     ```
@@ -2367,6 +2468,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> replaceTagsInAllNotes("european-languages", "french-languages")
         None
     ```
@@ -2381,6 +2483,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> findNotes("deck:current")
         [1483959289817, 1483959291695]
     ```
@@ -2395,6 +2498,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> notesInfo([1502298033753])
         [
             {
@@ -2419,6 +2523,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> deleteNotes([1502298033753])
         None
     ```
@@ -2432,6 +2537,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> removeEmptyNotes()
         None
     ```
@@ -2448,6 +2554,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> getNumCardsReviewedToday()
         0
     ```
@@ -2461,6 +2568,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> getNumCardsReviewedByDay()
         [["2021-02-28", 124], ["2021-02-27", 261]]
     ```
@@ -2474,6 +2582,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> getCollectionStatsHTML(True)
         "<center> lots of HTML here </center>"
     ```
@@ -2490,6 +2599,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> cardReviews("default", 1594194095740)
         [
             [1594194095746, 1485369733217, -1, 3, 4, -60, 2500, 6157, 0],
@@ -2521,6 +2631,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> getReviewsOfCards(["1653613948202"])
         {
             "1653613948202": [
@@ -2558,6 +2669,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> getLatestReviewID("default")
         1594194095746
     ```
@@ -2573,6 +2685,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
+
         >>> insertReviews(
         ...     [
         ...         [1594194095746, 1485369733217, -1, 3, 4, -60, 2500, 6157, 0],
