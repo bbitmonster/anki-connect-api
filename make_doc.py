@@ -17,7 +17,7 @@ code_footer = """\
 def show_info(functionNode):
     docstring = ast.get_docstring(functionNode)
     if not docstring:
-        return
+        return ""
     func = functionNode.name
     args = ", ".join(arg.arg for arg in functionNode.args.args)
     writeln()
@@ -34,10 +34,12 @@ def writeln(s=""):
 
 with source_path.open('r', encoding="utf-8") as f:
     tree = ast_comments.parse(f.read())
-docstring = ast.get_docstring(tree)
+
+with Path("anki_connect.header.md").open('r', encoding="utf-8") as f:
+    header = f.read()
 
 with dest_path.open("w", encoding="utf-8") as f:
-    #writeln(docstring)
+    f.write(header)
     for node in tree.body:
         if isinstance(node, ast.FunctionDef):
             show_info(node)
