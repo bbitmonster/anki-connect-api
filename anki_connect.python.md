@@ -885,9 +885,8 @@
     removing files not used by any cards (e.g. for configuration files), prefix the
     filename with an underscore. These files are still synchronized to AnkiWeb. Any
     existing file with the same name is deleted by default. Set `deleteExisting` to false
-    to prevent that by [letting Anki give the new file a non-conflicting name](https://git
-    hub.com/ankitects/anki/blob/aeba725d3ea9628c73300648f748140db3fdd5ed/rslib/src/media/f
-    iles.rs#L194).
+    to prevent that by [letting Anki give the new file a non-conflicting
+    name](https://github.com/ankitects/anki/blob/aeba725d3ea9628c73300648f748140db3fdd5ed/rslib/src/media/files.rs#L194).
 
     <details>
     <summary><i>Example:</i></summary>
