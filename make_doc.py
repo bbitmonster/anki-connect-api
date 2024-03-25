@@ -4,7 +4,7 @@ from pathlib import Path
 import ast_comments
 
 source_path = Path("anki_connect.py")
-dest_path = Path("README.python.md")
+dest_path = Path("anki_connect.python.md")
 code_header = """\
 <details>
 <summary><i>Example:</i></summary>
@@ -22,8 +22,8 @@ def show_info(functionNode):
     args = ", ".join(arg.arg for arg in functionNode.args.args)
     writeln()
     writeln(f"`{func}({args})`\n")
-    #docstring = textwrap.indent(docstring, "    ")
-    #docstring = "*" + docstring[1:]
+    docstring = textwrap.indent(docstring, "    ")
+    docstring = "*" + docstring[1:]
     docstring = docstring.replace("Example::", code_header)
     writeln(docstring)
     writeln(code_footer)
