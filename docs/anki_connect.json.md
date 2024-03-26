@@ -202,7 +202,7 @@ Search parameters are passed to Anki, check the docs for more information: https
 
 ### Card Actions
 
-##### `getEaseFactors`
+#### `getEaseFactors`
 
 *   Returns an array with the ease factor for each of the given cards (in the same
     order).
@@ -232,7 +232,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `setEaseFactors`
+#### `setEaseFactors`
 
 *   Sets ease factor of cards by card ID; returns `true` if successful (all cards
     existed) or `false` otherwise.
@@ -263,7 +263,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `setSpecificValueOfCard`
+#### `setSpecificValueOfCard`
 
 *   Sets specific value of a single card. Given the risk of wreaking havor in the
     database when changing some of the values of a card, some of the keys require the
@@ -300,7 +300,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `suspend`
+#### `suspend`
 
 *   Suspend cards by card ID; returns `true` if successful (at least one card wasn't
     already suspended) or `false` otherwise.
@@ -330,7 +330,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `unsuspend`
+#### `unsuspend`
 
 *   Unsuspend cards by card ID; returns `true` if successful (at least one card was
     previously suspended) or `false` otherwise.
@@ -360,7 +360,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `suspended`
+#### `suspended`
 
 *   Check if card is suspended by its ID. Returns `true` if suspended, `false`
     otherwise.
@@ -390,7 +390,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `areSuspended`
+#### `areSuspended`
 
 *   Returns an array indicating whether each of the given cards is suspended (in the
     same order). If card doesn't exist returns `null`.
@@ -420,7 +420,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `areDue`
+#### `areDue`
 
 *   Returns an array indicating whether each of the given cards is due (in the same
     order). *Note*: cards in the learning queue with a large interval (over 20 minutes)
@@ -452,7 +452,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `getIntervals`
+#### `getIntervals`
 
 *   Returns an array of the most recent intervals for each given card ID, or a
     2-dimensional array of all the intervals for each given card ID when `complete` is
@@ -483,7 +483,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `findCards`
+#### `findCards`
 
 *   Returns an array of card IDs for a given query. Functionally identical to
     `guiBrowse` but doesn't use the GUI for better performance.
@@ -513,7 +513,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `cardsToNotes`
+#### `cardsToNotes`
 
 *   Returns an unordered array of note IDs for the given card IDs. For cards with the
     same note, the ID is only given once in the array.
@@ -543,7 +543,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `cardsModTime`
+#### `cardsModTime`
 
 *   Returns a list of objects containings for each card ID the modification time. This
     function is about 15 times faster than executing `cardsInfo`.
@@ -576,7 +576,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `cardsInfo`
+#### `cardsInfo`
 
 *   Returns a list of objects containing for each card ID the card fields, front and
     back sides including CSS, note type, the note that the card belongs to, and deck name,
@@ -662,7 +662,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `forgetCards`
+#### `forgetCards`
 
 *   Forget cards, making the cards new again.
 
@@ -691,7 +691,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `relearnCards`
+#### `relearnCards`
 
 *   Make cards be "relearning".
 
@@ -720,7 +720,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `answerCards`
+#### `answerCards`
 
 *   Answer cards. Ease is between 1 (Again) and 4 (Easy). Will start the timer
     immediately before answering. Returns `true` if card exists, `false` otherwise.
@@ -758,7 +758,7 @@ Search parameters are passed to Anki, check the docs for more information: https
 
 ### Deck Actions
 
-##### `deckNames`
+#### `deckNames`
 
 *   Gets the complete list of deck names for the current user.
 
@@ -784,7 +784,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `deckNamesAndIds`
+#### `deckNamesAndIds`
 
 *   Gets the complete list of deck names and their respective IDs for the current user.
 
@@ -812,7 +812,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `getDecks`
+#### `getDecks`
 
 *   Accepts an array of card IDs and returns an object with each deck name as a key,
     and its value an array of the given cards which belong to it.
@@ -845,7 +845,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `createDeck`
+#### `createDeck`
 
 *   Create a new empty deck. Will not overwrite a deck that exists with the same name.
 
@@ -874,7 +874,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `changeDeck`
+#### `changeDeck`
 
 *   Moves cards with the given IDs to a different deck, creating the deck if it doesn't
     exist yet.
@@ -905,7 +905,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `deleteDecks`
+#### `deleteDecks`
 
 *   Deletes decks with the given names. The argument `cardsToo` *must* be specified and
     set to `true`.
@@ -936,7 +936,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `getDeckConfig`
+#### `getDeckConfig`
 
 *   Gets the configuration group object for the given deck.
 
@@ -1000,7 +1000,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `saveDeckConfig`
+#### `saveDeckConfig`
 
 *   Saves the given configuration group, returning `true` on success or `false` if the
     ID of the configuration group is invalid (such as when it does not exist).
@@ -1065,7 +1065,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `setDeckConfigId`
+#### `setDeckConfigId`
 
 *   Changes the configuration group for the given decks to the one with the given ID.
     Returns `true` on success or `false` if the given configuration group or any of the
@@ -1097,7 +1097,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `cloneDeckConfigId`
+#### `cloneDeckConfigId`
 
 *   Creates a new configuration group with the given name, cloning from the group with
     the given ID, or from the default group if this is unspecified. Returns the ID of the
@@ -1130,7 +1130,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `removeDeckConfigId`
+#### `removeDeckConfigId`
 
 *   Removes the configuration group with the given ID, returning `true` if successful,
     or `false` if attempting to remove either the default configuration group (ID = 1) or
@@ -1161,7 +1161,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `getDeckStats`
+#### `getDeckStats`
 
 *   Gets statistics such as total cards and cards due for the given decks.
 
@@ -1209,7 +1209,7 @@ Search parameters are passed to Anki, check the docs for more information: https
 
 ### Graphical Actions
 
-##### `guiBrowse`
+#### `guiBrowse`
 
 *   Invokes the *Card Browser* dialog and searches for a given query. Returns an array
     of identifiers of the cards that were found. Query syntax is [documented
@@ -1251,7 +1251,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `guiSelectNote`
+#### `guiSelectNote`
 
 *   Finds the open instance of the *Card Browser* dialog and selects a note given a
     note identifier. Returns `true` if the *Card Browser* is open, `false` otherwise.
@@ -1281,7 +1281,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `guiSelectedNotes`
+#### `guiSelectedNotes`
 
 *   Finds the open instance of the *Card Browser* dialog and returns an array of
     identifiers of the notes that are selected. Returns an empty list if the browser is
@@ -1309,7 +1309,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `guiAddCards`
+#### `guiAddCards`
 
 *   Invokes the *Add Cards* dialog, presets the note using the given deck and model,
     with the provided field values and tags. Invoking it multiple times closes the old
@@ -1360,7 +1360,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `guiEditNote`
+#### `guiEditNote`
 
 *   Opens the *Edit* dialog with a note corresponding to given note ID. The dialog is
     similar to the *Edit Current* dialog, but:
@@ -1395,7 +1395,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `guiCurrentCard`
+#### `guiCurrentCard`
 
 *   Returns information about the current card or `null` if not in review mode.
 
@@ -1441,7 +1441,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `guiStartCardTimer`
+#### `guiStartCardTimer`
 
 *   Starts or resets the `timerStarted` value for the current card. This is useful for
     deferring the start time to when it is displayed via the API, allowing the recorded
@@ -1469,7 +1469,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `guiShowQuestion`
+#### `guiShowQuestion`
 
 *   Shows question text for the current card; returns `true` if in review mode or
     `false` otherwise.
@@ -1496,7 +1496,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `guiShowAnswer`
+#### `guiShowAnswer`
 
 *   Shows answer text for the current card; returns `true` if in review mode or `false`
     otherwise.
@@ -1523,7 +1523,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `guiAnswerCard`
+#### `guiAnswerCard`
 
 *   Answers the current card; returns `true` if succeeded or `false` otherwise. Note
     that the answer for the current card must be displayed before before any answer can be
@@ -1554,7 +1554,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `guiUndo`
+#### `guiUndo`
 
 *   Undo the last action / card; returns `true` if succeeded or `false` otherwise.
 
@@ -1580,7 +1580,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `guiDeckOverview`
+#### `guiDeckOverview`
 
 *   Opens the *Deck Overview* dialog for the deck with the given name; returns `true`
     if succeeded or `false` otherwise.
@@ -1610,7 +1610,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `guiDeckBrowser`
+#### `guiDeckBrowser`
 
 *   Opens the *Deck Browser* dialog.
 
@@ -1636,7 +1636,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `guiDeckReview`
+#### `guiDeckReview`
 
 *   Starts review for the deck with the given name; returns `true` if succeeded or
     `false` otherwise.
@@ -1666,7 +1666,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `guiImportFile`
+#### `guiImportFile`
 
 *   Invokes the *Import... (Ctrl+Shift+I)* dialog with an optional file path. Brings up
     the dialog for user to review the import. Supports all file types that Anki supports.
@@ -1698,7 +1698,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `guiExitAnki`
+#### `guiExitAnki`
 
 *   Schedules a request to gracefully close Anki. This operation is asynchronous, so it
     will return immediately and won't wait until the Anki process actually terminates.
@@ -1725,7 +1725,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `guiCheckDatabase`
+#### `guiCheckDatabase`
 
 *   Requests a database check, but returns immediately without waiting for the check to
     complete. Therefore, the action will always return `true` even if errors are detected
@@ -1755,7 +1755,7 @@ Search parameters are passed to Anki, check the docs for more information: https
 
 ### Media Actions
 
-##### `storeMediaFile`
+#### `storeMediaFile`
 
 *   Stores a file with the specified base64-encoded contents inside the media folder.
     Alternatively you can specify a absolute file path, or a url from where the file shell
@@ -1792,7 +1792,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `retrieveMediaFile`
+#### `retrieveMediaFile`
 
 *   Retrieves the base64-encoded contents of the specified file, returning `false` if
     the file does not exist.
@@ -1822,7 +1822,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `getMediaFilesNames`
+#### `getMediaFilesNames`
 
 *   Gets the names of media files matched the pattern. Returning all names by default.
 
@@ -1851,7 +1851,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `getMediaDirPath`
+#### `getMediaDirPath`
 
 *   Gets the full path to the `collection.media` folder of the currently opened
     profile.
@@ -1878,7 +1878,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `deleteMediaFile`
+#### `deleteMediaFile`
 
 *   Deletes the specified file inside the media folder.
 
@@ -1909,7 +1909,7 @@ Search parameters are passed to Anki, check the docs for more information: https
 
 ### Miscellaneous Actions
 
-##### `requestPermission`
+#### `requestPermission`
 
 *   Requests permission to use the API exposed by this plugin. This method does not
     require the API key, and is the only one that accepts requests from any origin; the
@@ -1958,7 +1958,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `version`
+#### `version`
 
 *   Gets the version of the API exposed by this plugin. Currently versions `1` through
     `6` are defined.
@@ -1985,7 +1985,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `apiReflect`
+#### `apiReflect`
 
 *   Gets information about the AnkiConnect APIs available. The request supports the
     following params:
@@ -2029,7 +2029,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `sync`
+#### `sync`
 
 *   Synchronizes the local Anki collections with AnkiWeb.
 
@@ -2055,7 +2055,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `getProfiles`
+#### `getProfiles`
 
 *   Retrieve the list of profiles.
 
@@ -2081,7 +2081,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `loadProfile`
+#### `loadProfile`
 
 *   Selects the profile specified in request.
 
@@ -2110,7 +2110,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `multi`
+#### `multi`
 
 *   Performs multiple actions in one request, returning an array with the response of
     each action (in the given order).
@@ -2167,7 +2167,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `exportPackage`
+#### `exportPackage`
 
 *   Exports a given deck in `.apkg` format. Returns `true` if successful or `false`
     otherwise. The optional property `includeSched` (default is `false`) can be specified
@@ -2200,7 +2200,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `importPackage`
+#### `importPackage`
 
 *   Imports a file in `.apkg` format into the collection. Returns `true` if successful
     or `false` otherwise. Note that the file path is relative to Anki's collection.media
@@ -2231,7 +2231,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `reloadCollection`
+#### `reloadCollection`
 
 *   Tells anki to reload all data from the database.
 
@@ -2259,7 +2259,7 @@ Search parameters are passed to Anki, check the docs for more information: https
 
 ### Model Actions
 
-##### `modelNames`
+#### `modelNames`
 
 *   Gets the complete list of model names for the current user.
 
@@ -2285,7 +2285,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `modelNamesAndIds`
+#### `modelNamesAndIds`
 
 *   Gets the complete list of model names and their corresponding IDs for the current
     user.
@@ -2317,7 +2317,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `findModelsById`
+#### `findModelsById`
 
 *   Gets a list of models  for the provided model IDs from the current user.
 
@@ -2472,7 +2472,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `findModelsByName`
+#### `findModelsByName`
 
 *   Gets a list of models for the provided model names from the current user.
 
@@ -2627,7 +2627,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `modelFieldNames`
+#### `modelFieldNames`
 
 *   Gets the complete list of field names for the provided model name.
 
@@ -2656,7 +2656,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `modelFieldDescriptions`
+#### `modelFieldDescriptions`
 
 *   Gets the complete list of field descriptions (the text seen in the gui editor when
     a field is empty) for the provided model name.
@@ -2686,7 +2686,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `modelFieldFonts`
+#### `modelFieldFonts`
 
 *   Gets the complete list of fonts along with their font sizes.
 
@@ -2724,7 +2724,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `modelFieldsOnTemplates`
+#### `modelFieldsOnTemplates`
 
 *   Returns an object indicating the fields on the question and answer side of each
     card template for the given model name. The question side is given first in each
@@ -2764,7 +2764,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `createModel`
+#### `createModel`
 
 *   Creates a new model to be used in Anki. User must provide the `modelName`,
     `inOrderFields` and `cardTemplates` to be used in the model. There are optional fields
@@ -2850,7 +2850,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `modelTemplates`
+#### `modelTemplates`
 
 *   Returns an object indicating the template content for each card connected to the
     provided model by name.
@@ -2889,7 +2889,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `modelStyling`
+#### `modelStyling`
 
 *   Gets the CSS styling for the provided model by name.
 
@@ -2920,7 +2920,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `updateModelTemplates`
+#### `updateModelTemplates`
 
 *   Modify the templates of an existing model by name. Only specifies cards and
     specified sides will be modified. If an existing card or side is not included in the
@@ -2959,7 +2959,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `updateModelStyling`
+#### `updateModelStyling`
 
 *   Modify the CSS styling of an existing model by name.
 
@@ -2991,7 +2991,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `findAndReplaceInModels`
+#### `findAndReplaceInModels`
 
 *   Find and replace string in existing model by model name. Customise to replace in
     front, back or css by setting to true/false.
@@ -3028,7 +3028,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `modelTemplateRename`
+#### `modelTemplateRename`
 
 *   Renames a template in an existing model.
 
@@ -3059,7 +3059,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `modelTemplateReposition`
+#### `modelTemplateReposition`
 
 *   Repositions a template in an existing model.
 
@@ -3093,7 +3093,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `modelTemplateAdd`
+#### `modelTemplateAdd`
 
 *   Adds a template to an existing model by name. If you want to update an existing
     template, use `updateModelTemplates`.
@@ -3128,7 +3128,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `modelTemplateRemove`
+#### `modelTemplateRemove`
 
 *   Removes a template from an existing model.
 
@@ -3158,7 +3158,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `modelFieldRename`
+#### `modelFieldRename`
 
 *   Rename the field name of a given model.
 
@@ -3189,7 +3189,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `modelFieldReposition`
+#### `modelFieldReposition`
 
 *   Reposition the field within the field list of a given model.
 
@@ -3223,7 +3223,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `modelFieldAdd`
+#### `modelFieldAdd`
 
 *   Creates a new field within a given model.
 
@@ -3258,7 +3258,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `modelFieldRemove`
+#### `modelFieldRemove`
 
 *   Deletes a field within a given model.
 
@@ -3288,7 +3288,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `modelFieldSetFont`
+#### `modelFieldSetFont`
 
 *   Sets the font for a field within a given model.
 
@@ -3319,7 +3319,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `modelFieldSetFontSize`
+#### `modelFieldSetFontSize`
 
 *   Sets the font size for a field within a given model.
 
@@ -3350,7 +3350,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `modelFieldSetDescription`
+#### `modelFieldSetDescription`
 
 *   Sets the description (the text seen in the gui editor when a field is empty) for a
     field within a given model.
@@ -3387,7 +3387,7 @@ Search parameters are passed to Anki, check the docs for more information: https
 
 ### Note Actions
 
-##### `addNote`
+#### `addNote`
 
 *   Creates a note using the given deck and model, with the provided field values and
     tags. Returns the identifier of the created note created on success, and `null` on
@@ -3479,7 +3479,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `addNotes`
+#### `addNotes`
 
 *   Creates multiple notes using the given deck and model, with the provided field
     values and tags. Returns an array of identifiers of the created notes (notes that
@@ -3537,7 +3537,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `canAddNotes`
+#### `canAddNotes`
 
 *   Accepts an array of objects which define parameters for candidate notes (see
     `addNote`) and returns an array of booleans indicating whether or not the parameters
@@ -3576,7 +3576,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `canAddNotesWithErrorDetail`
+#### `canAddNotesWithErrorDetail`
 
 *   Accepts an array of objects which define parameters for candidate notes (see
     `addNote`) and returns an array of objects with fields `canAdd` and `error`.
@@ -3631,7 +3631,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `updateNoteFields`
+#### `updateNoteFields`
 
 *   Modify the fields of an existing note. You can also include audio, video, or
     picture files which will be added to the note with an optional `audio`, `video`, or
@@ -3679,7 +3679,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `updateNote`
+#### `updateNote`
 
 *   Modify the fields and/or tags of an existing note. In other words, combines
     `updateNoteFields` and `updateNoteTags`. Please see their documentation for an
@@ -3730,7 +3730,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `updateNoteTags`
+#### `updateNoteTags`
 
 *   Set a note's tags by note ID. Old tags will be removed.
 
@@ -3760,7 +3760,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `getNoteTags`
+#### `getNoteTags`
 
 *   Get a note's tags by note ID.
 
@@ -3789,7 +3789,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `addTags`
+#### `addTags`
 
 *   Adds tags to notes by note ID.
 
@@ -3819,7 +3819,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `removeTags`
+#### `removeTags`
 
 *   Remove tags from notes by note ID.
 
@@ -3849,7 +3849,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `getTags`
+#### `getTags`
 
 *   Gets the complete list of tags for the current user.
 
@@ -3875,7 +3875,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `clearUnusedTags`
+#### `clearUnusedTags`
 
 *   Clears all the unused tags in the notes for the current user.
 
@@ -3901,7 +3901,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `replaceTags`
+#### `replaceTags`
 
 *   Replace tags in notes by note ID.
 
@@ -3932,7 +3932,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `replaceTagsInAllNotes`
+#### `replaceTagsInAllNotes`
 
 *   Replace tags in all the notes for the current user.
 
@@ -3962,7 +3962,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `findNotes`
+#### `findNotes`
 
 *   Returns an array of note IDs for a given query. Query syntax is [documented
     here](https://docs.ankiweb.net/searching.html).
@@ -3992,7 +3992,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `notesInfo`
+#### `notesInfo`
 
 *   Returns a list of objects containing for each note ID the note fields, tags, note
     type and the cards belonging to the note.
@@ -4036,7 +4036,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `deleteNotes`
+#### `deleteNotes`
 
 *   Deletes notes with the given ids. If a note has several cards associated with it,
     all associated cards will be deleted.
@@ -4066,7 +4066,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `removeEmptyNotes`
+#### `removeEmptyNotes`
 
 *   Removes all the empty notes for the current user.
 
@@ -4094,7 +4094,7 @@ Search parameters are passed to Anki, check the docs for more information: https
 
 ### Statistic Actions
 
-##### `getNumCardsReviewedToday`
+#### `getNumCardsReviewedToday`
 
 *   Gets the count of cards that have been reviewed in the current day (with day start
     time as configured by user in anki)
@@ -4121,7 +4121,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `getNumCardsReviewedByDay`
+#### `getNumCardsReviewedByDay`
 
 *   Gets the number of cards reviewed as a list of pairs of `(dateString, number)`
 
@@ -4150,7 +4150,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `getCollectionStatsHTML`
+#### `getCollectionStatsHTML`
 
 *   Gets the collection statistics report
 
@@ -4179,7 +4179,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `cardReviews`
+#### `cardReviews`
 
 *   Requests all card reviews for a specified deck after a certain time. `startID` is
     the latest unix time not included in the result. Returns a list of 9-tuples
@@ -4215,7 +4215,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `getReviewsOfCards`
+#### `getReviewsOfCards`
 
 *   Requests all card reviews for each card ID. Returns a dictionary mapping each card
     ID to a list of dictionaries of the format:
@@ -4279,7 +4279,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `getLatestReviewID`
+#### `getLatestReviewID`
 
 *   Returns the unix time of the latest review for the given deck. 0 if no review has
     ever been made for the deck.
@@ -4309,7 +4309,7 @@ Search parameters are passed to Anki, check the docs for more information: https
     ```
     </details>
 
-##### `insertReviews`
+#### `insertReviews`
 
 *   Inserts the given reviews into the database. Required format: list of 9-tuples
     `(reviewTime, cardID, usn, buttonPressed, newInterval, previousInterval, newFactor,

@@ -34,8 +34,7 @@ def write_python_func(fout, func_name, args, docstring):
     desc = indent(desc, "    ")
     desc = "*" + desc[1:]
     example = dedent(example).strip()
-
-    fout.write(f"```python\n{func_name}({args}):\n```\n")
+    fout.write(f"#### `{func_name}({args})`\n")
     fout.write(desc)
     s = CODE_TEMPLATE.format(desc="Example", lang="python", code=example)
     fout.write(indent(s, "    "))
@@ -71,7 +70,7 @@ def write_json_func(fout, func_name, args, docstring):
     request_json = jsbeautifier.beautify(json.dumps(request), opts)
     result_json = jsbeautifier.beautify(json.dumps(result), opts)
 
-    fout.write(f"##### `{func_name}`\n\n")
+    fout.write(f"#### `{func_name}`\n\n")
     fout.write(desc)
     s = CODE_TEMPLATE.format(desc="Sample request", lang="json", code=request_json)
     s += CODE_TEMPLATE.format(desc="Sample result", lang="json", code=result_json)

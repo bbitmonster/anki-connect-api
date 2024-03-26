@@ -202,9 +202,7 @@ Search parameters are passed to Anki, check the docs for more information: https
 
 ### Card Actions
 
-```python
-getEaseFactors(cards):
-```
+#### `getEaseFactors(cards)`
 *   Returns an array with the ease factor for each of the given cards (in the same
     order).
 
@@ -217,9 +215,7 @@ getEaseFactors(cards):
     ```
     </details>
 
-```python
-setEaseFactors(cards, easeFactors):
-```
+#### `setEaseFactors(cards, easeFactors)`
 *   Sets ease factor of cards by card ID; returns `True` if successful (all cards
     existed) or `False` otherwise.
 
@@ -232,9 +228,7 @@ setEaseFactors(cards, easeFactors):
     ```
     </details>
 
-```python
-setSpecificValueOfCard(card, keys, newValues):
-```
+#### `setSpecificValueOfCard(card, keys, newValues)`
 *   Sets specific value of a single card. Given the risk of wreaking havor in the
     database when changing some of the values of a card, some of the keys require the
     argument "warning_check" set to True. This can be used to set a card's flag, change
@@ -252,9 +246,7 @@ setSpecificValueOfCard(card, keys, newValues):
     ```
     </details>
 
-```python
-suspend(cards):
-```
+#### `suspend(cards)`
 *   Suspend cards by card ID; returns `True` if successful (at least one card wasn't
     already suspended) or `False` otherwise.
 
@@ -267,9 +259,7 @@ suspend(cards):
     ```
     </details>
 
-```python
-unsuspend(cards):
-```
+#### `unsuspend(cards)`
 *   Unsuspend cards by card ID; returns `True` if successful (at least one card was
     previously suspended) or `False` otherwise.
 
@@ -282,9 +272,7 @@ unsuspend(cards):
     ```
     </details>
 
-```python
-suspended(card):
-```
+#### `suspended(card)`
 *   Check if card is suspended by its ID. Returns `True` if suspended, `False`
     otherwise.
 
@@ -297,9 +285,7 @@ suspended(card):
     ```
     </details>
 
-```python
-areSuspended(cards):
-```
+#### `areSuspended(cards)`
 *   Returns an array indicating whether each of the given cards is suspended (in the
     same order). If card doesn't exist returns `None`.
 
@@ -312,9 +298,7 @@ areSuspended(cards):
     ```
     </details>
 
-```python
-areDue(cards):
-```
+#### `areDue(cards)`
 *   Returns an array indicating whether each of the given cards is due (in the same
     order). *Note*: cards in the learning queue with a large interval (over 20 minutes)
     are treated as not due until the time of their interval has passed, to match the way
@@ -329,9 +313,7 @@ areDue(cards):
     ```
     </details>
 
-```python
-getIntervals(cards, complete):
-```
+#### `getIntervals(cards, complete)`
 *   Returns an array of the most recent intervals for each given card ID, or a
     2-dimensional array of all the intervals for each given card ID when `complete` is
     `True`. Negative intervals are in seconds and positive intervals in days.
@@ -345,9 +327,7 @@ getIntervals(cards, complete):
     ```
     </details>
 
-```python
-findCards(query):
-```
+#### `findCards(query)`
 *   Returns an array of card IDs for a given query. Functionally identical to
     `guiBrowse` but doesn't use the GUI for better performance.
 
@@ -360,9 +340,7 @@ findCards(query):
     ```
     </details>
 
-```python
-cardsToNotes(cards):
-```
+#### `cardsToNotes(cards)`
 *   Returns an unordered array of note IDs for the given card IDs. For cards with the
     same note, the ID is only given once in the array.
 
@@ -375,9 +353,7 @@ cardsToNotes(cards):
     ```
     </details>
 
-```python
-cardsModTime(cards):
-```
+#### `cardsModTime(cards)`
 *   Returns a list of objects containings for each card ID the modification time. This
     function is about 15 times faster than executing `cardsInfo`.
 
@@ -390,9 +366,7 @@ cardsModTime(cards):
     ```
     </details>
 
-```python
-cardsInfo(cards):
-```
+#### `cardsInfo(cards)`
 *   Returns a list of objects containing for each card ID the card fields, front and
     back sides including CSS, note type, the note that the card belongs to, and deck name,
     last modification timestamp as well as ease and interval.
@@ -452,9 +426,7 @@ cardsInfo(cards):
     ```
     </details>
 
-```python
-forgetCards(cards):
-```
+#### `forgetCards(cards)`
 *   Forget cards, making the cards new again.
 
     <details>
@@ -466,9 +438,7 @@ forgetCards(cards):
     ```
     </details>
 
-```python
-relearnCards(cards):
-```
+#### `relearnCards(cards)`
 *   Make cards be "relearning".
 
     <details>
@@ -480,9 +450,7 @@ relearnCards(cards):
     ```
     </details>
 
-```python
-answerCards(answers):
-```
+#### `answerCards(answers)`
 *   Answer cards. Ease is between 1 (Again) and 4 (Easy). Will start the timer
     immediately before answering. Returns `True` if card exists, `False` otherwise.
 
@@ -499,9 +467,7 @@ answerCards(answers):
 
 ### Deck Actions
 
-```python
-deckNames():
-```
+#### `deckNames()`
 *   Gets the complete list of deck names for the current user.
 
     <details>
@@ -513,9 +479,7 @@ deckNames():
     ```
     </details>
 
-```python
-deckNamesAndIds():
-```
+#### `deckNamesAndIds()`
 *   Gets the complete list of deck names and their respective IDs for the current user.
 
     <details>
@@ -527,9 +491,7 @@ deckNamesAndIds():
     ```
     </details>
 
-```python
-getDecks(cards):
-```
+#### `getDecks(cards)`
 *   Accepts an array of card IDs and returns an object with each deck name as a key,
     and its value an array of the given cards which belong to it.
 
@@ -542,9 +504,7 @@ getDecks(cards):
     ```
     </details>
 
-```python
-createDeck(deck):
-```
+#### `createDeck(deck)`
 *   Create a new empty deck. Will not overwrite a deck that exists with the same name.
 
     <details>
@@ -556,9 +516,7 @@ createDeck(deck):
     ```
     </details>
 
-```python
-changeDeck(cards, deck):
-```
+#### `changeDeck(cards, deck)`
 *   Moves cards with the given IDs to a different deck, creating the deck if it doesn't
     exist yet.
 
@@ -571,9 +529,7 @@ changeDeck(cards, deck):
     ```
     </details>
 
-```python
-deleteDecks(decks, cardsToo):
-```
+#### `deleteDecks(decks, cardsToo)`
 *   Deletes decks with the given names. The argument `cardsToo` *must* be specified and
     set to `True`.
 
@@ -586,9 +542,7 @@ deleteDecks(decks, cardsToo):
     ```
     </details>
 
-```python
-getDeckConfig(deck):
-```
+#### `getDeckConfig(deck)`
 *   Gets the configuration group object for the given deck.
 
     <details>
@@ -635,9 +589,7 @@ getDeckConfig(deck):
     ```
     </details>
 
-```python
-saveDeckConfig(config):
-```
+#### `saveDeckConfig(config)`
 *   Saves the given configuration group, returning `True` on success or `False` if the
     ID of the configuration group is invalid (such as when it does not exist).
 
@@ -687,9 +639,7 @@ saveDeckConfig(config):
     ```
     </details>
 
-```python
-setDeckConfigId(decks, configId):
-```
+#### `setDeckConfigId(decks, configId)`
 *   Changes the configuration group for the given decks to the one with the given ID.
     Returns `True` on success or `False` if the given configuration group or any of the
     given decks do not exist.
@@ -703,9 +653,7 @@ setDeckConfigId(decks, configId):
     ```
     </details>
 
-```python
-cloneDeckConfigId(name, cloneFrom):
-```
+#### `cloneDeckConfigId(name, cloneFrom)`
 *   Creates a new configuration group with the given name, cloning from the group with
     the given ID, or from the default group if this is unspecified. Returns the ID of the
     new configuration group, or `False` if the specified group to clone from does not
@@ -720,9 +668,7 @@ cloneDeckConfigId(name, cloneFrom):
     ```
     </details>
 
-```python
-removeDeckConfigId(configId):
-```
+#### `removeDeckConfigId(configId)`
 *   Removes the configuration group with the given ID, returning `True` if successful,
     or `False` if attempting to remove either the default configuration group (ID = 1) or
     a configuration group that does not exist.
@@ -736,9 +682,7 @@ removeDeckConfigId(configId):
     ```
     </details>
 
-```python
-getDeckStats(decks):
-```
+#### `getDeckStats(decks)`
 *   Gets statistics such as total cards and cards due for the given decks.
 
     <details>
@@ -769,9 +713,7 @@ getDeckStats(decks):
 
 ### Graphical Actions
 
-```python
-guiBrowse(query, reorderCards):
-```
+#### `guiBrowse(query, reorderCards)`
 *   Invokes the *Card Browser* dialog and searches for a given query. Returns an array
     of identifiers of the cards that were found. Query syntax is [documented
     here](https://docs.ankiweb.net/searching.html).
@@ -792,9 +734,7 @@ guiBrowse(query, reorderCards):
     ```
     </details>
 
-```python
-guiSelectNote(note):
-```
+#### `guiSelectNote(note)`
 *   Finds the open instance of the *Card Browser* dialog and selects a note given a
     note identifier. Returns `True` if the *Card Browser* is open, `False` otherwise.
 
@@ -807,9 +747,7 @@ guiSelectNote(note):
     ```
     </details>
 
-```python
-guiSelectedNotes():
-```
+#### `guiSelectedNotes()`
 *   Finds the open instance of the *Card Browser* dialog and returns an array of
     identifiers of the notes that are selected. Returns an empty list if the browser is
     not open.
@@ -823,9 +761,7 @@ guiSelectedNotes():
     ```
     </details>
 
-```python
-guiAddCards(note):
-```
+#### `guiAddCards(note)`
 *   Invokes the *Add Cards* dialog, presets the note using the given deck and model,
     with the provided field values and tags. Invoking it multiple times closes the old
     window and _reopen the window_ with the new provided values.
@@ -863,9 +799,7 @@ guiAddCards(note):
     ```
     </details>
 
-```python
-guiEditNote(note):
-```
+#### `guiEditNote(note)`
 *   Opens the *Edit* dialog with a note corresponding to given note ID. The dialog is
     similar to the *Edit Current* dialog, but:
 
@@ -883,9 +817,7 @@ guiEditNote(note):
     ```
     </details>
 
-```python
-guiCurrentCard():
-```
+#### `guiCurrentCard()`
 *   Returns information about the current card or `None` if not in review mode.
 
     <details>
@@ -911,9 +843,7 @@ guiCurrentCard():
     ```
     </details>
 
-```python
-guiStartCardTimer():
-```
+#### `guiStartCardTimer()`
 *   Starts or resets the `timerStarted` value for the current card. This is useful for
     deferring the start time to when it is displayed via the API, allowing the recorded
     time taken to answer the card to be more accurate when calling `guiAnswerCard`.
@@ -927,9 +857,7 @@ guiStartCardTimer():
     ```
     </details>
 
-```python
-guiShowQuestion():
-```
+#### `guiShowQuestion()`
 *   Shows question text for the current card; returns `True` if in review mode or
     `False` otherwise.
 
@@ -942,9 +870,7 @@ guiShowQuestion():
     ```
     </details>
 
-```python
-guiShowAnswer():
-```
+#### `guiShowAnswer()`
 *   Shows answer text for the current card; returns `True` if in review mode or `False`
     otherwise.
 
@@ -957,9 +883,7 @@ guiShowAnswer():
     ```
     </details>
 
-```python
-guiAnswerCard(ease):
-```
+#### `guiAnswerCard(ease)`
 *   Answers the current card; returns `True` if succeeded or `False` otherwise. Note
     that the answer for the current card must be displayed before before any answer can be
     accepted by Anki.
@@ -973,9 +897,7 @@ guiAnswerCard(ease):
     ```
     </details>
 
-```python
-guiUndo():
-```
+#### `guiUndo()`
 *   Undo the last action / card; returns `True` if succeeded or `False` otherwise.
 
     <details>
@@ -987,9 +909,7 @@ guiUndo():
     ```
     </details>
 
-```python
-guiDeckOverview(name):
-```
+#### `guiDeckOverview(name)`
 *   Opens the *Deck Overview* dialog for the deck with the given name; returns `True`
     if succeeded or `False` otherwise.
 
@@ -1002,9 +922,7 @@ guiDeckOverview(name):
     ```
     </details>
 
-```python
-guiDeckBrowser():
-```
+#### `guiDeckBrowser()`
 *   Opens the *Deck Browser* dialog.
 
     <details>
@@ -1016,9 +934,7 @@ guiDeckBrowser():
     ```
     </details>
 
-```python
-guiDeckReview(name):
-```
+#### `guiDeckReview(name)`
 *   Starts review for the deck with the given name; returns `True` if succeeded or
     `False` otherwise.
 
@@ -1031,9 +947,7 @@ guiDeckReview(name):
     ```
     </details>
 
-```python
-guiImportFile(path):
-```
+#### `guiImportFile(path)`
 *   Invokes the *Import... (Ctrl+Shift+I)* dialog with an optional file path. Brings up
     the dialog for user to review the import. Supports all file types that Anki supports.
     Brings open file dialog if no path is provided. Forward slashes must be used in the
@@ -1048,9 +962,7 @@ guiImportFile(path):
     ```
     </details>
 
-```python
-guiExitAnki():
-```
+#### `guiExitAnki()`
 *   Schedules a request to gracefully close Anki. This operation is asynchronous, so it
     will return immediately and won't wait until the Anki process actually terminates.
 
@@ -1063,9 +975,7 @@ guiExitAnki():
     ```
     </details>
 
-```python
-guiCheckDatabase():
-```
+#### `guiCheckDatabase()`
 *   Requests a database check, but returns immediately without waiting for the check to
     complete. Therefore, the action will always return `True` even if errors are detected
     during the database check.
@@ -1081,9 +991,7 @@ guiCheckDatabase():
 
 ### Media Actions
 
-```python
-storeMediaFile(filename):
-```
+#### `storeMediaFile(filename)`
 *   Stores a file with the specified base64-encoded contents inside the media folder.
     Alternatively you can specify a absolute file path, or a url from where the file shell
     be downloaded. If more than one of `data`, `path` and `url` are provided, the `data`
@@ -1103,9 +1011,7 @@ storeMediaFile(filename):
     ```
     </details>
 
-```python
-retrieveMediaFile(filename):
-```
+#### `retrieveMediaFile(filename)`
 *   Retrieves the base64-encoded contents of the specified file, returning `False` if
     the file does not exist.
 
@@ -1118,9 +1024,7 @@ retrieveMediaFile(filename):
     ```
     </details>
 
-```python
-getMediaFilesNames(pattern):
-```
+#### `getMediaFilesNames(pattern)`
 *   Gets the names of media files matched the pattern. Returning all names by default.
 
     <details>
@@ -1132,9 +1036,7 @@ getMediaFilesNames(pattern):
     ```
     </details>
 
-```python
-getMediaDirPath():
-```
+#### `getMediaDirPath()`
 *   Gets the full path to the `collection.media` folder of the currently opened
     profile.
 
@@ -1147,9 +1049,7 @@ getMediaDirPath():
     ```
     </details>
 
-```python
-deleteMediaFile(filename):
-```
+#### `deleteMediaFile(filename)`
 *   Deletes the specified file inside the media folder.
 
     <details>
@@ -1163,9 +1063,7 @@ deleteMediaFile(filename):
 
 ### Miscellaneous Actions
 
-```python
-requestPermission():
-```
+#### `requestPermission()`
 *   Requests permission to use the API exposed by this plugin. This method does not
     require the API key, and is the only one that accepts requests from any origin; the
     other methods only accept requests from trusted origins, which are listed under
@@ -1196,9 +1094,7 @@ requestPermission():
     ```
     </details>
 
-```python
-version():
-```
+#### `version()`
 *   Gets the version of the API exposed by this plugin. Currently versions `1` through
     `6` are defined.
 
@@ -1211,9 +1107,7 @@ version():
     ```
     </details>
 
-```python
-apiReflect(scopes, actions):
-```
+#### `apiReflect(scopes, actions)`
 *   Gets information about the AnkiConnect APIs available. The request supports the
     following params:
 
@@ -1236,9 +1130,7 @@ apiReflect(scopes, actions):
     ```
     </details>
 
-```python
-sync():
-```
+#### `sync()`
 *   Synchronizes the local Anki collections with AnkiWeb.
 
     <details>
@@ -1250,9 +1142,7 @@ sync():
     ```
     </details>
 
-```python
-getProfiles():
-```
+#### `getProfiles()`
 *   Retrieve the list of profiles.
 
     <details>
@@ -1264,9 +1154,7 @@ getProfiles():
     ```
     </details>
 
-```python
-loadProfile(name):
-```
+#### `loadProfile(name)`
 *   Selects the profile specified in request.
 
     <details>
@@ -1278,9 +1166,7 @@ loadProfile(name):
     ```
     </details>
 
-```python
-multi(actions):
-```
+#### `multi(actions)`
 *   Performs multiple actions in one request, returning an array with the response of
     each action (in the given order).
 
@@ -1305,9 +1191,7 @@ multi(actions):
     ```
     </details>
 
-```python
-exportPackage(deck, path, includeSched):
-```
+#### `exportPackage(deck, path, includeSched)`
 *   Exports a given deck in `.apkg` format. Returns `True` if successful or `False`
     otherwise. The optional property `includeSched` (default is `False`) can be specified
     to include the cards' scheduling data.
@@ -1321,9 +1205,7 @@ exportPackage(deck, path, includeSched):
     ```
     </details>
 
-```python
-importPackage(path):
-```
+#### `importPackage(path)`
 *   Imports a file in `.apkg` format into the collection. Returns `True` if successful
     or `False` otherwise. Note that the file path is relative to Anki's collection.media
     folder, not to the client.
@@ -1337,9 +1219,7 @@ importPackage(path):
     ```
     </details>
 
-```python
-reloadCollection():
-```
+#### `reloadCollection()`
 *   Tells anki to reload all data from the database.
 
     <details>
@@ -1353,9 +1233,7 @@ reloadCollection():
 
 ### Model Actions
 
-```python
-modelNames():
-```
+#### `modelNames()`
 *   Gets the complete list of model names for the current user.
 
     <details>
@@ -1367,9 +1245,7 @@ modelNames():
     ```
     </details>
 
-```python
-modelNamesAndIds():
-```
+#### `modelNamesAndIds()`
 *   Gets the complete list of model names and their corresponding IDs for the current
     user.
 
@@ -1387,9 +1263,7 @@ modelNamesAndIds():
     ```
     </details>
 
-```python
-findModelsById(modelIds):
-```
+#### `findModelsById(modelIds)`
 *   Gets a list of models  for the provided model IDs from the current user.
 
     <details>
@@ -1536,9 +1410,7 @@ findModelsById(modelIds):
     ```
     </details>
 
-```python
-findModelsByName(modelNames):
-```
+#### `findModelsByName(modelNames)`
 *   Gets a list of models for the provided model names from the current user.
 
     <details>
@@ -1685,9 +1557,7 @@ findModelsByName(modelNames):
     ```
     </details>
 
-```python
-modelFieldNames(modelName):
-```
+#### `modelFieldNames(modelName)`
 *   Gets the complete list of field names for the provided model name.
 
     <details>
@@ -1699,9 +1569,7 @@ modelFieldNames(modelName):
     ```
     </details>
 
-```python
-modelFieldDescriptions(modelName):
-```
+#### `modelFieldDescriptions(modelName)`
 *   Gets the complete list of field descriptions (the text seen in the gui editor when
     a field is empty) for the provided model name.
 
@@ -1714,9 +1582,7 @@ modelFieldDescriptions(modelName):
     ```
     </details>
 
-```python
-modelFieldFonts(modelName):
-```
+#### `modelFieldFonts(modelName)`
 *   Gets the complete list of fonts along with their font sizes.
 
     <details>
@@ -1728,9 +1594,7 @@ modelFieldFonts(modelName):
     ```
     </details>
 
-```python
-modelFieldsOnTemplates(modelName):
-```
+#### `modelFieldsOnTemplates(modelName)`
 *   Returns an object indicating the fields on the question and answer side of each
     card template for the given model name. The question side is given first in each
     array.
@@ -1744,9 +1608,7 @@ modelFieldsOnTemplates(modelName):
     ```
     </details>
 
-```python
-createModel(modelName, inOrderFields, css, isCloze, cardTemplates):
-```
+#### `createModel(modelName, inOrderFields, css, isCloze, cardTemplates)`
 *   Creates a new model to be used in Anki. User must provide the `modelName`,
     `inOrderFields` and `cardTemplates` to be used in the model. There are optional fields
     `css` and `isCloze`. If not specified, `css` will use the default Anki css and
@@ -1822,9 +1684,7 @@ createModel(modelName, inOrderFields, css, isCloze, cardTemplates):
     ```
     </details>
 
-```python
-modelTemplates(modelName):
-```
+#### `modelTemplates(modelName)`
 *   Returns an object indicating the template content for each card connected to the
     provided model by name.
 
@@ -1846,9 +1706,7 @@ modelTemplates(modelName):
     ```
     </details>
 
-```python
-modelStyling(modelName):
-```
+#### `modelStyling(modelName)`
 *   Gets the CSS styling for the provided model by name.
 
     <details>
@@ -1862,9 +1720,7 @@ modelStyling(modelName):
     ```
     </details>
 
-```python
-updateModelTemplates(model):
-```
+#### `updateModelTemplates(model)`
 *   Modify the templates of an existing model by name. Only specifies cards and
     specified sides will be modified. If an existing card or side is not included in the
     request, it will be left unchanged.
@@ -1883,9 +1739,7 @@ updateModelTemplates(model):
     ```
     </details>
 
-```python
-updateModelStyling(model):
-```
+#### `updateModelStyling(model)`
 *   Modify the CSS styling of an existing model by name.
 
     <details>
@@ -1897,9 +1751,7 @@ updateModelStyling(model):
     ```
     </details>
 
-```python
-findAndReplaceInModels(model):
-```
+#### `findAndReplaceInModels(model)`
 *   Find and replace string in existing model by model name. Customise to replace in
     front, back or css by setting to true/false.
 
@@ -1921,9 +1773,7 @@ findAndReplaceInModels(model):
     ```
     </details>
 
-```python
-modelTemplateRename(modelName, oldTemplateName, newTemplateName):
-```
+#### `modelTemplateRename(modelName, oldTemplateName, newTemplateName)`
 *   Renames a template in an existing model.
 
     <details>
@@ -1935,9 +1785,7 @@ modelTemplateRename(modelName, oldTemplateName, newTemplateName):
     ```
     </details>
 
-```python
-modelTemplateReposition(modelName, templateName, index):
-```
+#### `modelTemplateReposition(modelName, templateName, index)`
 *   Repositions a template in an existing model.
 
     The value of `index` starts at 0. For example, an index of `0` puts the template in
@@ -1952,9 +1800,7 @@ modelTemplateReposition(modelName, templateName, index):
     ```
     </details>
 
-```python
-modelTemplateAdd(modelName, template):
-```
+#### `modelTemplateAdd(modelName, template)`
 *   Adds a template to an existing model by name. If you want to update an existing
     template, use `updateModelTemplates`.
 
@@ -1974,9 +1820,7 @@ modelTemplateAdd(modelName, template):
     ```
     </details>
 
-```python
-modelTemplateRemove(modelName, templateName):
-```
+#### `modelTemplateRemove(modelName, templateName)`
 *   Removes a template from an existing model.
 
     <details>
@@ -1988,9 +1832,7 @@ modelTemplateRemove(modelName, templateName):
     ```
     </details>
 
-```python
-modelFieldRename(modelName, oldFieldName, newFieldName):
-```
+#### `modelFieldRename(modelName, oldFieldName, newFieldName)`
 *   Rename the field name of a given model.
 
     <details>
@@ -2002,9 +1844,7 @@ modelFieldRename(modelName, oldFieldName, newFieldName):
     ```
     </details>
 
-```python
-modelFieldReposition(modelName, fieldName, index):
-```
+#### `modelFieldReposition(modelName, fieldName, index)`
 *   Reposition the field within the field list of a given model.
 
     The value of `index` starts at 0. For example, an index of `0` puts the field in the
@@ -2019,9 +1859,7 @@ modelFieldReposition(modelName, fieldName, index):
     ```
     </details>
 
-```python
-modelFieldAdd(modelName, fieldName, index):
-```
+#### `modelFieldAdd(modelName, fieldName, index)`
 *   Creates a new field within a given model.
 
     Optionally, the `index` value can be provided, which works exactly the same as the
@@ -2037,9 +1875,7 @@ modelFieldAdd(modelName, fieldName, index):
     ```
     </details>
 
-```python
-modelFieldRemove(modelName, fieldName):
-```
+#### `modelFieldRemove(modelName, fieldName)`
 *   Deletes a field within a given model.
 
     <details>
@@ -2051,9 +1887,7 @@ modelFieldRemove(modelName, fieldName):
     ```
     </details>
 
-```python
-modelFieldSetFont(modelName, fieldName, font):
-```
+#### `modelFieldSetFont(modelName, fieldName, font)`
 *   Sets the font for a field within a given model.
 
     <details>
@@ -2065,9 +1899,7 @@ modelFieldSetFont(modelName, fieldName, font):
     ```
     </details>
 
-```python
-modelFieldSetFontSize(modelName, fieldName, fontSize):
-```
+#### `modelFieldSetFontSize(modelName, fieldName, fontSize)`
 *   Sets the font size for a field within a given model.
 
     <details>
@@ -2079,9 +1911,7 @@ modelFieldSetFontSize(modelName, fieldName, fontSize):
     ```
     </details>
 
-```python
-modelFieldSetDescription(modelName, fieldName, description):
-```
+#### `modelFieldSetDescription(modelName, fieldName, description)`
 *   Sets the description (the text seen in the gui editor when a field is empty) for a
     field within a given model.
 
@@ -2099,9 +1929,7 @@ modelFieldSetDescription(modelName, fieldName, description):
 
 ### Note Actions
 
-```python
-addNote(note):
-```
+#### `addNote(note)`
 *   Creates a note using the given deck and model, with the provided field values and
     tags. Returns the identifier of the created note created on success, and `None` on
     failure.
@@ -2181,9 +2009,7 @@ addNote(note):
     ```
     </details>
 
-```python
-addNotes(notes):
-```
+#### `addNotes(notes)`
 *   Creates multiple notes using the given deck and model, with the provided field
     values and tags. Returns an array of identifiers of the created notes (notes that
     could not be created will have a `None` identifier). Please see the documentation for
@@ -2231,9 +2057,7 @@ addNotes(notes):
     ```
     </details>
 
-```python
-canAddNotes(notes):
-```
+#### `canAddNotes(notes)`
 *   Accepts an array of objects which define parameters for candidate notes (see
     `addNote`) and returns an array of booleans indicating whether or not the parameters
     at the corresponding index could be used to create a new note.
@@ -2256,9 +2080,7 @@ canAddNotes(notes):
     ```
     </details>
 
-```python
-canAddNotesWithErrorDetail(notes):
-```
+#### `canAddNotesWithErrorDetail(notes)`
 *   Accepts an array of objects which define parameters for candidate notes (see
     `addNote`) and returns an array of objects with fields `canAdd` and `error`.
 
@@ -2293,9 +2115,7 @@ canAddNotesWithErrorDetail(notes):
     ```
     </details>
 
-```python
-updateNoteFields(note):
-```
+#### `updateNoteFields(note)`
 *   Modify the fields of an existing note. You can also include audio, video, or
     picture files which will be added to the note with an optional `audio`, `video`, or
     `picture` property. Please see the documentation for `addNote` for an explanation of
@@ -2327,9 +2147,7 @@ updateNoteFields(note):
     ```
     </details>
 
-```python
-updateNote(note):
-```
+#### `updateNote(note)`
 *   Modify the fields and/or tags of an existing note. In other words, combines
     `updateNoteFields` and `updateNoteTags`. Please see their documentation for an
     explanation of all properties.
@@ -2362,9 +2180,7 @@ updateNote(note):
     ```
     </details>
 
-```python
-updateNoteTags(note, tags):
-```
+#### `updateNoteTags(note, tags)`
 *   Set a note's tags by note ID. Old tags will be removed.
 
     <details>
@@ -2376,9 +2192,7 @@ updateNoteTags(note, tags):
     ```
     </details>
 
-```python
-getNoteTags(note):
-```
+#### `getNoteTags(note)`
 *   Get a note's tags by note ID.
 
     <details>
@@ -2390,9 +2204,7 @@ getNoteTags(note):
     ```
     </details>
 
-```python
-addTags(notes, tags):
-```
+#### `addTags(notes, tags)`
 *   Adds tags to notes by note ID.
 
     <details>
@@ -2404,9 +2216,7 @@ addTags(notes, tags):
     ```
     </details>
 
-```python
-removeTags(notes, tags):
-```
+#### `removeTags(notes, tags)`
 *   Remove tags from notes by note ID.
 
     <details>
@@ -2418,9 +2228,7 @@ removeTags(notes, tags):
     ```
     </details>
 
-```python
-getTags():
-```
+#### `getTags()`
 *   Gets the complete list of tags for the current user.
 
     <details>
@@ -2432,9 +2240,7 @@ getTags():
     ```
     </details>
 
-```python
-clearUnusedTags():
-```
+#### `clearUnusedTags()`
 *   Clears all the unused tags in the notes for the current user.
 
     <details>
@@ -2446,9 +2252,7 @@ clearUnusedTags():
     ```
     </details>
 
-```python
-replaceTags(notes, tag_to_replace, replace_with_tag):
-```
+#### `replaceTags(notes, tag_to_replace, replace_with_tag)`
 *   Replace tags in notes by note ID.
 
     <details>
@@ -2460,9 +2264,7 @@ replaceTags(notes, tag_to_replace, replace_with_tag):
     ```
     </details>
 
-```python
-replaceTagsInAllNotes(tag_to_replace, replace_with_tag):
-```
+#### `replaceTagsInAllNotes(tag_to_replace, replace_with_tag)`
 *   Replace tags in all the notes for the current user.
 
     <details>
@@ -2474,9 +2276,7 @@ replaceTagsInAllNotes(tag_to_replace, replace_with_tag):
     ```
     </details>
 
-```python
-findNotes(query):
-```
+#### `findNotes(query)`
 *   Returns an array of note IDs for a given query. Query syntax is [documented
     here](https://docs.ankiweb.net/searching.html).
 
@@ -2489,9 +2289,7 @@ findNotes(query):
     ```
     </details>
 
-```python
-notesInfo(notes):
-```
+#### `notesInfo(notes)`
 *   Returns a list of objects containing for each note ID the note fields, tags, note
     type and the cards belonging to the note.
 
@@ -2514,9 +2312,7 @@ notesInfo(notes):
     ```
     </details>
 
-```python
-deleteNotes(notes):
-```
+#### `deleteNotes(notes)`
 *   Deletes notes with the given ids. If a note has several cards associated with it,
     all associated cards will be deleted.
 
@@ -2529,9 +2325,7 @@ deleteNotes(notes):
     ```
     </details>
 
-```python
-removeEmptyNotes():
-```
+#### `removeEmptyNotes()`
 *   Removes all the empty notes for the current user.
 
     <details>
@@ -2545,9 +2339,7 @@ removeEmptyNotes():
 
 ### Statistic Actions
 
-```python
-getNumCardsReviewedToday():
-```
+#### `getNumCardsReviewedToday()`
 *   Gets the count of cards that have been reviewed in the current day (with day start
     time as configured by user in anki)
 
@@ -2560,9 +2352,7 @@ getNumCardsReviewedToday():
     ```
     </details>
 
-```python
-getNumCardsReviewedByDay():
-```
+#### `getNumCardsReviewedByDay()`
 *   Gets the number of cards reviewed as a list of pairs of `(dateString, number)`
 
     <details>
@@ -2574,9 +2364,7 @@ getNumCardsReviewedByDay():
     ```
     </details>
 
-```python
-getCollectionStatsHTML(wholeCollection):
-```
+#### `getCollectionStatsHTML(wholeCollection)`
 *   Gets the collection statistics report
 
     <details>
@@ -2588,9 +2376,7 @@ getCollectionStatsHTML(wholeCollection):
     ```
     </details>
 
-```python
-cardReviews(deck, startID):
-```
+#### `cardReviews(deck, startID)`
 *   Requests all card reviews for a specified deck after a certain time. `startID` is
     the latest unix time not included in the result. Returns a list of 9-tuples
     `(reviewTime, cardID, usn, buttonPressed, newInterval, previousInterval, newFactor,
@@ -2608,9 +2394,7 @@ cardReviews(deck, startID):
     ```
     </details>
 
-```python
-getReviewsOfCards(cards):
-```
+#### `getReviewsOfCards(cards)`
 *   Requests all card reviews for each card ID. Returns a dictionary mapping each card
     ID to a list of dictionaries of the format:
     ```
@@ -2660,9 +2444,7 @@ getReviewsOfCards(cards):
     ```
     </details>
 
-```python
-getLatestReviewID(deck):
-```
+#### `getLatestReviewID(deck)`
 *   Returns the unix time of the latest review for the given deck. 0 if no review has
     ever been made for the deck.
 
@@ -2675,9 +2457,7 @@ getLatestReviewID(deck):
     ```
     </details>
 
-```python
-insertReviews(reviews):
-```
+#### `insertReviews(reviews)`
 *   Inserts the given reviews into the database. Required format: list of 9-tuples
     `(reviewTime, cardID, usn, buttonPressed, newInterval, previousInterval, newFactor,
     reviewDuration, reviewType)`
