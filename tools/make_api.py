@@ -38,6 +38,17 @@ def invoke(action, **params):
     return response['result']
 '''
 
+CODE_TEMPLATE = '''\
+{func_def}
+{doc}
+    
+    Example::
+{example}
+{example_return_value}
+    """
+{code}
+
+'''
 replace_data = {
     "storeMediaFile": (
         "def storeMediaFile(filename: str, *, data=None, path: str=None, url=None, deleteExisting: bool=True) -> str:",
@@ -134,7 +145,7 @@ def split_to_chunks(lines_gen, func_name):
                 if s == "<details>":
                     mode = 1
                 else:
-                    doc += line + "\n"
+                    doc += line
             case 1:
                 if re.search(REQUEST_SEARCH, s):
                     mode = 2
@@ -145,7 +156,7 @@ def split_to_chunks(lines_gen, func_name):
                 if s.startswith("```"):
                     mode = 4
                 else:
-                    request += line + "\n"
+                    request += line
             case 4:
                 if re.search(RESULT_SEARCH, s):
                     mode = 5
@@ -158,7 +169,7 @@ def split_to_chunks(lines_gen, func_name):
                 if s.startswith("```"):
                     mode = 7
                 else:
-                    result += line + "\n"
+                    result += line
             case 7:
                 if re.search(RESULT_SEARCH, s):
                     print(func_name, "another result")
@@ -223,7 +234,7 @@ def make_func(func_name, doc, request, result):
     example_return_value = black.format_str(repr(d["result"]), mode=black.Mode())
     example_return_value = textwrap.indent(example_return_value, "        ").rstrip()
 
-    code = f'    return invoke({invoke_args_str})\n'
+    code = f'    return invoke({invoke_args_str})'
 
     if func_name in replace_data:
         func_def, code = replace_data[func_name]
@@ -247,14 +258,7 @@ def make_func(func_name, doc, request, result):
     doc = "\n".join(p)
 
     # write every part of the function to the .py file
-    writeln(func_def)
-    writeln(doc)
-    writeln("    ")
-    writeln("    Example::")
-    writeln(example)
-    writeln(example_return_value)
-    writeln('    """')
-    writeln(code + '\n')
+    fout.write(CODE_TEMPLATE.format(**locals()))
 
 
 def writeln(s):
