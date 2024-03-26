@@ -5,5 +5,5 @@
 
 #### Installation:
 ```
-pip install --upgrade anki_connect
+pip install --upgrade anki-connect
 ```

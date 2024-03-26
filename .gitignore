@@ -1,19 +1,19 @@
 # Ignore everything in this directory
 *
 # Except these files
-!/.gitignore
-!/README.md
-!/LICENSE
-!/pyproject.toml
-!/anki_connect.py
+.gitignore
+#!README.md
+# !/LICENSE
+# !/pyproject.toml
+# !/anki_connect.py
 
-!tools/
-!tools/make_docs.py
-!tools/make_api.py
-!tools/requirements.txt
-!tools/anki_connect.header.md
+# !/tools/
+# !tools/make_docs.py
+# !tools/make_api.py
+# !tools/requirements.txt
+# !tools/anki_connect.header.md
 
-!docs/
-!docs/anki_connect.json.md
-!docs/anki_connect.python.md
+# !/docs/
+# !docs/anki_connect.json.md
+# !docs/anki_connect.python.md
 
