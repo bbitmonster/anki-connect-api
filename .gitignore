@@ -10,6 +10,7 @@
 !tools/
 !docs/
 !make_doc.py
+!make_api.py
 !requirements.txt
 !anki_connect.json.md
 !anki_connect.python.md
