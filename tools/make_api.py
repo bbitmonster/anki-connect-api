@@ -5,10 +5,10 @@ from pathlib import Path
 
 import black
 import mistletoe
-from mistletoe.markdown_renderer import MarkdownRenderer, BlankLine
 from mistletoe.span_token import InlineCode, RawText, Link, LineBreak, Emphasis, Strong
-from mistletoe.block_token import (Quote, ThematicBreak, Heading, Paragraph, CodeFence, 
-                                   HtmlBlock, List, ListItem, Document)
+from mistletoe.block_token import Quote, ThematicBreak, Heading, Paragraph, CodeFence
+from mistletoe.block_token import HtmlBlock, List, ListItem, Document
+from mistletoe.markdown_renderer import BlankLine, MarkdownRenderer
 
 REQUEST_SEARCH = re.compile("^<summary><i>Sample.* request.*</i></summary>")
 RESULT_SEARCH = re.compile("^<summary><i>Sample.* result.*</i></summary>")
@@ -132,67 +132,77 @@ def traverse(t, level=0):
 
 def split_to_chunks(lines_gen, func_name):
     """Simple state machine to split the text into the docstring, sample request and sample
-    result part."""
+    result parts."""
 
-    mode = 0
+    state = 0
     doc = ""
     request = ""
     result = ""
+    requests = []
+    results = []
     for line in lines_gen:
-        # look for start of next function definition
-        if line.strip().startswith("###"):
-            # send the line back to the generator, so the caller can take care of it
-            lines_gen.send(line) 
-            # we are done with this block
-            break
         s = line.strip()
-        match(mode):
+        match state:
             case 0:
                 if s == "<details>":
-                    mode = 1
+                    state = 1
                 else:
                     doc += line
             case 1:
                 if re.search(REQUEST_SEARCH, s):
-                    mode = 2
+                    state = 2
             case 2:
-                if s.startswith("```json"):
-                    mode = 3
+                if s == "```json":
+                    state = 3
             case 3:
-                if s.startswith("```"):
-                    mode = 4
+                if s == "```":
+                    requests.append(request)
+                    request = ""
+                    state = 4
                 else:
                     request += line
             case 4:
                 if re.search(RESULT_SEARCH, s):
-                    mode = 5
-                elif re.search(REQUEST_SEARCH, s):
-                    print("another request")
+                    state = 5
             case 5:
-                if s.startswith("```json"):
-                    mode = 6
+                if s == "```json":
+                    state = 6
             case 6:
-                if s.startswith("```"):
-                    mode = 7
+                if s == "```":
+                    results.append(result)
+                    result = ""
+                    state = 7
                 else:
                     result += line
             case 7:
-                if re.search(RESULT_SEARCH, s):
-                    print(func_name, "another result")
-                elif re.search(REQUEST_SEARCH, s):
-                    print(func_name, "another request")
+                if re.search(REQUEST_SEARCH, s):
+                    state = 2
+                elif re.search(RESULT_SEARCH, s):
+                    state = 5
+                # wait for start of next function definition
+                elif line.strip().startswith("###"):
+                    # send the line back to the generator, so the caller can take care of it
+                    lines_gen.send(line) 
+                    # we are done with this block
+                    break
+    return doc, requests, results
 
-    return doc, request, result
 
+def make_func(func_name, doc, requests, results):
+    if len(requests) > 1:
+        print(func_name, len(requests), "requests")
+    if len(results) > 1:
+        print(func_name, len(results), "results")
 
-def make_func(func_name, doc, request, result):
-    doc = traverse(mistletoe.Document(doc))
+    with MarkdownRenderer():
+        doc = traverse(mistletoe.Document(doc))
     doc = " " + doc.strip()[1:] # remove the list asterisk
     doc = doc.replace("`null`", "`None`")
     doc = doc.replace("`true`", "`True`")
     doc = doc.replace("`false`", "`False`")
     doc = textwrap.dedent(doc)
 
+    request = requests[0]
     # process sample request 
     data = json.loads(request)
     invoke_args = [f'"{func_name}"']
@@ -206,6 +216,7 @@ def make_func(func_name, doc, request, result):
     invoke_args_str = ", ".join(invoke_args)
     func_args_str = ", ".join(func_args)
 
+    result = results[0]
     # process sample result
     data = json.loads(result)
     if data["result"] is None:
@@ -282,8 +293,8 @@ with (source_file_path.open('r', encoding="utf-8") as fin,
         elif line.startswith("#### "):
             # new function
             func_name = line[5:].strip().replace("`", "")
-            doc, request, result = split_to_chunks(lines_gen, func_name)
-            make_func(func_name, doc, request, result)
+            doc, requests, results = split_to_chunks(lines_gen, func_name)
+            make_func(func_name, doc, requests, results)
         else:
             if line != "\n":
                 print("ignored line:", repr(line))

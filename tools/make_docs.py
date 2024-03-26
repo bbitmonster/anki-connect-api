@@ -35,7 +35,7 @@ def write_python_func(fout, func_name, args, docstring):
     desc = "*" + desc[1:]
     example = dedent(example).strip()
 
-    fout.write(f"```python\ndef {func_name}({args}):\n```\n")
+    fout.write(f"```python\n{func_name}({args}):\n```\n")
     fout.write(desc)
     s = CODE_TEMPLATE.format(desc="Example", lang="python", code=example)
     fout.write(indent(s, "    "))

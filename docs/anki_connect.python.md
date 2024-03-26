@@ -203,7 +203,7 @@ Search parameters are passed to Anki, check the docs for more information: https
 ### Card Actions
 
 ```python
-def getEaseFactors(cards):
+getEaseFactors(cards):
 ```
 *   Returns an array with the ease factor for each of the given cards (in the same
     order).
@@ -218,7 +218,7 @@ def getEaseFactors(cards):
     </details>
 
 ```python
-def setEaseFactors(cards, easeFactors):
+setEaseFactors(cards, easeFactors):
 ```
 *   Sets ease factor of cards by card ID; returns `True` if successful (all cards
     existed) or `False` otherwise.
@@ -233,7 +233,7 @@ def setEaseFactors(cards, easeFactors):
     </details>
 
 ```python
-def setSpecificValueOfCard(card, keys, newValues):
+setSpecificValueOfCard(card, keys, newValues):
 ```
 *   Sets specific value of a single card. Given the risk of wreaking havor in the
     database when changing some of the values of a card, some of the keys require the
@@ -253,7 +253,7 @@ def setSpecificValueOfCard(card, keys, newValues):
     </details>
 
 ```python
-def suspend(cards):
+suspend(cards):
 ```
 *   Suspend cards by card ID; returns `True` if successful (at least one card wasn't
     already suspended) or `False` otherwise.
@@ -268,7 +268,7 @@ def suspend(cards):
     </details>
 
 ```python
-def unsuspend(cards):
+unsuspend(cards):
 ```
 *   Unsuspend cards by card ID; returns `True` if successful (at least one card was
     previously suspended) or `False` otherwise.
@@ -283,7 +283,7 @@ def unsuspend(cards):
     </details>
 
 ```python
-def suspended(card):
+suspended(card):
 ```
 *   Check if card is suspended by its ID. Returns `True` if suspended, `False`
     otherwise.
@@ -298,7 +298,7 @@ def suspended(card):
     </details>
 
 ```python
-def areSuspended(cards):
+areSuspended(cards):
 ```
 *   Returns an array indicating whether each of the given cards is suspended (in the
     same order). If card doesn't exist returns `None`.
@@ -313,7 +313,7 @@ def areSuspended(cards):
     </details>
 
 ```python
-def areDue(cards):
+areDue(cards):
 ```
 *   Returns an array indicating whether each of the given cards is due (in the same
     order). *Note*: cards in the learning queue with a large interval (over 20 minutes)
@@ -330,7 +330,7 @@ def areDue(cards):
     </details>
 
 ```python
-def getIntervals(cards, complete):
+getIntervals(cards, complete):
 ```
 *   Returns an array of the most recent intervals for each given card ID, or a
     2-dimensional array of all the intervals for each given card ID when `complete` is
@@ -346,7 +346,7 @@ def getIntervals(cards, complete):
     </details>
 
 ```python
-def findCards(query):
+findCards(query):
 ```
 *   Returns an array of card IDs for a given query. Functionally identical to
     `guiBrowse` but doesn't use the GUI for better performance.
@@ -361,7 +361,7 @@ def findCards(query):
     </details>
 
 ```python
-def cardsToNotes(cards):
+cardsToNotes(cards):
 ```
 *   Returns an unordered array of note IDs for the given card IDs. For cards with the
     same note, the ID is only given once in the array.
@@ -376,7 +376,7 @@ def cardsToNotes(cards):
     </details>
 
 ```python
-def cardsModTime(cards):
+cardsModTime(cards):
 ```
 *   Returns a list of objects containings for each card ID the modification time. This
     function is about 15 times faster than executing `cardsInfo`.
@@ -391,7 +391,7 @@ def cardsModTime(cards):
     </details>
 
 ```python
-def cardsInfo(cards):
+cardsInfo(cards):
 ```
 *   Returns a list of objects containing for each card ID the card fields, front and
     back sides including CSS, note type, the note that the card belongs to, and deck name,
@@ -453,7 +453,7 @@ def cardsInfo(cards):
     </details>
 
 ```python
-def forgetCards(cards):
+forgetCards(cards):
 ```
 *   Forget cards, making the cards new again.
 
@@ -467,7 +467,7 @@ def forgetCards(cards):
     </details>
 
 ```python
-def relearnCards(cards):
+relearnCards(cards):
 ```
 *   Make cards be "relearning".
 
@@ -481,7 +481,7 @@ def relearnCards(cards):
     </details>
 
 ```python
-def answerCards(answers):
+answerCards(answers):
 ```
 *   Answer cards. Ease is between 1 (Again) and 4 (Easy). Will start the timer
     immediately before answering. Returns `True` if card exists, `False` otherwise.
@@ -500,7 +500,7 @@ def answerCards(answers):
 ### Deck Actions
 
 ```python
-def deckNames():
+deckNames():
 ```
 *   Gets the complete list of deck names for the current user.
 
@@ -514,7 +514,7 @@ def deckNames():
     </details>
 
 ```python
-def deckNamesAndIds():
+deckNamesAndIds():
 ```
 *   Gets the complete list of deck names and their respective IDs for the current user.
 
@@ -528,7 +528,7 @@ def deckNamesAndIds():
     </details>
 
 ```python
-def getDecks(cards):
+getDecks(cards):
 ```
 *   Accepts an array of card IDs and returns an object with each deck name as a key,
     and its value an array of the given cards which belong to it.
@@ -543,7 +543,7 @@ def getDecks(cards):
     </details>
 
 ```python
-def createDeck(deck):
+createDeck(deck):
 ```
 *   Create a new empty deck. Will not overwrite a deck that exists with the same name.
 
@@ -557,7 +557,7 @@ def createDeck(deck):
     </details>
 
 ```python
-def changeDeck(cards, deck):
+changeDeck(cards, deck):
 ```
 *   Moves cards with the given IDs to a different deck, creating the deck if it doesn't
     exist yet.
@@ -572,7 +572,7 @@ def changeDeck(cards, deck):
     </details>
 
 ```python
-def deleteDecks(decks, cardsToo):
+deleteDecks(decks, cardsToo):
 ```
 *   Deletes decks with the given names. The argument `cardsToo` *must* be specified and
     set to `True`.
@@ -587,7 +587,7 @@ def deleteDecks(decks, cardsToo):
     </details>
 
 ```python
-def getDeckConfig(deck):
+getDeckConfig(deck):
 ```
 *   Gets the configuration group object for the given deck.
 
@@ -636,7 +636,7 @@ def getDeckConfig(deck):
     </details>
 
 ```python
-def saveDeckConfig(config):
+saveDeckConfig(config):
 ```
 *   Saves the given configuration group, returning `True` on success or `False` if the
     ID of the configuration group is invalid (such as when it does not exist).
@@ -688,7 +688,7 @@ def saveDeckConfig(config):
     </details>
 
 ```python
-def setDeckConfigId(decks, configId):
+setDeckConfigId(decks, configId):
 ```
 *   Changes the configuration group for the given decks to the one with the given ID.
     Returns `True` on success or `False` if the given configuration group or any of the
@@ -704,7 +704,7 @@ def setDeckConfigId(decks, configId):
     </details>
 
 ```python
-def cloneDeckConfigId(name, cloneFrom):
+cloneDeckConfigId(name, cloneFrom):
 ```
 *   Creates a new configuration group with the given name, cloning from the group with
     the given ID, or from the default group if this is unspecified. Returns the ID of the
@@ -721,7 +721,7 @@ def cloneDeckConfigId(name, cloneFrom):
     </details>
 
 ```python
-def removeDeckConfigId(configId):
+removeDeckConfigId(configId):
 ```
 *   Removes the configuration group with the given ID, returning `True` if successful,
     or `False` if attempting to remove either the default configuration group (ID = 1) or
@@ -737,7 +737,7 @@ def removeDeckConfigId(configId):
     </details>
 
 ```python
-def getDeckStats(decks):
+getDeckStats(decks):
 ```
 *   Gets statistics such as total cards and cards due for the given decks.
 
@@ -770,7 +770,7 @@ def getDeckStats(decks):
 ### Graphical Actions
 
 ```python
-def guiBrowse(query, reorderCards):
+guiBrowse(query, reorderCards):
 ```
 *   Invokes the *Card Browser* dialog and searches for a given query. Returns an array
     of identifiers of the cards that were found. Query syntax is [documented
@@ -793,7 +793,7 @@ def guiBrowse(query, reorderCards):
     </details>
 
 ```python
-def guiSelectNote(note):
+guiSelectNote(note):
 ```
 *   Finds the open instance of the *Card Browser* dialog and selects a note given a
     note identifier. Returns `True` if the *Card Browser* is open, `False` otherwise.
@@ -808,7 +808,7 @@ def guiSelectNote(note):
     </details>
 
 ```python
-def guiSelectedNotes():
+guiSelectedNotes():
 ```
 *   Finds the open instance of the *Card Browser* dialog and returns an array of
     identifiers of the notes that are selected. Returns an empty list if the browser is
@@ -824,7 +824,7 @@ def guiSelectedNotes():
     </details>
 
 ```python
-def guiAddCards(note):
+guiAddCards(note):
 ```
 *   Invokes the *Add Cards* dialog, presets the note using the given deck and model,
     with the provided field values and tags. Invoking it multiple times closes the old
@@ -864,7 +864,7 @@ def guiAddCards(note):
     </details>
 
 ```python
-def guiEditNote(note):
+guiEditNote(note):
 ```
 *   Opens the *Edit* dialog with a note corresponding to given note ID. The dialog is
     similar to the *Edit Current* dialog, but:
@@ -884,7 +884,7 @@ def guiEditNote(note):
     </details>
 
 ```python
-def guiCurrentCard():
+guiCurrentCard():
 ```
 *   Returns information about the current card or `None` if not in review mode.
 
@@ -912,7 +912,7 @@ def guiCurrentCard():
     </details>
 
 ```python
-def guiStartCardTimer():
+guiStartCardTimer():
 ```
 *   Starts or resets the `timerStarted` value for the current card. This is useful for
     deferring the start time to when it is displayed via the API, allowing the recorded
@@ -928,7 +928,7 @@ def guiStartCardTimer():
     </details>
 
 ```python
-def guiShowQuestion():
+guiShowQuestion():
 ```
 *   Shows question text for the current card; returns `True` if in review mode or
     `False` otherwise.
@@ -943,7 +943,7 @@ def guiShowQuestion():
     </details>
 
 ```python
-def guiShowAnswer():
+guiShowAnswer():
 ```
 *   Shows answer text for the current card; returns `True` if in review mode or `False`
     otherwise.
@@ -958,7 +958,7 @@ def guiShowAnswer():
     </details>
 
 ```python
-def guiAnswerCard(ease):
+guiAnswerCard(ease):
 ```
 *   Answers the current card; returns `True` if succeeded or `False` otherwise. Note
     that the answer for the current card must be displayed before before any answer can be
@@ -974,7 +974,7 @@ def guiAnswerCard(ease):
     </details>
 
 ```python
-def guiUndo():
+guiUndo():
 ```
 *   Undo the last action / card; returns `True` if succeeded or `False` otherwise.
 
@@ -988,7 +988,7 @@ def guiUndo():
     </details>
 
 ```python
-def guiDeckOverview(name):
+guiDeckOverview(name):
 ```
 *   Opens the *Deck Overview* dialog for the deck with the given name; returns `True`
     if succeeded or `False` otherwise.
@@ -1003,7 +1003,7 @@ def guiDeckOverview(name):
     </details>
 
 ```python
-def guiDeckBrowser():
+guiDeckBrowser():
 ```
 *   Opens the *Deck Browser* dialog.
 
@@ -1017,7 +1017,7 @@ def guiDeckBrowser():
     </details>
 
 ```python
-def guiDeckReview(name):
+guiDeckReview(name):
 ```
 *   Starts review for the deck with the given name; returns `True` if succeeded or
     `False` otherwise.
@@ -1032,7 +1032,7 @@ def guiDeckReview(name):
     </details>
 
 ```python
-def guiImportFile(path):
+guiImportFile(path):
 ```
 *   Invokes the *Import... (Ctrl+Shift+I)* dialog with an optional file path. Brings up
     the dialog for user to review the import. Supports all file types that Anki supports.
@@ -1049,7 +1049,7 @@ def guiImportFile(path):
     </details>
 
 ```python
-def guiExitAnki():
+guiExitAnki():
 ```
 *   Schedules a request to gracefully close Anki. This operation is asynchronous, so it
     will return immediately and won't wait until the Anki process actually terminates.
@@ -1064,7 +1064,7 @@ def guiExitAnki():
     </details>
 
 ```python
-def guiCheckDatabase():
+guiCheckDatabase():
 ```
 *   Requests a database check, but returns immediately without waiting for the check to
     complete. Therefore, the action will always return `True` even if errors are detected
@@ -1082,7 +1082,7 @@ def guiCheckDatabase():
 ### Media Actions
 
 ```python
-def storeMediaFile(filename):
+storeMediaFile(filename):
 ```
 *   Stores a file with the specified base64-encoded contents inside the media folder.
     Alternatively you can specify a absolute file path, or a url from where the file shell
@@ -1104,7 +1104,7 @@ def storeMediaFile(filename):
     </details>
 
 ```python
-def retrieveMediaFile(filename):
+retrieveMediaFile(filename):
 ```
 *   Retrieves the base64-encoded contents of the specified file, returning `False` if
     the file does not exist.
@@ -1119,7 +1119,7 @@ def retrieveMediaFile(filename):
     </details>
 
 ```python
-def getMediaFilesNames(pattern):
+getMediaFilesNames(pattern):
 ```
 *   Gets the names of media files matched the pattern. Returning all names by default.
 
@@ -1133,7 +1133,7 @@ def getMediaFilesNames(pattern):
     </details>
 
 ```python
-def getMediaDirPath():
+getMediaDirPath():
 ```
 *   Gets the full path to the `collection.media` folder of the currently opened
     profile.
@@ -1148,7 +1148,7 @@ def getMediaDirPath():
     </details>
 
 ```python
-def deleteMediaFile(filename):
+deleteMediaFile(filename):
 ```
 *   Deletes the specified file inside the media folder.
 
@@ -1164,7 +1164,7 @@ def deleteMediaFile(filename):
 ### Miscellaneous Actions
 
 ```python
-def requestPermission():
+requestPermission():
 ```
 *   Requests permission to use the API exposed by this plugin. This method does not
     require the API key, and is the only one that accepts requests from any origin; the
@@ -1197,7 +1197,7 @@ def requestPermission():
     </details>
 
 ```python
-def version():
+version():
 ```
 *   Gets the version of the API exposed by this plugin. Currently versions `1` through
     `6` are defined.
@@ -1212,7 +1212,7 @@ def version():
     </details>
 
 ```python
-def apiReflect(scopes, actions):
+apiReflect(scopes, actions):
 ```
 *   Gets information about the AnkiConnect APIs available. The request supports the
     following params:
@@ -1237,7 +1237,7 @@ def apiReflect(scopes, actions):
     </details>
 
 ```python
-def sync():
+sync():
 ```
 *   Synchronizes the local Anki collections with AnkiWeb.
 
@@ -1251,7 +1251,7 @@ def sync():
     </details>
 
 ```python
-def getProfiles():
+getProfiles():
 ```
 *   Retrieve the list of profiles.
 
@@ -1265,7 +1265,7 @@ def getProfiles():
     </details>
 
 ```python
-def loadProfile(name):
+loadProfile(name):
 ```
 *   Selects the profile specified in request.
 
@@ -1279,7 +1279,7 @@ def loadProfile(name):
     </details>
 
 ```python
-def multi(actions):
+multi(actions):
 ```
 *   Performs multiple actions in one request, returning an array with the response of
     each action (in the given order).
@@ -1306,7 +1306,7 @@ def multi(actions):
     </details>
 
 ```python
-def exportPackage(deck, path, includeSched):
+exportPackage(deck, path, includeSched):
 ```
 *   Exports a given deck in `.apkg` format. Returns `True` if successful or `False`
     otherwise. The optional property `includeSched` (default is `False`) can be specified
@@ -1322,7 +1322,7 @@ def exportPackage(deck, path, includeSched):
     </details>
 
 ```python
-def importPackage(path):
+importPackage(path):
 ```
 *   Imports a file in `.apkg` format into the collection. Returns `True` if successful
     or `False` otherwise. Note that the file path is relative to Anki's collection.media
@@ -1338,7 +1338,7 @@ def importPackage(path):
     </details>
 
 ```python
-def reloadCollection():
+reloadCollection():
 ```
 *   Tells anki to reload all data from the database.
 
@@ -1354,7 +1354,7 @@ def reloadCollection():
 ### Model Actions
 
 ```python
-def modelNames():
+modelNames():
 ```
 *   Gets the complete list of model names for the current user.
 
@@ -1368,7 +1368,7 @@ def modelNames():
     </details>
 
 ```python
-def modelNamesAndIds():
+modelNamesAndIds():
 ```
 *   Gets the complete list of model names and their corresponding IDs for the current
     user.
@@ -1388,7 +1388,7 @@ def modelNamesAndIds():
     </details>
 
 ```python
-def findModelsById(modelIds):
+findModelsById(modelIds):
 ```
 *   Gets a list of models  for the provided model IDs from the current user.
 
@@ -1537,7 +1537,7 @@ def findModelsById(modelIds):
     </details>
 
 ```python
-def findModelsByName(modelNames):
+findModelsByName(modelNames):
 ```
 *   Gets a list of models for the provided model names from the current user.
 
@@ -1686,7 +1686,7 @@ def findModelsByName(modelNames):
     </details>
 
 ```python
-def modelFieldNames(modelName):
+modelFieldNames(modelName):
 ```
 *   Gets the complete list of field names for the provided model name.
 
@@ -1700,7 +1700,7 @@ def modelFieldNames(modelName):
     </details>
 
 ```python
-def modelFieldDescriptions(modelName):
+modelFieldDescriptions(modelName):
 ```
 *   Gets the complete list of field descriptions (the text seen in the gui editor when
     a field is empty) for the provided model name.
@@ -1715,7 +1715,7 @@ def modelFieldDescriptions(modelName):
     </details>
 
 ```python
-def modelFieldFonts(modelName):
+modelFieldFonts(modelName):
 ```
 *   Gets the complete list of fonts along with their font sizes.
 
@@ -1729,7 +1729,7 @@ def modelFieldFonts(modelName):
     </details>
 
 ```python
-def modelFieldsOnTemplates(modelName):
+modelFieldsOnTemplates(modelName):
 ```
 *   Returns an object indicating the fields on the question and answer side of each
     card template for the given model name. The question side is given first in each
@@ -1745,7 +1745,7 @@ def modelFieldsOnTemplates(modelName):
     </details>
 
 ```python
-def createModel(modelName, inOrderFields, css, isCloze, cardTemplates):
+createModel(modelName, inOrderFields, css, isCloze, cardTemplates):
 ```
 *   Creates a new model to be used in Anki. User must provide the `modelName`,
     `inOrderFields` and `cardTemplates` to be used in the model. There are optional fields
@@ -1823,7 +1823,7 @@ def createModel(modelName, inOrderFields, css, isCloze, cardTemplates):
     </details>
 
 ```python
-def modelTemplates(modelName):
+modelTemplates(modelName):
 ```
 *   Returns an object indicating the template content for each card connected to the
     provided model by name.
@@ -1847,7 +1847,7 @@ def modelTemplates(modelName):
     </details>
 
 ```python
-def modelStyling(modelName):
+modelStyling(modelName):
 ```
 *   Gets the CSS styling for the provided model by name.
 
@@ -1863,7 +1863,7 @@ def modelStyling(modelName):
     </details>
 
 ```python
-def updateModelTemplates(model):
+updateModelTemplates(model):
 ```
 *   Modify the templates of an existing model by name. Only specifies cards and
     specified sides will be modified. If an existing card or side is not included in the
@@ -1884,7 +1884,7 @@ def updateModelTemplates(model):
     </details>
 
 ```python
-def updateModelStyling(model):
+updateModelStyling(model):
 ```
 *   Modify the CSS styling of an existing model by name.
 
@@ -1898,7 +1898,7 @@ def updateModelStyling(model):
     </details>
 
 ```python
-def findAndReplaceInModels(model):
+findAndReplaceInModels(model):
 ```
 *   Find and replace string in existing model by model name. Customise to replace in
     front, back or css by setting to true/false.
@@ -1922,7 +1922,7 @@ def findAndReplaceInModels(model):
     </details>
 
 ```python
-def modelTemplateRename(modelName, oldTemplateName, newTemplateName):
+modelTemplateRename(modelName, oldTemplateName, newTemplateName):
 ```
 *   Renames a template in an existing model.
 
@@ -1936,7 +1936,7 @@ def modelTemplateRename(modelName, oldTemplateName, newTemplateName):
     </details>
 
 ```python
-def modelTemplateReposition(modelName, templateName, index):
+modelTemplateReposition(modelName, templateName, index):
 ```
 *   Repositions a template in an existing model.
 
@@ -1953,7 +1953,7 @@ def modelTemplateReposition(modelName, templateName, index):
     </details>
 
 ```python
-def modelTemplateAdd(modelName, template):
+modelTemplateAdd(modelName, template):
 ```
 *   Adds a template to an existing model by name. If you want to update an existing
     template, use `updateModelTemplates`.
@@ -1975,7 +1975,7 @@ def modelTemplateAdd(modelName, template):
     </details>
 
 ```python
-def modelTemplateRemove(modelName, templateName):
+modelTemplateRemove(modelName, templateName):
 ```
 *   Removes a template from an existing model.
 
@@ -1989,7 +1989,7 @@ def modelTemplateRemove(modelName, templateName):
     </details>
 
 ```python
-def modelFieldRename(modelName, oldFieldName, newFieldName):
+modelFieldRename(modelName, oldFieldName, newFieldName):
 ```
 *   Rename the field name of a given model.
 
@@ -2003,7 +2003,7 @@ def modelFieldRename(modelName, oldFieldName, newFieldName):
     </details>
 
 ```python
-def modelFieldReposition(modelName, fieldName, index):
+modelFieldReposition(modelName, fieldName, index):
 ```
 *   Reposition the field within the field list of a given model.
 
@@ -2020,7 +2020,7 @@ def modelFieldReposition(modelName, fieldName, index):
     </details>
 
 ```python
-def modelFieldAdd(modelName, fieldName, index):
+modelFieldAdd(modelName, fieldName, index):
 ```
 *   Creates a new field within a given model.
 
@@ -2038,7 +2038,7 @@ def modelFieldAdd(modelName, fieldName, index):
     </details>
 
 ```python
-def modelFieldRemove(modelName, fieldName):
+modelFieldRemove(modelName, fieldName):
 ```
 *   Deletes a field within a given model.
 
@@ -2052,7 +2052,7 @@ def modelFieldRemove(modelName, fieldName):
     </details>
 
 ```python
-def modelFieldSetFont(modelName, fieldName, font):
+modelFieldSetFont(modelName, fieldName, font):
 ```
 *   Sets the font for a field within a given model.
 
@@ -2066,7 +2066,7 @@ def modelFieldSetFont(modelName, fieldName, font):
     </details>
 
 ```python
-def modelFieldSetFontSize(modelName, fieldName, fontSize):
+modelFieldSetFontSize(modelName, fieldName, fontSize):
 ```
 *   Sets the font size for a field within a given model.
 
@@ -2080,7 +2080,7 @@ def modelFieldSetFontSize(modelName, fieldName, fontSize):
     </details>
 
 ```python
-def modelFieldSetDescription(modelName, fieldName, description):
+modelFieldSetDescription(modelName, fieldName, description):
 ```
 *   Sets the description (the text seen in the gui editor when a field is empty) for a
     field within a given model.
@@ -2100,7 +2100,7 @@ def modelFieldSetDescription(modelName, fieldName, description):
 ### Note Actions
 
 ```python
-def addNote(note):
+addNote(note):
 ```
 *   Creates a note using the given deck and model, with the provided field values and
     tags. Returns the identifier of the created note created on success, and `None` on
@@ -2182,7 +2182,7 @@ def addNote(note):
     </details>
 
 ```python
-def addNotes(notes):
+addNotes(notes):
 ```
 *   Creates multiple notes using the given deck and model, with the provided field
     values and tags. Returns an array of identifiers of the created notes (notes that
@@ -2232,7 +2232,7 @@ def addNotes(notes):
     </details>
 
 ```python
-def canAddNotes(notes):
+canAddNotes(notes):
 ```
 *   Accepts an array of objects which define parameters for candidate notes (see
     `addNote`) and returns an array of booleans indicating whether or not the parameters
@@ -2257,7 +2257,7 @@ def canAddNotes(notes):
     </details>
 
 ```python
-def canAddNotesWithErrorDetail(notes):
+canAddNotesWithErrorDetail(notes):
 ```
 *   Accepts an array of objects which define parameters for candidate notes (see
     `addNote`) and returns an array of objects with fields `canAdd` and `error`.
@@ -2294,7 +2294,7 @@ def canAddNotesWithErrorDetail(notes):
     </details>
 
 ```python
-def updateNoteFields(note):
+updateNoteFields(note):
 ```
 *   Modify the fields of an existing note. You can also include audio, video, or
     picture files which will be added to the note with an optional `audio`, `video`, or
@@ -2328,7 +2328,7 @@ def updateNoteFields(note):
     </details>
 
 ```python
-def updateNote(note):
+updateNote(note):
 ```
 *   Modify the fields and/or tags of an existing note. In other words, combines
     `updateNoteFields` and `updateNoteTags`. Please see their documentation for an
@@ -2363,7 +2363,7 @@ def updateNote(note):
     </details>
 
 ```python
-def updateNoteTags(note, tags):
+updateNoteTags(note, tags):
 ```
 *   Set a note's tags by note ID. Old tags will be removed.
 
@@ -2377,7 +2377,7 @@ def updateNoteTags(note, tags):
     </details>
 
 ```python
-def getNoteTags(note):
+getNoteTags(note):
 ```
 *   Get a note's tags by note ID.
 
@@ -2391,7 +2391,7 @@ def getNoteTags(note):
     </details>
 
 ```python
-def addTags(notes, tags):
+addTags(notes, tags):
 ```
 *   Adds tags to notes by note ID.
 
@@ -2405,7 +2405,7 @@ def addTags(notes, tags):
     </details>
 
 ```python
-def removeTags(notes, tags):
+removeTags(notes, tags):
 ```
 *   Remove tags from notes by note ID.
 
@@ -2419,7 +2419,7 @@ def removeTags(notes, tags):
     </details>
 
 ```python
-def getTags():
+getTags():
 ```
 *   Gets the complete list of tags for the current user.
 
@@ -2433,7 +2433,7 @@ def getTags():
     </details>
 
 ```python
-def clearUnusedTags():
+clearUnusedTags():
 ```
 *   Clears all the unused tags in the notes for the current user.
 
@@ -2447,7 +2447,7 @@ def clearUnusedTags():
     </details>
 
 ```python
-def replaceTags(notes, tag_to_replace, replace_with_tag):
+replaceTags(notes, tag_to_replace, replace_with_tag):
 ```
 *   Replace tags in notes by note ID.
 
@@ -2461,7 +2461,7 @@ def replaceTags(notes, tag_to_replace, replace_with_tag):
     </details>
 
 ```python
-def replaceTagsInAllNotes(tag_to_replace, replace_with_tag):
+replaceTagsInAllNotes(tag_to_replace, replace_with_tag):
 ```
 *   Replace tags in all the notes for the current user.
 
@@ -2475,7 +2475,7 @@ def replaceTagsInAllNotes(tag_to_replace, replace_with_tag):
     </details>
 
 ```python
-def findNotes(query):
+findNotes(query):
 ```
 *   Returns an array of note IDs for a given query. Query syntax is [documented
     here](https://docs.ankiweb.net/searching.html).
@@ -2490,7 +2490,7 @@ def findNotes(query):
     </details>
 
 ```python
-def notesInfo(notes):
+notesInfo(notes):
 ```
 *   Returns a list of objects containing for each note ID the note fields, tags, note
     type and the cards belonging to the note.
@@ -2515,7 +2515,7 @@ def notesInfo(notes):
     </details>
 
 ```python
-def deleteNotes(notes):
+deleteNotes(notes):
 ```
 *   Deletes notes with the given ids. If a note has several cards associated with it,
     all associated cards will be deleted.
@@ -2530,7 +2530,7 @@ def deleteNotes(notes):
     </details>
 
 ```python
-def removeEmptyNotes():
+removeEmptyNotes():
 ```
 *   Removes all the empty notes for the current user.
 
@@ -2546,7 +2546,7 @@ def removeEmptyNotes():
 ### Statistic Actions
 
 ```python
-def getNumCardsReviewedToday():
+getNumCardsReviewedToday():
 ```
 *   Gets the count of cards that have been reviewed in the current day (with day start
     time as configured by user in anki)
@@ -2561,7 +2561,7 @@ def getNumCardsReviewedToday():
     </details>
 
 ```python
-def getNumCardsReviewedByDay():
+getNumCardsReviewedByDay():
 ```
 *   Gets the number of cards reviewed as a list of pairs of `(dateString, number)`
 
@@ -2575,7 +2575,7 @@ def getNumCardsReviewedByDay():
     </details>
 
 ```python
-def getCollectionStatsHTML(wholeCollection):
+getCollectionStatsHTML(wholeCollection):
 ```
 *   Gets the collection statistics report
 
@@ -2589,7 +2589,7 @@ def getCollectionStatsHTML(wholeCollection):
     </details>
 
 ```python
-def cardReviews(deck, startID):
+cardReviews(deck, startID):
 ```
 *   Requests all card reviews for a specified deck after a certain time. `startID` is
     the latest unix time not included in the result. Returns a list of 9-tuples
@@ -2609,7 +2609,7 @@ def cardReviews(deck, startID):
     </details>
 
 ```python
-def getReviewsOfCards(cards):
+getReviewsOfCards(cards):
 ```
 *   Requests all card reviews for each card ID. Returns a dictionary mapping each card
     ID to a list of dictionaries of the format:
@@ -2661,7 +2661,7 @@ def getReviewsOfCards(cards):
     </details>
 
 ```python
-def getLatestReviewID(deck):
+getLatestReviewID(deck):
 ```
 *   Returns the unix time of the latest review for the given deck. 0 if no review has
     ever been made for the deck.
@@ -2676,7 +2676,7 @@ def getLatestReviewID(deck):
     </details>
 
 ```python
-def insertReviews(reviews):
+insertReviews(reviews):
 ```
 *   Inserts the given reviews into the database. Required format: list of 9-tuples
     `(reviewTime, cardID, usn, buttonPressed, newInterval, previousInterval, newFactor,
