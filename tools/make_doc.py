@@ -35,7 +35,7 @@ def write_python_func(f, func_name, args, docstring):
     desc = "*" + desc[1:]
     example = dedent(example).strip()
 
-    f.write(f"##### `{func_name}({args})`\n\n")
+    f.write(f"```python\ndef {func_name}({args}):\n```\n")
     f.write(desc)
     s = CODE_TEMPLATE.format(desc="Example", lang="python", code=example)
     f.write(indent(s, "    "))
@@ -82,7 +82,6 @@ with open(script_dir.parent / "anki_connect.py", 'r', encoding="utf-8") as file:
 
 with open(script_dir / "anki_connect.header.md", 'r', encoding="utf-8") as file:
     header = file.read()
-
 
 jobs = (
     (script_dir.parent / "docs" / "anki_connect.python.md", write_python_func),

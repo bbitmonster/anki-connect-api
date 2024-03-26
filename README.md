@@ -1,8 +1,9 @@
-[Anki-Connect Homepage](https://git.foosoft.net/alex/anki-connect)
+#### [Anki-Connect Homepage](https://git.foosoft.net/alex/anki-connect)
 
-[API Documentation](https://github.com/bbitmonster/anki-connect-api/blob/master/docs/anki_connect.python.md)
+#### [API Documentation](https://github.com/bbitmonster/anki-connect-api/blob/master/docs/anki_connect.python.md)
 
-### Installation:
+
+#### Installation:
 ```
-pip install anki_connect
+pip install --upgrade anki_connect
 ```

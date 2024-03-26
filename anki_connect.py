@@ -35,8 +35,8 @@ def getEaseFactors(cards: list) -> list:
 
 
 def setEaseFactors(cards: list, easeFactors: list) -> list:
-    """Sets ease factor of cards by card ID; returns `true` if successful (all cards
-    existed) or `false` otherwise.
+    """Sets ease factor of cards by card ID; returns `True` if successful (all cards
+    existed) or `False` otherwise.
     
     Example::
         >>> setEaseFactors([1483959291685, 1483959293217], [4100, 3900])
@@ -62,8 +62,8 @@ def setSpecificValueOfCard(card: int, keys: list, newValues: list) -> list:
 
 
 def suspend(cards: list) -> bool:
-    """Suspend cards by card ID; returns `true` if successful (at least one card wasn't
-    already suspended) or `false` otherwise.
+    """Suspend cards by card ID; returns `True` if successful (at least one card wasn't
+    already suspended) or `False` otherwise.
     
     Example::
         >>> suspend([1483959291685, 1483959293217])
@@ -73,8 +73,8 @@ def suspend(cards: list) -> bool:
 
 
 def unsuspend(cards: list) -> bool:
-    """Unsuspend cards by card ID; returns `true` if successful (at least one card was
-    previously suspended) or `false` otherwise.
+    """Unsuspend cards by card ID; returns `True` if successful (at least one card was
+    previously suspended) or `False` otherwise.
     
     Example::
         >>> unsuspend([1483959291685, 1483959293217])
@@ -84,7 +84,7 @@ def unsuspend(cards: list) -> bool:
 
 
 def suspended(card: int) -> bool:
-    """Check if card is suspended by its ID. Returns `true` if suspended, `false`
+    """Check if card is suspended by its ID. Returns `True` if suspended, `False`
     otherwise.
     
     Example::
@@ -96,7 +96,7 @@ def suspended(card: int) -> bool:
 
 def areSuspended(cards: list) -> list:
     """Returns an array indicating whether each of the given cards is suspended (in the
-    same order). If card doesn't exist returns `null`.
+    same order). If card doesn't exist returns `None`.
     
     Example::
         >>> areSuspended([1483959291685, 1483959293217, 1234567891234])
@@ -121,7 +121,7 @@ def areDue(cards: list) -> list:
 def getIntervals(cards: list, complete: bool=False) -> list:
     """Returns an array of the most recent intervals for each given card ID, or a
     2-dimensional array of all the intervals for each given card ID when `complete` is
-    `true`. Negative intervals are in seconds and positive intervals in days.
+    `True`. Negative intervals are in seconds and positive intervals in days.
     
     Example::
         >>> getIntervals([1502298033753, 1502298036657])
@@ -242,7 +242,7 @@ def relearnCards(cards: list) -> None:
 
 def answerCards(answers: list) -> list:
     """Answer cards. Ease is between 1 (Again) and 4 (Easy). Will start the timer
-    immediately before answering. Returns `true` if card exists, `false` otherwise.
+    immediately before answering. Returns `True` if card exists, `False` otherwise.
     
     Example::
         >>> answerCards(
@@ -309,7 +309,7 @@ def changeDeck(cards: list, deck: str) -> None:
 
 def deleteDecks(decks: list, cardsToo: bool) -> None:
     """Deletes decks with the given names. The argument `cardsToo` *must* be specified and
-    set to `true`.
+    set to `True`.
     
     Example::
         >>> deleteDecks(["Japanese::JLPT N5", "Easy Spanish"], True)
@@ -364,7 +364,7 @@ def getDeckConfig(deck: str) -> dict:
 
 
 def saveDeckConfig(config: dict) -> bool:
-    """Saves the given configuration group, returning `true` on success or `false` if the
+    """Saves the given configuration group, returning `True` on success or `False` if the
     ID of the configuration group is invalid (such as when it does not exist).
     
     Example::
@@ -413,7 +413,7 @@ def saveDeckConfig(config: dict) -> bool:
 
 def setDeckConfigId(decks: list, configId: int) -> bool:
     """Changes the configuration group for the given decks to the one with the given ID.
-    Returns `true` on success or `false` if the given configuration group or any of the
+    Returns `True` on success or `False` if the given configuration group or any of the
     given decks do not exist.
     
     Example::
@@ -426,7 +426,7 @@ def setDeckConfigId(decks: list, configId: int) -> bool:
 def cloneDeckConfigId(name: str, cloneFrom: int) -> int:
     """Creates a new configuration group with the given name, cloning from the group with
     the given ID, or from the default group if this is unspecified. Returns the ID of the
-    new configuration group, or `false` if the specified group to clone from does not
+    new configuration group, or `False` if the specified group to clone from does not
     exist.
     
     Example::
@@ -437,8 +437,8 @@ def cloneDeckConfigId(name: str, cloneFrom: int) -> int:
 
 
 def removeDeckConfigId(configId: int) -> bool:
-    """Removes the configuration group with the given ID, returning `true` if successful,
-    or `false` if attempting to remove either the default configuration group (ID = 1) or
+    """Removes the configuration group with the given ID, returning `True` if successful,
+    or `False` if attempting to remove either the default configuration group (ID = 1) or
     a configuration group that does not exist.
     
     Example::
@@ -572,7 +572,7 @@ def guiEditNote(note: int) -> None:
 
 
 def guiCurrentCard() -> dict:
-    """Returns information about the current card or `null` if not in review mode.
+    """Returns information about the current card or `None` if not in review mode.
     
     Example::
         >>> guiCurrentCard()
@@ -608,8 +608,8 @@ def guiStartCardTimer() -> bool:
 
 
 def guiShowQuestion() -> bool:
-    """Shows question text for the current card; returns `true` if in review mode or
-    `false` otherwise.
+    """Shows question text for the current card; returns `True` if in review mode or
+    `False` otherwise.
     
     Example::
         >>> guiShowQuestion()
@@ -619,7 +619,7 @@ def guiShowQuestion() -> bool:
 
 
 def guiShowAnswer() -> bool:
-    """Shows answer text for the current card; returns `true` if in review mode or `false`
+    """Shows answer text for the current card; returns `True` if in review mode or `False`
     otherwise.
     
     Example::
@@ -630,7 +630,7 @@ def guiShowAnswer() -> bool:
 
 
 def guiAnswerCard(ease: int) -> bool:
-    """Answers the current card; returns `true` if succeeded or `false` otherwise. Note
+    """Answers the current card; returns `True` if succeeded or `False` otherwise. Note
     that the answer for the current card must be displayed before before any answer can be
     accepted by Anki.
     
@@ -642,7 +642,7 @@ def guiAnswerCard(ease: int) -> bool:
 
 
 def guiUndo() -> bool:
-    """Undo the last action / card; returns `true` if succeeded or `false` otherwise.
+    """Undo the last action / card; returns `True` if succeeded or `False` otherwise.
     
     Example::
         >>> guiUndo()
@@ -652,8 +652,8 @@ def guiUndo() -> bool:
 
 
 def guiDeckOverview(name: str) -> bool:
-    """Opens the *Deck Overview* dialog for the deck with the given name; returns `true`
-    if succeeded or `false` otherwise.
+    """Opens the *Deck Overview* dialog for the deck with the given name; returns `True`
+    if succeeded or `False` otherwise.
     
     Example::
         >>> guiDeckOverview("Default")
@@ -673,8 +673,8 @@ def guiDeckBrowser() -> None:
 
 
 def guiDeckReview(name: str) -> bool:
-    """Starts review for the deck with the given name; returns `true` if succeeded or
-    `false` otherwise.
+    """Starts review for the deck with the given name; returns `True` if succeeded or
+    `False` otherwise.
     
     Example::
         >>> guiDeckReview("Default")
@@ -709,7 +709,7 @@ def guiExitAnki() -> None:
 
 def guiCheckDatabase() -> bool:
     """Requests a database check, but returns immediately without waiting for the check to
-    complete. Therefore, the action will always return `true` even if errors are detected
+    complete. Therefore, the action will always return `True` even if errors are detected
     during the database check.
     
     Example::
@@ -746,7 +746,7 @@ def storeMediaFile(filename: str, *, data=None, path: str=None, url=None, delete
         raise Exception("one argument of data, path or url must be supplied")
 
 def retrieveMediaFile(filename: str) -> str:
-    """Retrieves the base64-encoded contents of the specified file, returning `false` if
+    """Retrieves the base64-encoded contents of the specified file, returning `False` if
     the file does not exist.
     
     Example::
@@ -803,7 +803,7 @@ def requestPermission() -> dict:
 
     The result always contains the `permission` field, which in turn contains either the
     string `granted` or `denied`, corresponding to whether your origin is trusted. If your
-    origin is trusted, the fields `requireApiKey` (`true` if required) and `version` will
+    origin is trusted, the fields `requireApiKey` (`True` if required) and `version` will
     also be returned.
 
     This should be the first call you make to make sure that your application and Anki-
@@ -835,8 +835,8 @@ def apiReflect(scopes: list, actions: list) -> dict:
 
     * `scopes` - An array of scopes to get reflection information about. The only
     currently supported value is `"actions"`.
-    * `actions` - Either `null` or an array of API method names to check for. If the value
-    is `null`, the result will list all of the available API actions. If the value is an
+    * `actions` - Either `None` or an array of API method names to check for. If the value
+    is `None`, the result will list all of the available API actions. If the value is an
     array of strings, the result will only contain actions which were in this array.
 
     The result will contain a list of which scopes were used and a value for each scope.
@@ -904,8 +904,8 @@ def multi(actions: list) -> list:
 
 
 def exportPackage(deck: str, path: str, includeSched: bool) -> bool:
-    """Exports a given deck in `.apkg` format. Returns `true` if successful or `false`
-    otherwise. The optional property `includeSched` (default is `false`) can be specified
+    """Exports a given deck in `.apkg` format. Returns `True` if successful or `False`
+    otherwise. The optional property `includeSched` (default is `False`) can be specified
     to include the cards' scheduling data.
     
     Example::
@@ -916,8 +916,8 @@ def exportPackage(deck: str, path: str, includeSched: bool) -> bool:
 
 
 def importPackage(path: str) -> bool:
-    """Imports a file in `.apkg` format into the collection. Returns `true` if successful
-    or `false` otherwise. Note that the file path is relative to Anki's collection.media
+    """Imports a file in `.apkg` format into the collection. Returns `True` if successful
+    or `False` otherwise. Note that the file path is relative to Anki's collection.media
     folder, not to the client.
     
     Example::
@@ -1574,7 +1574,7 @@ def modelFieldSetDescription(modelName: str, fieldName: str, description: str) -
     field within a given model.
 
     Older versions of Anki (2.1.49 and below) do not have field descriptions. In that
-    case, this will return with `false`.
+    case, this will return with `False`.
     
     Example::
         >>> modelFieldSetDescription("Basic", "Front", "example field description")
@@ -1587,7 +1587,7 @@ def modelFieldSetDescription(modelName: str, fieldName: str, description: str) -
 
 def addNote(note: dict) -> int:
     """Creates a note using the given deck and model, with the provided field values and
-    tags. Returns the identifier of the created note created on success, and `null` on
+    tags. Returns the identifier of the created note created on success, and `None` on
     failure.
 
     Anki-Connect can download audio, video, and picture files and embed them in newly
@@ -1610,11 +1610,11 @@ def addNote(note: dict) -> int:
     The `duplicateScopeOptions` object can be used to specify some additional settings:
 
     * `duplicateScopeOptions.deckName` will specify which deck to use for checking
-    duplicates in. If undefined or `null`, the target deck will be used.
+    duplicates in. If undefined or `None`, the target deck will be used.
     * `duplicateScopeOptions.checkChildren` will change whether or not duplicate cards are
-    checked in child decks. The default value is `false`.
+    checked in child decks. The default value is `False`.
     * `duplicateScopeOptions.checkAllModels` specifies whether duplicate checks are
-    performed across all note types. The default value is `false`.
+    performed across all note types. The default value is `False`.
     
     Example::
         >>> addNote(
@@ -1666,7 +1666,7 @@ def addNote(note: dict) -> int:
 def addNotes(notes: list) -> list:
     """Creates multiple notes using the given deck and model, with the provided field
     values and tags. Returns an array of identifiers of the created notes (notes that
-    could not be created will have a `null` identifier). Please see the documentation for
+    could not be created will have a `None` identifier). Please see the documentation for
     `addNote` for an explanation of objects in the `notes` array.
     
     Example::
