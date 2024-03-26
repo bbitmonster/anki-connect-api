@@ -97,7 +97,7 @@ def traverse(t, level=0):
             return sub
         case ListItem():
             first_indent = (
-                " " * t.indentation
+                t.indentation * " "
                 + t.leader 
                 + (t.prepend - len(t.leader) - t.indentation) * " "
             )
@@ -126,7 +126,7 @@ def traverse(t, level=0):
                 s += f"> {line}\n"
             return s
         case _:
-            print(str(type(t)))
+            print("unknown AST type:", str(type(t)))
             return ""
         
 
