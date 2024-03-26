@@ -1,6 +1,7 @@
 import ast
 import json
 from textwrap import indent, dedent
+from pathlib import Path
 
 import ast_comments
 import jsbeautifier
@@ -74,15 +75,18 @@ def write_json_func(f, func_name, args, docstring):
     f.write(indent(s, "    "))
 
 
-with open("../anki_connect.py", 'r', encoding="utf-8") as file:
+script_dir = Path(__file__).absolute().parent
+
+with open(script_dir.parent / "anki_connect.py", 'r', encoding="utf-8") as file:
     tree = ast_comments.parse(file.read())
 
-with open("anki_connect.header.md", 'r', encoding="utf-8") as file:
+with open(script_dir / "anki_connect.header.md", 'r', encoding="utf-8") as file:
     header = file.read()
 
+
 jobs = (
-    ("anki_connect.python.md", write_python_func),
-    ("anki_connect.json.md", write_json_func),
+    (script_dir.parent / "docs" / "anki_connect.python.md", write_python_func),
+    (script_dir.parent / "docs" / "anki_connect.json.md", write_json_func),
     
 )
 for filename, write_func in jobs:
