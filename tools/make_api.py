@@ -36,6 +36,7 @@ def invoke(action, **params):
     if response['error'] is not None:
         raise Exception(response['error'])
     return response['result']
+
 '''
 
 CODE_TEMPLATE = '''\
@@ -70,6 +71,8 @@ replace_data = {
 
 
 def traverse(t, level=0):
+    """Recursively traverses a mistletoe AST and returns the content as Markdown. Used here as 
+    a kind of beautifier for the Markdown text."""
     match t:
         case RawText():
             return t.content
@@ -130,7 +133,7 @@ def traverse(t, level=0):
 def split_to_chunks(lines_gen, func_name):
     """Simple state machine to split the text into the docstring, sample request and sample
     result part."""
-    
+
     mode = 0
     doc = ""
     request = ""
@@ -183,58 +186,45 @@ def split_to_chunks(lines_gen, func_name):
 
 
 def make_func(func_name, doc, request, result):
-    with MarkdownRenderer() as renderer:
-        document = mistletoe.Document(doc)
-    doc = traverse(document)
+    doc = traverse(mistletoe.Document(doc))
     doc = " " + doc.strip()[1:] # remove the list asterisk
-
     doc = doc.replace("`null`", "`None`")
     doc = doc.replace("`true`", "`True`")
     doc = doc.replace("`false`", "`False`")
     doc = textwrap.dedent(doc)
 
     # process sample request 
-    try:
-        d = json.loads(request)
-    except:
-        print(func_name)
-        print(repr(request))
-        raise
+    data = json.loads(request)
     invoke_args = [f'"{func_name}"']
     example_args = ""
     func_args = []
-    if "params" in d:
-        for arg, value in d["params"].items():
+    if "params" in data:
+        for arg, value in data["params"].items():
             invoke_args.append(f"{arg}={arg}")
             func_args.append(f"{arg}: {type(value).__name__}")
-        example_args = ", ".join((f"{v!r}" for k,v in d["params"].items()))
+        example_args = ", ".join((f"{v!r}" for k,v in data["params"].items()))
     invoke_args_str = ", ".join(invoke_args)
     func_args_str = ", ".join(func_args)
 
     # process sample result
-    try:
-        d = json.loads(result)
-    except:
-        print(func_name)
-        print(result)
-        raise
-    if d["result"] is None:
+    data = json.loads(result)
+    if data["result"] is None:
         return_type = "None"
     else:
-        return_type = type(d["result"]).__name__
+        return_type = type(data["result"]).__name__
 
     func_def = f"def {func_name}({func_args_str}) -> {return_type}:"
 
     # use black to format and beautify the example invokation
     example = black.format_str(f"{func_name}({example_args})", mode=black.Mode())
-    lines = example.splitlines()
     # add doctest delimiters to the code
+    lines = example.splitlines()
     example = "        >>> " + lines[0] + "\n"
     for line in lines[1:]:
         example += "        ... " + line+ "\n"
     example = example.rstrip()
 
-    example_return_value = black.format_str(repr(d["result"]), mode=black.Mode())
+    example_return_value = black.format_str(repr(data["result"]), mode=black.Mode())
     example_return_value = textwrap.indent(example_return_value, "        ").rstrip()
 
     code = f'    return invoke({invoke_args_str})'
@@ -243,9 +233,9 @@ def make_func(func_name, doc, request, result):
         func_def, code = replace_data[func_name]
 
     if "\\" in doc or "\\" in example or "\\" in example_return_value:
-        prefix = '    r"""'
+        initial_indent = '    r"""'
     else:
-        prefix = '    """'
+        initial_indent = '    """'
     p = []
     for line in doc.splitlines():
         p.append(
@@ -253,19 +243,15 @@ def make_func(func_name, doc, request, result):
                 line, 
                 width=90, 
                 break_long_words=False, 
-                initial_indent=prefix, 
+                initial_indent=initial_indent, 
                 subsequent_indent="    "
             )
         )
-        prefix = '    '
+        initial_indent = '    '
     doc = "\n".join(p)
 
     # write every part of the function to the .py file
     fout.write(CODE_TEMPLATE.format(**locals()))
-
-
-def writeln(s):
-    fout.write(s + "\n")
 
 
 def line_generator(file):
@@ -283,7 +269,7 @@ out_file_path = script_dir.parent / "anki_connect.py"
 with (source_file_path.open('r', encoding="utf-8") as fin,
       out_file_path.open('w', encoding="utf-8") as fout):
     lines_gen = line_generator(fin)
-    fout.write(HEADER +"\n")
+    fout.write(HEADER)
     # ignore everything till the first thematic break
     for line in lines_gen:
         if line.strip().startswith("---"):
@@ -291,8 +277,13 @@ with (source_file_path.open('r', encoding="utf-8") as fin,
     # look for lines of interest
     for line in lines_gen:
         if line.startswith("### "):
-            fout.write("# " + line[4: ] + "\n")
+            # new section heading
+            fout.write("# " + line[4:] + "\n")
         elif line.startswith("#### "):
+            # new function
             func_name = line[5:].strip().replace("`", "")
             doc, request, result = split_to_chunks(lines_gen, func_name)
             make_func(func_name, doc, request, result)
+        else:
+            if line != "\n":
+                print("ignored line:", repr(line))

@@ -454,7 +454,6 @@ def guiBrowse(query: str, reorderCards: dict) -> list:
     """Invokes the *Card Browser* dialog and searches for a given query. Returns an array
     of identifiers of the cards that were found. Query syntax is [documented
     here](https://docs.ankiweb.net/searching.html).
-
     Optionally, the `reorderCards` property can be provided to reorder the cards shown in
     the *Card Browser*. This is an array including the `order` and `columnId` objects.
     `order` can be either `ascending` or `descending` while `columnId` can be one of
@@ -493,11 +492,9 @@ def guiAddCards(note: dict) -> int:
     """Invokes the *Add Cards* dialog, presets the note using the given deck and model,
     with the provided field values and tags. Invoking it multiple times closes the old
     window and _reopen the window_ with the new provided values.
-
     Audio, video, and picture files can be embedded into the fields via the `audio`,
     `video`, and `picture` keys, respectively. Refer to the documentation of `addNote` and
     `storeMediaFile` for an explanation of these fields.
-
     The result is the ID of the note which would be added, if the user chose to confirm
     the *Add Cards* dialogue.
     
@@ -527,7 +524,6 @@ def guiAddCards(note: dict) -> int:
 def guiEditNote(note: int) -> None:
     """Opens the *Edit* dialog with a note corresponding to given note ID. The dialog is
     similar to the *Edit Current* dialog, but:
-
     * has a Preview button to preview the cards for the note
     * has a Browse button to open the browser with these cards
     * has Previous/Back buttons to navigate the history of the dialog
@@ -746,18 +742,15 @@ def requestPermission() -> dict:
     require the API key, and is the only one that accepts requests from any origin; the
     other methods only accept requests from trusted origins, which are listed under
     `webCorsOriginList` in the add-on config. `localhost` is trusted by default.
-
     Calling this method from an untrusted origin will display a popup in Anki asking the
     user whether they want to allow your origin to use the API; calls from trusted origins
     will return the result without displaying the popup. When denying permission, the user
     may also choose to ignore further permission requests from that origin. These origins
     end up in the `ignoreOriginList`, editable via the add-on config.
-
     The result always contains the `permission` field, which in turn contains either the
     string `granted` or `denied`, corresponding to whether your origin is trusted. If your
     origin is trusted, the fields `requireApiKey` (`True` if required) and `version` will
     also be returned.
-
     This should be the first call you make to make sure that your application and Anki-
     Connect are able to communicate properly with each other. New versions of Anki-Connect
     are backwards compatible; as long as you are using actions which are available in the
@@ -782,13 +775,11 @@ def version() -> int:
 def apiReflect(scopes: list, actions: list) -> dict:
     """Gets information about the AnkiConnect APIs available. The request supports the
     following params:
-
     * `scopes` - An array of scopes to get reflection information about. The only
     currently supported value is `"actions"`.
     * `actions` - Either `None` or an array of API method names to check for. If the value
     is `None`, the result will list all of the available API actions. If the value is an
     array of strings, the result will only contain actions which were in this array.
-
     The result will contain a list of which scopes were used and a value for each scope.
     For example, the `"actions"` scope will contain a `"actions"` property which contains
     a list of supported action names.
@@ -1238,7 +1229,6 @@ def createModel(modelName: str, inOrderFields: list, css: str, isCloze: bool, ca
     `css` and `isCloze`. If not specified, `css` will use the default Anki css and
     `isCloze` will be equal to `False`. If `isCloze` is `True` then model will be created
     as Cloze.
-
     Optionally the `Name` field can be provided for each entry of `cardTemplates`. By
     default the card names will be `Card 1`, `Card 2`, and so on.
     
@@ -1390,7 +1380,6 @@ def modelTemplateRename(modelName: str, oldTemplateName: str, newTemplateName: s
 
 def modelTemplateReposition(modelName: str, templateName: str, index: int) -> None:
     """Repositions a template in an existing model.
-
     The value of `index` starts at 0. For example, an index of `0` puts the template in
     the first position, and an index of `2` puts the template in the third position.
     
@@ -1437,7 +1426,6 @@ def modelFieldRename(modelName: str, oldFieldName: str, newFieldName: str) -> No
 
 def modelFieldReposition(modelName: str, fieldName: str, index: int) -> None:
     """Reposition the field within the field list of a given model.
-
     The value of `index` starts at 0. For example, an index of `0` puts the field in the
     first position, and an index of `2` puts the field in the third position.
     
@@ -1449,7 +1437,6 @@ def modelFieldReposition(modelName: str, fieldName: str, index: int) -> None:
 
 def modelFieldAdd(modelName: str, fieldName: str, index: int) -> None:
     """Creates a new field within a given model.
-
     Optionally, the `index` value can be provided, which works exactly the same as the
     index in `modelFieldReposition`. By default, the field is added to the end of the
     field list.
@@ -1490,7 +1477,6 @@ def modelFieldSetFontSize(modelName: str, fieldName: str, fontSize: int) -> None
 def modelFieldSetDescription(modelName: str, fieldName: str, description: str) -> bool:
     """Sets the description (the text seen in the gui editor when a field is empty) for a
     field within a given model.
-
     Older versions of Anki (2.1.49 and below) do not have field descriptions. In that
     case, this will return with `False`.
     
@@ -1506,7 +1492,6 @@ def addNote(note: dict) -> int:
     """Creates a note using the given deck and model, with the provided field values and
     tags. Returns the identifier of the created note created on success, and `None` on
     failure.
-
     Anki-Connect can download audio, video, and picture files and embed them in newly
     created notes. The corresponding `audio`, `video`, and `picture` note members are
     optional and can be omitted. If you choose to include any of them, they should contain
@@ -1519,13 +1504,10 @@ def addNote(note: dict) -> int:
     displayed in Anki. The `allowDuplicate` member inside `options` group can be set to
     true to enable adding duplicate cards. Normally duplicate cards can not be added and
     trigger exception.
-
     The `duplicateScope` member inside `options` can be used to specify the scope for
     which duplicates are checked. A value of `"deck"` will only check for duplicates in
     the target deck; any other value will check the entire collection.
-
     The `duplicateScopeOptions` object can be used to specify some additional settings:
-
     * `duplicateScopeOptions.deckName` will specify which deck to use for checking
     duplicates in. If undefined or `None`, the target deck will be used.
     * `duplicateScopeOptions.checkChildren` will change whether or not duplicate cards are
@@ -1647,7 +1629,6 @@ def canAddNotes(notes: list) -> list:
 def canAddNotesWithErrorDetail(notes: list) -> list:
     """Accepts an array of objects which define parameters for candidate notes (see
     `addNote`) and returns an array of objects with fields `canAdd` and `error`.
-
     * `canAdd` indicates whether or not the parameters at the corresponding index could be
     used to create a new note.
     * `error` contains an explanation of why a note cannot be added.
@@ -1681,7 +1662,6 @@ def updateNoteFields(note: dict) -> None:
     picture files which will be added to the note with an optional `audio`, `video`, or
     `picture` property. Please see the documentation for `addNote` for an explanation of
     objects in the `audio`, `video`, or `picture` array.
-
     > **Warning**: You must not be viewing the note that you are updating on your Anki
     browser, otherwise the fields will not update. See [this
     issue](https://github.com/FooSoft/anki-connect/issues/82) for further details.
@@ -1709,16 +1689,13 @@ def updateNote(note: dict) -> None:
     """Modify the fields and/or tags of an existing note. In other words, combines
     `updateNoteFields` and `updateNoteTags`. Please see their documentation for an
     explanation of all properties.
-
     Either `fields` or `tags` property can be omitted without affecting the other. Thus
     valid requests to `updateNoteFields` also work with `updateNote`. The note must have
     the `fields` property in order to update the optional audio, video, or picture
     objects.
-
     If neither `fields` nor `tags` are provided, the method will fail. Fields are updated
     first and are not rolled back if updating tags fails. Tags are not updated if updating
     fields fails.
-
     > **Warning** You must not be viewing the note that you are updating on your Anki
     browser, otherwise the fields will not update. See [this
     issue](https://github.com/FooSoft/anki-connect/issues/82) for further details.
