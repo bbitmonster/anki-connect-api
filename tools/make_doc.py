@@ -1,6 +1,6 @@
 import ast
 import json
-from textwrap import indent
+from textwrap import indent, dedent
 
 import ast_comments
 import jsbeautifier
@@ -32,6 +32,7 @@ def write_python_func(f, func_name, args, docstring):
     desc, example = docstring.split("Example::")
     desc = indent(desc, "    ")
     desc = "*" + desc[1:]
+    example = dedent(example).strip()
 
     f.write(f"##### `{func_name}({args})`\n\n")
     f.write(desc)

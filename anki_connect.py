@@ -1,4 +1,4 @@
-__version__ = '0.0.2'
+__version__ = '24.1.21.0'
 
 import json
 from urllib.request import urlopen, Request

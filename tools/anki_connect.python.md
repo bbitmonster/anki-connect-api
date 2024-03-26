@@ -211,9 +211,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> getEaseFactors([1483959291685, 1483959293217])
-        [4100, 3900]
+    >>> getEaseFactors([1483959291685, 1483959293217])
+    [4100, 3900]
     ```
     </details>
 
@@ -226,9 +225,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> setEaseFactors([1483959291685, 1483959293217], [4100, 3900])
-        [True, True]
+    >>> setEaseFactors([1483959291685, 1483959293217], [4100, 3900])
+    [True, True]
     ```
     </details>
 
@@ -246,9 +244,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> setSpecificValueOfCard(1483959291685, ["flags", "odue"], ["1", "-100"])
-        [True, True]
+    >>> setSpecificValueOfCard(1483959291685, ["flags", "odue"], ["1", "-100"])
+    [True, True]
     ```
     </details>
 
@@ -261,9 +258,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> suspend([1483959291685, 1483959293217])
-        True
+    >>> suspend([1483959291685, 1483959293217])
+    True
     ```
     </details>
 
@@ -276,9 +272,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> unsuspend([1483959291685, 1483959293217])
-        True
+    >>> unsuspend([1483959291685, 1483959293217])
+    True
     ```
     </details>
 
@@ -291,9 +286,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> suspended(1483959293217)
-        True
+    >>> suspended(1483959293217)
+    True
     ```
     </details>
 
@@ -306,9 +300,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> areSuspended([1483959291685, 1483959293217, 1234567891234])
-        [False, True, None]
+    >>> areSuspended([1483959291685, 1483959293217, 1234567891234])
+    [False, True, None]
     ```
     </details>
 
@@ -323,9 +316,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> areDue([1483959291685, 1483959293217])
-        [False, True]
+    >>> areDue([1483959291685, 1483959293217])
+    [False, True]
     ```
     </details>
 
@@ -339,9 +331,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> getIntervals([1502298033753, 1502298036657])
-        [-14400, 3]
+    >>> getIntervals([1502298033753, 1502298036657])
+    [-14400, 3]
     ```
     </details>
 
@@ -354,9 +345,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> findCards("deck:current")
-        [1494723142483, 1494703460437, 1494703479525]
+    >>> findCards("deck:current")
+    [1494723142483, 1494703460437, 1494703479525]
     ```
     </details>
 
@@ -369,9 +359,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> cardsToNotes([1502098034045, 1502098034048, 1502298033753])
-        [1502098029797, 1502298025183]
+    >>> cardsToNotes([1502098034045, 1502098034048, 1502298033753])
+    [1502098029797, 1502298025183]
     ```
     </details>
 
@@ -384,9 +373,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> cardsModTime([1498938915662, 1502098034048])
-        [{"cardId": 1498938915662, "mod": 1629454092}]
+    >>> cardsModTime([1498938915662, 1502098034048])
+    [{"cardId": 1498938915662, "mod": 1629454092}]
     ```
     </details>
 
@@ -400,55 +388,54 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> cardsInfo([1498938915662, 1502098034048])
-        [
-            {
-                "answer": "back content",
-                "question": "front content",
-                "deckName": "Default",
-                "modelName": "Basic",
-                "fieldOrder": 1,
-                "fields": {
-                    "Front": {"value": "front content", "order": 0},
-                    "Back": {"value": "back content", "order": 1},
-                },
-                "css": "p {font-family:Arial;}",
-                "cardId": 1498938915662,
-                "interval": 16,
-                "note": 1502298033753,
-                "ord": 1,
-                "type": 0,
-                "queue": 0,
-                "due": 1,
-                "reps": 1,
-                "lapses": 0,
-                "left": 6,
-                "mod": 1629454092,
+    >>> cardsInfo([1498938915662, 1502098034048])
+    [
+        {
+            "answer": "back content",
+            "question": "front content",
+            "deckName": "Default",
+            "modelName": "Basic",
+            "fieldOrder": 1,
+            "fields": {
+                "Front": {"value": "front content", "order": 0},
+                "Back": {"value": "back content", "order": 1},
             },
-            {
-                "answer": "back content",
-                "question": "front content",
-                "deckName": "Default",
-                "modelName": "Basic",
-                "fieldOrder": 0,
-                "fields": {
-                    "Front": {"value": "front content", "order": 0},
-                    "Back": {"value": "back content", "order": 1},
-                },
-                "css": "p {font-family:Arial;}",
-                "cardId": 1502098034048,
-                "interval": 23,
-                "note": 1502298033753,
-                "ord": 1,
-                "type": 0,
-                "queue": 0,
-                "due": 1,
-                "reps": 1,
-                "lapses": 0,
-                "left": 6,
+            "css": "p {font-family:Arial;}",
+            "cardId": 1498938915662,
+            "interval": 16,
+            "note": 1502298033753,
+            "ord": 1,
+            "type": 0,
+            "queue": 0,
+            "due": 1,
+            "reps": 1,
+            "lapses": 0,
+            "left": 6,
+            "mod": 1629454092,
+        },
+        {
+            "answer": "back content",
+            "question": "front content",
+            "deckName": "Default",
+            "modelName": "Basic",
+            "fieldOrder": 0,
+            "fields": {
+                "Front": {"value": "front content", "order": 0},
+                "Back": {"value": "back content", "order": 1},
             },
-        ]
+            "css": "p {font-family:Arial;}",
+            "cardId": 1502098034048,
+            "interval": 23,
+            "note": 1502298033753,
+            "ord": 1,
+            "type": 0,
+            "queue": 0,
+            "due": 1,
+            "reps": 1,
+            "lapses": 0,
+            "left": 6,
+        },
+    ]
     ```
     </details>
 
@@ -460,9 +447,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> forgetCards([1498938915662, 1502098034048])
-        None
+    >>> forgetCards([1498938915662, 1502098034048])
+    None
     ```
     </details>
 
@@ -474,9 +460,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> relearnCards([1498938915662, 1502098034048])
-        None
+    >>> relearnCards([1498938915662, 1502098034048])
+    None
     ```
     </details>
 
@@ -489,11 +474,10 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> answerCards(
-        ...     [{"cardId": 1498938915662, "ease": 2}, {"cardId": 1502098034048, "ease": 4}]
-        ... )
-        [True, True]
+    >>> answerCards(
+    ...     [{"cardId": 1498938915662, "ease": 2}, {"cardId": 1502098034048, "ease": 4}]
+    ... )
+    [True, True]
     ```
     </details>
 
@@ -507,9 +491,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> deckNames()
-        ["Default"]
+    >>> deckNames()
+    ["Default"]
     ```
     </details>
 
@@ -521,9 +504,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> deckNamesAndIds()
-        {"Default": 1}
+    >>> deckNamesAndIds()
+    {"Default": 1}
     ```
     </details>
 
@@ -536,9 +518,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> getDecks([1502298036657, 1502298033753, 1502032366472])
-        {"Default": [1502032366472], "Japanese::JLPT N3": [1502298036657, 1502298033753]}
+    >>> getDecks([1502298036657, 1502298033753, 1502032366472])
+    {"Default": [1502032366472], "Japanese::JLPT N3": [1502298036657, 1502298033753]}
     ```
     </details>
 
@@ -550,9 +531,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> createDeck("Japanese::Tokyo")
-        1519323742721
+    >>> createDeck("Japanese::Tokyo")
+    1519323742721
     ```
     </details>
 
@@ -565,9 +545,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> changeDeck([1502098034045, 1502098034048, 1502298033753], "Japanese::JLPT N3")
-        None
+    >>> changeDeck([1502098034045, 1502098034048, 1502298033753], "Japanese::JLPT N3")
+    None
     ```
     </details>
 
@@ -580,9 +559,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> deleteDecks(["Japanese::JLPT N5", "Easy Spanish"], True)
-        None
+    >>> deleteDecks(["Japanese::JLPT N5", "Easy Spanish"], True)
+    None
     ```
     </details>
 
@@ -594,44 +572,43 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> getDeckConfig("Default")
-        {
-            "lapse": {
-                "leechFails": 8,
-                "delays": [10],
-                "minInt": 1,
-                "leechAction": 0,
-                "mult": 0,
-            },
-            "dyn": False,
-            "autoplay": True,
-            "mod": 1502970872,
-            "id": 1,
-            "maxTaken": 60,
-            "new": {
-                "bury": True,
-                "order": 1,
-                "initialFactor": 2500,
-                "perDay": 20,
-                "delays": [1, 10],
-                "separate": True,
-                "ints": [1, 4, 7],
-            },
-            "name": "Default",
-            "rev": {
-                "bury": True,
-                "ivlFct": 1,
-                "ease4": 1.3,
-                "maxIvl": 36500,
-                "perDay": 100,
-                "minSpace": 1,
-                "fuzz": 0.05,
-            },
-            "timer": 0,
-            "replayq": True,
-            "usn": -1,
-        }
+    >>> getDeckConfig("Default")
+    {
+        "lapse": {
+            "leechFails": 8,
+            "delays": [10],
+            "minInt": 1,
+            "leechAction": 0,
+            "mult": 0,
+        },
+        "dyn": False,
+        "autoplay": True,
+        "mod": 1502970872,
+        "id": 1,
+        "maxTaken": 60,
+        "new": {
+            "bury": True,
+            "order": 1,
+            "initialFactor": 2500,
+            "perDay": 20,
+            "delays": [1, 10],
+            "separate": True,
+            "ints": [1, 4, 7],
+        },
+        "name": "Default",
+        "rev": {
+            "bury": True,
+            "ivlFct": 1,
+            "ease4": 1.3,
+            "maxIvl": 36500,
+            "perDay": 100,
+            "minSpace": 1,
+            "fuzz": 0.05,
+        },
+        "timer": 0,
+        "replayq": True,
+        "usn": -1,
+    }
     ```
     </details>
 
@@ -644,46 +621,45 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> saveDeckConfig(
-        ...     {
-        ...         "lapse": {
-        ...             "leechFails": 8,
-        ...             "delays": [10],
-        ...             "minInt": 1,
-        ...             "leechAction": 0,
-        ...             "mult": 0,
-        ...         },
-        ...         "dyn": False,
-        ...         "autoplay": True,
-        ...         "mod": 1502970872,
-        ...         "id": 1,
-        ...         "maxTaken": 60,
-        ...         "new": {
-        ...             "bury": True,
-        ...             "order": 1,
-        ...             "initialFactor": 2500,
-        ...             "perDay": 20,
-        ...             "delays": [1, 10],
-        ...             "separate": True,
-        ...             "ints": [1, 4, 7],
-        ...         },
-        ...         "name": "Default",
-        ...         "rev": {
-        ...             "bury": True,
-        ...             "ivlFct": 1,
-        ...             "ease4": 1.3,
-        ...             "maxIvl": 36500,
-        ...             "perDay": 100,
-        ...             "minSpace": 1,
-        ...             "fuzz": 0.05,
-        ...         },
-        ...         "timer": 0,
-        ...         "replayq": True,
-        ...         "usn": -1,
-        ...     }
-        ... )
-        True
+    >>> saveDeckConfig(
+    ...     {
+    ...         "lapse": {
+    ...             "leechFails": 8,
+    ...             "delays": [10],
+    ...             "minInt": 1,
+    ...             "leechAction": 0,
+    ...             "mult": 0,
+    ...         },
+    ...         "dyn": False,
+    ...         "autoplay": True,
+    ...         "mod": 1502970872,
+    ...         "id": 1,
+    ...         "maxTaken": 60,
+    ...         "new": {
+    ...             "bury": True,
+    ...             "order": 1,
+    ...             "initialFactor": 2500,
+    ...             "perDay": 20,
+    ...             "delays": [1, 10],
+    ...             "separate": True,
+    ...             "ints": [1, 4, 7],
+    ...         },
+    ...         "name": "Default",
+    ...         "rev": {
+    ...             "bury": True,
+    ...             "ivlFct": 1,
+    ...             "ease4": 1.3,
+    ...             "maxIvl": 36500,
+    ...             "perDay": 100,
+    ...             "minSpace": 1,
+    ...             "fuzz": 0.05,
+    ...         },
+    ...         "timer": 0,
+    ...         "replayq": True,
+    ...         "usn": -1,
+    ...     }
+    ... )
+    True
     ```
     </details>
 
@@ -697,9 +673,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> setDeckConfigId(["Default"], 1)
-        True
+    >>> setDeckConfigId(["Default"], 1)
+    True
     ```
     </details>
 
@@ -714,9 +689,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> cloneDeckConfigId("Copy of Default", 1)
-        1502972374573
+    >>> cloneDeckConfigId("Copy of Default", 1)
+    1502972374573
     ```
     </details>
 
@@ -730,9 +704,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> removeDeckConfigId(1502972374573)
-        True
+    >>> removeDeckConfigId(1502972374573)
+    True
     ```
     </details>
 
@@ -744,26 +717,25 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> getDeckStats(["Japanese::JLPT N5", "Easy Spanish"])
-        {
-            "1651445861967": {
-                "deck_id": 1651445861967,
-                "name": "Japanese::JLPT N5",
-                "new_count": 20,
-                "learn_count": 0,
-                "review_count": 0,
-                "total_in_deck": 1506,
-            },
-            "1651445861960": {
-                "deck_id": 1651445861960,
-                "name": "Easy Spanish",
-                "new_count": 26,
-                "learn_count": 10,
-                "review_count": 5,
-                "total_in_deck": 852,
-            },
-        }
+    >>> getDeckStats(["Japanese::JLPT N5", "Easy Spanish"])
+    {
+        "1651445861967": {
+            "deck_id": 1651445861967,
+            "name": "Japanese::JLPT N5",
+            "new_count": 20,
+            "learn_count": 0,
+            "review_count": 0,
+            "total_in_deck": 1506,
+        },
+        "1651445861960": {
+            "deck_id": 1651445861960,
+            "name": "Easy Spanish",
+            "new_count": 26,
+            "learn_count": 10,
+            "review_count": 5,
+            "total_in_deck": 852,
+        },
+    }
     ```
     </details>
 
@@ -786,9 +758,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> guiBrowse("deck:current", {"order": "descending", "columnId": "noteCrt"})
-        [1494723142483, 1494703460437, 1494703479525]
+    >>> guiBrowse("deck:current", {"order": "descending", "columnId": "noteCrt"})
+    [1494723142483, 1494703460437, 1494703479525]
     ```
     </details>
 
@@ -801,9 +772,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> guiSelectNote(1494723142483)
-        True
+    >>> guiSelectNote(1494723142483)
+    True
     ```
     </details>
 
@@ -817,9 +787,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> guiSelectedNotes()
-        [1494723142483, 1494703460437, 1494703479525]
+    >>> guiSelectedNotes()
+    [1494723142483, 1494703460437, 1494703479525]
     ```
     </details>
 
@@ -840,26 +809,25 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> guiAddCards(
-        ...     {
-        ...         "deckName": "Default",
-        ...         "modelName": "Cloze",
-        ...         "fields": {
-        ...             "Text": "The capital of Romania is {{c1::Bucharest}}",
-        ...             "Extra": "Romania is a country in Europe",
-        ...         },
-        ...         "tags": ["countries"],
-        ...         "picture": [
-        ...             {
-        ...                 "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/EU-Romania.svg/285px-EU-Romania.svg.png",
-        ...                 "filename": "romania.png",
-        ...                 "fields": ["Extra"],
-        ...             }
-        ...         ],
-        ...     }
-        ... )
-        1496198395707
+    >>> guiAddCards(
+    ...     {
+    ...         "deckName": "Default",
+    ...         "modelName": "Cloze",
+    ...         "fields": {
+    ...             "Text": "The capital of Romania is {{c1::Bucharest}}",
+    ...             "Extra": "Romania is a country in Europe",
+    ...         },
+    ...         "tags": ["countries"],
+    ...         "picture": [
+    ...             {
+    ...                 "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/EU-Romania.svg/285px-EU-Romania.svg.png",
+    ...                 "filename": "romania.png",
+    ...                 "fields": ["Extra"],
+    ...             }
+    ...         ],
+    ...     }
+    ... )
+    1496198395707
     ```
     </details>
 
@@ -877,9 +845,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> guiEditNote(1649198355435)
-        None
+    >>> guiEditNote(1649198355435)
+    None
     ```
     </details>
 
@@ -891,23 +858,22 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> guiCurrentCard()
-        {
-            "answer": "back content",
-            "question": "front content",
-            "deckName": "Default",
-            "modelName": "Basic",
-            "fieldOrder": 0,
-            "fields": {
-                "Front": {"value": "front content", "order": 0},
-                "Back": {"value": "back content", "order": 1},
-            },
-            "template": "Forward",
-            "cardId": 1498938915662,
-            "buttons": [1, 2, 3],
-            "nextReviews": ["<1m", "<10m", "4d"],
-        }
+    >>> guiCurrentCard()
+    {
+        "answer": "back content",
+        "question": "front content",
+        "deckName": "Default",
+        "modelName": "Basic",
+        "fieldOrder": 0,
+        "fields": {
+            "Front": {"value": "front content", "order": 0},
+            "Back": {"value": "back content", "order": 1},
+        },
+        "template": "Forward",
+        "cardId": 1498938915662,
+        "buttons": [1, 2, 3],
+        "nextReviews": ["<1m", "<10m", "4d"],
+    }
     ```
     </details>
 
@@ -921,9 +887,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> guiStartCardTimer()
-        True
+    >>> guiStartCardTimer()
+    True
     ```
     </details>
 
@@ -936,9 +901,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> guiShowQuestion()
-        True
+    >>> guiShowQuestion()
+    True
     ```
     </details>
 
@@ -951,9 +915,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> guiShowAnswer()
-        True
+    >>> guiShowAnswer()
+    True
     ```
     </details>
 
@@ -967,9 +930,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> guiAnswerCard(1)
-        True
+    >>> guiAnswerCard(1)
+    True
     ```
     </details>
 
@@ -981,9 +943,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> guiUndo()
-        True
+    >>> guiUndo()
+    True
     ```
     </details>
 
@@ -996,9 +957,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> guiDeckOverview("Default")
-        True
+    >>> guiDeckOverview("Default")
+    True
     ```
     </details>
 
@@ -1010,9 +970,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> guiDeckBrowser()
-        None
+    >>> guiDeckBrowser()
+    None
     ```
     </details>
 
@@ -1025,9 +984,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> guiDeckReview("Default")
-        True
+    >>> guiDeckReview("Default")
+    True
     ```
     </details>
 
@@ -1042,9 +1000,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> guiImportFile("C:/Users/Desktop/cards.txt")
-        None
+    >>> guiImportFile("C:/Users/Desktop/cards.txt")
+    None
     ```
     </details>
 
@@ -1057,9 +1014,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> guiExitAnki()
-        None
+    >>> guiExitAnki()
+    None
     ```
     </details>
 
@@ -1073,9 +1029,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> guiCheckDatabase()
-        True
+    >>> guiCheckDatabase()
+    True
     ```
     </details>
 
@@ -1097,9 +1052,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> storeMediaFile("_hello.txt", "SGVsbG8sIHdvcmxkIQ==")
-        "_hello.txt"
+    >>> storeMediaFile("_hello.txt", "SGVsbG8sIHdvcmxkIQ==")
+    "_hello.txt"
     ```
     </details>
 
@@ -1112,9 +1066,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> retrieveMediaFile("_hello.txt")
-        "SGVsbG8sIHdvcmxkIQ=="
+    >>> retrieveMediaFile("_hello.txt")
+    "SGVsbG8sIHdvcmxkIQ=="
     ```
     </details>
 
@@ -1126,9 +1079,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> getMediaFilesNames("_hell*.txt")
-        ["_hello.txt"]
+    >>> getMediaFilesNames("_hell*.txt")
+    ["_hello.txt"]
     ```
     </details>
 
@@ -1141,9 +1093,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> getMediaDirPath()
-        "/home/user/.local/share/Anki2/Main/collection.media"
+    >>> getMediaDirPath()
+    "/home/user/.local/share/Anki2/Main/collection.media"
     ```
     </details>
 
@@ -1155,9 +1106,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> deleteMediaFile("_hello.txt")
-        None
+    >>> deleteMediaFile("_hello.txt")
+    None
     ```
     </details>
 
@@ -1190,9 +1140,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> requestPermission()
-        {"permission": "granted", "requireApiKey": False, "version": 6}
+    >>> requestPermission()
+    {"permission": "granted", "requireApiKey": False, "version": 6}
     ```
     </details>
 
@@ -1205,9 +1154,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> version()
-        6
+    >>> version()
+    6
     ```
     </details>
 
@@ -1230,9 +1178,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> apiReflect(["actions", "invalidType"], ["apiReflect", "invalidMethod"])
-        {"scopes": ["actions"], "actions": ["apiReflect"]}
+    >>> apiReflect(["actions", "invalidType"], ["apiReflect", "invalidMethod"])
+    {"scopes": ["actions"], "actions": ["apiReflect"]}
     ```
     </details>
 
@@ -1244,9 +1191,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> sync()
-        None
+    >>> sync()
+    None
     ```
     </details>
 
@@ -1258,9 +1204,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> getProfiles()
-        ["User 1"]
+    >>> getProfiles()
+    ["User 1"]
     ```
     </details>
 
@@ -1272,9 +1217,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> loadProfile("user1")
-        True
+    >>> loadProfile("user1")
+    True
     ```
     </details>
 
@@ -1287,21 +1231,20 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> multi(
-        ...     [
-        ...         {"action": "deckNames"},
-        ...         {"action": "deckNames", "version": 6},
-        ...         {"action": "invalidAction", "params": {"useless": "param"}},
-        ...         {"action": "invalidAction", "params": {"useless": "param"}, "version": 6},
-        ...     ]
-        ... )
-        [
-            ["Default"],
-            {"result": ["Default"], "error": None},
-            {"result": None, "error": "unsupported action"},
-            {"result": None, "error": "unsupported action"},
-        ]
+    >>> multi(
+    ...     [
+    ...         {"action": "deckNames"},
+    ...         {"action": "deckNames", "version": 6},
+    ...         {"action": "invalidAction", "params": {"useless": "param"}},
+    ...         {"action": "invalidAction", "params": {"useless": "param"}, "version": 6},
+    ...     ]
+    ... )
+    [
+        ["Default"],
+        {"result": ["Default"], "error": None},
+        {"result": None, "error": "unsupported action"},
+        {"result": None, "error": "unsupported action"},
+    ]
     ```
     </details>
 
@@ -1315,9 +1258,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> exportPackage("Default", "/data/Deck.apkg", True)
-        True
+    >>> exportPackage("Default", "/data/Deck.apkg", True)
+    True
     ```
     </details>
 
@@ -1331,9 +1273,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> importPackage("/data/Deck.apkg")
-        True
+    >>> importPackage("/data/Deck.apkg")
+    True
     ```
     </details>
 
@@ -1345,9 +1286,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> reloadCollection()
-        None
+    >>> reloadCollection()
+    None
     ```
     </details>
 
@@ -1361,9 +1301,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> modelNames()
-        ["Basic", "Basic (and reversed card)"]
+    >>> modelNames()
+    ["Basic", "Basic (and reversed card)"]
     ```
     </details>
 
@@ -1376,14 +1315,13 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> modelNamesAndIds()
-        {
-            "Basic": 1483883011648,
-            "Basic (and reversed card)": 1483883011644,
-            "Basic (optional reversed card)": 1483883011631,
-            "Cloze": 1483883011630,
-        }
+    >>> modelNamesAndIds()
+    {
+        "Basic": 1483883011648,
+        "Basic (and reversed card)": 1483883011644,
+        "Basic (optional reversed card)": 1483883011631,
+        "Cloze": 1483883011630,
+    }
     ```
     </details>
 
@@ -1395,144 +1333,143 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> findModelsById([1704387367119, 1704387398570])
-        [
-            {
-                "id": 1704387367119,
-                "name": "Basic",
-                "type": 0,
-                "mod": 1704387367,
-                "usn": -1,
-                "sortf": 0,
-                "did": None,
-                "tmpls": [
-                    {
-                        "name": "Card 1",
-                        "ord": 0,
-                        "qfmt": "{{Front}}",
-                        "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Back}}",
-                        "bqfmt": "",
-                        "bafmt": "",
-                        "did": None,
-                        "bfont": "",
-                        "bsize": 0,
-                        "id": 9176047152973362695,
-                    }
-                ],
-                "flds": [
-                    {
-                        "name": "Front",
-                        "ord": 0,
-                        "sticky": False,
-                        "rtl": False,
-                        "font": "Arial",
-                        "size": 20,
-                        "description": "",
-                        "plainText": False,
-                        "collapsed": False,
-                        "excludeFromSearch": False,
-                        "id": 2453723143453745216,
-                        "tag": None,
-                        "preventDeletion": False,
-                    },
-                    {
-                        "name": "Back",
-                        "ord": 1,
-                        "sticky": False,
-                        "rtl": False,
-                        "font": "Arial",
-                        "size": 20,
-                        "description": "",
-                        "plainText": False,
-                        "collapsed": False,
-                        "excludeFromSearch": False,
-                        "id": -4853200230425436781,
-                        "tag": None,
-                        "preventDeletion": False,
-                    },
-                ],
-                "css": ".card {\n    font-family: arial;\n    font-size: 20px;\n    text-align: center;\n    color: black;\n    background-color: white;\n}\n",
-                "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
-                "latexPost": "\\end{document}",
-                "latexsvg": False,
-                "req": [[0, "any", [0]]],
-                "originalStockKind": 1,
-            },
-            {
-                "id": 1704387398570,
-                "name": "Basic (and reversed card)",
-                "type": 0,
-                "mod": 1704387398,
-                "usn": -1,
-                "sortf": 0,
-                "did": None,
-                "tmpls": [
-                    {
-                        "name": "Card 1",
-                        "ord": 0,
-                        "qfmt": "{{Front}}",
-                        "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Back}}",
-                        "bqfmt": "",
-                        "bafmt": "",
-                        "did": None,
-                        "bfont": "",
-                        "bsize": 0,
-                        "id": 1689886528158874152,
-                    },
-                    {
-                        "name": "Card 2",
-                        "ord": 1,
-                        "qfmt": "{{Back}}",
-                        "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Front}}",
-                        "bqfmt": "",
-                        "bafmt": "",
-                        "did": None,
-                        "bfont": "",
-                        "bsize": 0,
-                        "id": -7839609225644824587,
-                    },
-                ],
-                "flds": [
-                    {
-                        "name": "Front",
-                        "ord": 0,
-                        "sticky": False,
-                        "rtl": False,
-                        "font": "Arial",
-                        "size": 20,
-                        "description": "",
-                        "plainText": False,
-                        "collapsed": False,
-                        "excludeFromSearch": False,
-                        "id": -7787837672455357996,
-                        "tag": None,
-                        "preventDeletion": False,
-                    },
-                    {
-                        "name": "Back",
-                        "ord": 1,
-                        "sticky": False,
-                        "rtl": False,
-                        "font": "Arial",
-                        "size": 20,
-                        "description": "",
-                        "plainText": False,
-                        "collapsed": False,
-                        "excludeFromSearch": False,
-                        "id": 6364828289839985081,
-                        "tag": None,
-                        "preventDeletion": False,
-                    },
-                ],
-                "css": ".card {\n    font-family: arial;\n    font-size: 20px;\n    text-align: center;\n    color: black;\n    background-color: white;\n}\n",
-                "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
-                "latexPost": "\\end{document}",
-                "latexsvg": False,
-                "req": [[0, "any", [0]], [1, "any", [1]]],
-                "originalStockKind": 1,
-            },
-        ]
+    >>> findModelsById([1704387367119, 1704387398570])
+    [
+        {
+            "id": 1704387367119,
+            "name": "Basic",
+            "type": 0,
+            "mod": 1704387367,
+            "usn": -1,
+            "sortf": 0,
+            "did": None,
+            "tmpls": [
+                {
+                    "name": "Card 1",
+                    "ord": 0,
+                    "qfmt": "{{Front}}",
+                    "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Back}}",
+                    "bqfmt": "",
+                    "bafmt": "",
+                    "did": None,
+                    "bfont": "",
+                    "bsize": 0,
+                    "id": 9176047152973362695,
+                }
+            ],
+            "flds": [
+                {
+                    "name": "Front",
+                    "ord": 0,
+                    "sticky": False,
+                    "rtl": False,
+                    "font": "Arial",
+                    "size": 20,
+                    "description": "",
+                    "plainText": False,
+                    "collapsed": False,
+                    "excludeFromSearch": False,
+                    "id": 2453723143453745216,
+                    "tag": None,
+                    "preventDeletion": False,
+                },
+                {
+                    "name": "Back",
+                    "ord": 1,
+                    "sticky": False,
+                    "rtl": False,
+                    "font": "Arial",
+                    "size": 20,
+                    "description": "",
+                    "plainText": False,
+                    "collapsed": False,
+                    "excludeFromSearch": False,
+                    "id": -4853200230425436781,
+                    "tag": None,
+                    "preventDeletion": False,
+                },
+            ],
+            "css": ".card {\n    font-family: arial;\n    font-size: 20px;\n    text-align: center;\n    color: black;\n    background-color: white;\n}\n",
+            "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+            "latexPost": "\\end{document}",
+            "latexsvg": False,
+            "req": [[0, "any", [0]]],
+            "originalStockKind": 1,
+        },
+        {
+            "id": 1704387398570,
+            "name": "Basic (and reversed card)",
+            "type": 0,
+            "mod": 1704387398,
+            "usn": -1,
+            "sortf": 0,
+            "did": None,
+            "tmpls": [
+                {
+                    "name": "Card 1",
+                    "ord": 0,
+                    "qfmt": "{{Front}}",
+                    "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Back}}",
+                    "bqfmt": "",
+                    "bafmt": "",
+                    "did": None,
+                    "bfont": "",
+                    "bsize": 0,
+                    "id": 1689886528158874152,
+                },
+                {
+                    "name": "Card 2",
+                    "ord": 1,
+                    "qfmt": "{{Back}}",
+                    "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Front}}",
+                    "bqfmt": "",
+                    "bafmt": "",
+                    "did": None,
+                    "bfont": "",
+                    "bsize": 0,
+                    "id": -7839609225644824587,
+                },
+            ],
+            "flds": [
+                {
+                    "name": "Front",
+                    "ord": 0,
+                    "sticky": False,
+                    "rtl": False,
+                    "font": "Arial",
+                    "size": 20,
+                    "description": "",
+                    "plainText": False,
+                    "collapsed": False,
+                    "excludeFromSearch": False,
+                    "id": -7787837672455357996,
+                    "tag": None,
+                    "preventDeletion": False,
+                },
+                {
+                    "name": "Back",
+                    "ord": 1,
+                    "sticky": False,
+                    "rtl": False,
+                    "font": "Arial",
+                    "size": 20,
+                    "description": "",
+                    "plainText": False,
+                    "collapsed": False,
+                    "excludeFromSearch": False,
+                    "id": 6364828289839985081,
+                    "tag": None,
+                    "preventDeletion": False,
+                },
+            ],
+            "css": ".card {\n    font-family: arial;\n    font-size: 20px;\n    text-align: center;\n    color: black;\n    background-color: white;\n}\n",
+            "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+            "latexPost": "\\end{document}",
+            "latexsvg": False,
+            "req": [[0, "any", [0]], [1, "any", [1]]],
+            "originalStockKind": 1,
+        },
+    ]
     ```
     </details>
 
@@ -1544,144 +1481,143 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> findModelsByName(["Basic", "Basic (and reversed card)"])
-        [
-            {
-                "id": 1704387367119,
-                "name": "Basic",
-                "type": 0,
-                "mod": 1704387367,
-                "usn": -1,
-                "sortf": 0,
-                "did": None,
-                "tmpls": [
-                    {
-                        "name": "Card 1",
-                        "ord": 0,
-                        "qfmt": "{{Front}}",
-                        "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Back}}",
-                        "bqfmt": "",
-                        "bafmt": "",
-                        "did": None,
-                        "bfont": "",
-                        "bsize": 0,
-                        "id": 9176047152973362695,
-                    }
-                ],
-                "flds": [
-                    {
-                        "name": "Front",
-                        "ord": 0,
-                        "sticky": False,
-                        "rtl": False,
-                        "font": "Arial",
-                        "size": 20,
-                        "description": "",
-                        "plainText": False,
-                        "collapsed": False,
-                        "excludeFromSearch": False,
-                        "id": 2453723143453745216,
-                        "tag": None,
-                        "preventDeletion": False,
-                    },
-                    {
-                        "name": "Back",
-                        "ord": 1,
-                        "sticky": False,
-                        "rtl": False,
-                        "font": "Arial",
-                        "size": 20,
-                        "description": "",
-                        "plainText": False,
-                        "collapsed": False,
-                        "excludeFromSearch": False,
-                        "id": -4853200230425436781,
-                        "tag": None,
-                        "preventDeletion": False,
-                    },
-                ],
-                "css": ".card {\n    font-family: arial;\n    font-size: 20px;\n    text-align: center;\n    color: black;\n    background-color: white;\n}\n",
-                "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
-                "latexPost": "\\end{document}",
-                "latexsvg": False,
-                "req": [[0, "any", [0]]],
-                "originalStockKind": 1,
-            },
-            {
-                "id": 1704387398570,
-                "name": "Basic (and reversed card)",
-                "type": 0,
-                "mod": 1704387398,
-                "usn": -1,
-                "sortf": 0,
-                "did": None,
-                "tmpls": [
-                    {
-                        "name": "Card 1",
-                        "ord": 0,
-                        "qfmt": "{{Front}}",
-                        "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Back}}",
-                        "bqfmt": "",
-                        "bafmt": "",
-                        "did": None,
-                        "bfont": "",
-                        "bsize": 0,
-                        "id": 1689886528158874152,
-                    },
-                    {
-                        "name": "Card 2",
-                        "ord": 1,
-                        "qfmt": "{{Back}}",
-                        "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Front}}",
-                        "bqfmt": "",
-                        "bafmt": "",
-                        "did": None,
-                        "bfont": "",
-                        "bsize": 0,
-                        "id": -7839609225644824587,
-                    },
-                ],
-                "flds": [
-                    {
-                        "name": "Front",
-                        "ord": 0,
-                        "sticky": False,
-                        "rtl": False,
-                        "font": "Arial",
-                        "size": 20,
-                        "description": "",
-                        "plainText": False,
-                        "collapsed": False,
-                        "excludeFromSearch": False,
-                        "id": -7787837672455357996,
-                        "tag": None,
-                        "preventDeletion": False,
-                    },
-                    {
-                        "name": "Back",
-                        "ord": 1,
-                        "sticky": False,
-                        "rtl": False,
-                        "font": "Arial",
-                        "size": 20,
-                        "description": "",
-                        "plainText": False,
-                        "collapsed": False,
-                        "excludeFromSearch": False,
-                        "id": 6364828289839985081,
-                        "tag": None,
-                        "preventDeletion": False,
-                    },
-                ],
-                "css": ".card {\n    font-family: arial;\n    font-size: 20px;\n    text-align: center;\n    color: black;\n    background-color: white;\n}\n",
-                "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
-                "latexPost": "\\end{document}",
-                "latexsvg": False,
-                "req": [[0, "any", [0]], [1, "any", [1]]],
-                "originalStockKind": 1,
-            },
-        ]
+    >>> findModelsByName(["Basic", "Basic (and reversed card)"])
+    [
+        {
+            "id": 1704387367119,
+            "name": "Basic",
+            "type": 0,
+            "mod": 1704387367,
+            "usn": -1,
+            "sortf": 0,
+            "did": None,
+            "tmpls": [
+                {
+                    "name": "Card 1",
+                    "ord": 0,
+                    "qfmt": "{{Front}}",
+                    "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Back}}",
+                    "bqfmt": "",
+                    "bafmt": "",
+                    "did": None,
+                    "bfont": "",
+                    "bsize": 0,
+                    "id": 9176047152973362695,
+                }
+            ],
+            "flds": [
+                {
+                    "name": "Front",
+                    "ord": 0,
+                    "sticky": False,
+                    "rtl": False,
+                    "font": "Arial",
+                    "size": 20,
+                    "description": "",
+                    "plainText": False,
+                    "collapsed": False,
+                    "excludeFromSearch": False,
+                    "id": 2453723143453745216,
+                    "tag": None,
+                    "preventDeletion": False,
+                },
+                {
+                    "name": "Back",
+                    "ord": 1,
+                    "sticky": False,
+                    "rtl": False,
+                    "font": "Arial",
+                    "size": 20,
+                    "description": "",
+                    "plainText": False,
+                    "collapsed": False,
+                    "excludeFromSearch": False,
+                    "id": -4853200230425436781,
+                    "tag": None,
+                    "preventDeletion": False,
+                },
+            ],
+            "css": ".card {\n    font-family: arial;\n    font-size: 20px;\n    text-align: center;\n    color: black;\n    background-color: white;\n}\n",
+            "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+            "latexPost": "\\end{document}",
+            "latexsvg": False,
+            "req": [[0, "any", [0]]],
+            "originalStockKind": 1,
+        },
+        {
+            "id": 1704387398570,
+            "name": "Basic (and reversed card)",
+            "type": 0,
+            "mod": 1704387398,
+            "usn": -1,
+            "sortf": 0,
+            "did": None,
+            "tmpls": [
+                {
+                    "name": "Card 1",
+                    "ord": 0,
+                    "qfmt": "{{Front}}",
+                    "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Back}}",
+                    "bqfmt": "",
+                    "bafmt": "",
+                    "did": None,
+                    "bfont": "",
+                    "bsize": 0,
+                    "id": 1689886528158874152,
+                },
+                {
+                    "name": "Card 2",
+                    "ord": 1,
+                    "qfmt": "{{Back}}",
+                    "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Front}}",
+                    "bqfmt": "",
+                    "bafmt": "",
+                    "did": None,
+                    "bfont": "",
+                    "bsize": 0,
+                    "id": -7839609225644824587,
+                },
+            ],
+            "flds": [
+                {
+                    "name": "Front",
+                    "ord": 0,
+                    "sticky": False,
+                    "rtl": False,
+                    "font": "Arial",
+                    "size": 20,
+                    "description": "",
+                    "plainText": False,
+                    "collapsed": False,
+                    "excludeFromSearch": False,
+                    "id": -7787837672455357996,
+                    "tag": None,
+                    "preventDeletion": False,
+                },
+                {
+                    "name": "Back",
+                    "ord": 1,
+                    "sticky": False,
+                    "rtl": False,
+                    "font": "Arial",
+                    "size": 20,
+                    "description": "",
+                    "plainText": False,
+                    "collapsed": False,
+                    "excludeFromSearch": False,
+                    "id": 6364828289839985081,
+                    "tag": None,
+                    "preventDeletion": False,
+                },
+            ],
+            "css": ".card {\n    font-family: arial;\n    font-size: 20px;\n    text-align: center;\n    color: black;\n    background-color: white;\n}\n",
+            "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+            "latexPost": "\\end{document}",
+            "latexsvg": False,
+            "req": [[0, "any", [0]], [1, "any", [1]]],
+            "originalStockKind": 1,
+        },
+    ]
     ```
     </details>
 
@@ -1693,9 +1629,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> modelFieldNames("Basic")
-        ["Front", "Back"]
+    >>> modelFieldNames("Basic")
+    ["Front", "Back"]
     ```
     </details>
 
@@ -1708,9 +1643,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> modelFieldDescriptions("Basic")
-        ["", ""]
+    >>> modelFieldDescriptions("Basic")
+    ["", ""]
     ```
     </details>
 
@@ -1722,9 +1656,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> modelFieldFonts("Basic")
-        {"Front": {"font": "Arial", "size": 20}, "Back": {"font": "Arial", "size": 20}}
+    >>> modelFieldFonts("Basic")
+    {"Front": {"font": "Arial", "size": 20}, "Back": {"font": "Arial", "size": 20}}
     ```
     </details>
 
@@ -1738,9 +1671,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> modelFieldsOnTemplates("Basic (and reversed card)")
-        {"Card 1": [["Front"], ["Back"]], "Card 2": [["Back"], ["Front"]]}
+    >>> modelFieldsOnTemplates("Basic (and reversed card)")
+    {"Card 1": [["Front"], ["Back"]], "Card 2": [["Back"], ["Front"]]}
     ```
     </details>
 
@@ -1759,66 +1691,65 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> createModel(
-        ...     "newModelName",
-        ...     ["Field1", "Field2", "Field3"],
-        ...     "Optional CSS with default to builtin css",
-        ...     False,
-        ...     [
-        ...         {
-        ...             "Name": "My Card 1",
-        ...             "Front": "Front html {{Field1}}",
-        ...             "Back": "Back html  {{Field2}}",
-        ...         }
-        ...     ],
-        ... )
-        {
-            "sortf": 0,
-            "did": 1,
-            "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
-            "latexPost": "\\end{document}",
-            "mod": 1551462107,
-            "usn": -1,
-            "vers": [],
-            "type": 0,
-            "css": ".card {\n font-family: arial;\n font-size: 20px;\n text-align: center;\n color: black;\n background-color: white;\n}\n",
-            "name": "TestApiModel",
-            "flds": [
-                {
-                    "name": "Field1",
-                    "ord": 0,
-                    "sticky": False,
-                    "rtl": False,
-                    "font": "Arial",
-                    "size": 20,
-                    "media": [],
-                },
-                {
-                    "name": "Field2",
-                    "ord": 1,
-                    "sticky": False,
-                    "rtl": False,
-                    "font": "Arial",
-                    "size": 20,
-                    "media": [],
-                },
-            ],
-            "tmpls": [
-                {
-                    "name": "My Card 1",
-                    "ord": 0,
-                    "qfmt": "",
-                    "afmt": "This is the back of the card {{Field2}}",
-                    "did": None,
-                    "bqfmt": "",
-                    "bafmt": "",
-                }
-            ],
-            "tags": [],
-            "id": 1551462107104,
-            "req": [[0, "none", []]],
-        }
+    >>> createModel(
+    ...     "newModelName",
+    ...     ["Field1", "Field2", "Field3"],
+    ...     "Optional CSS with default to builtin css",
+    ...     False,
+    ...     [
+    ...         {
+    ...             "Name": "My Card 1",
+    ...             "Front": "Front html {{Field1}}",
+    ...             "Back": "Back html  {{Field2}}",
+    ...         }
+    ...     ],
+    ... )
+    {
+        "sortf": 0,
+        "did": 1,
+        "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+        "latexPost": "\\end{document}",
+        "mod": 1551462107,
+        "usn": -1,
+        "vers": [],
+        "type": 0,
+        "css": ".card {\n font-family: arial;\n font-size: 20px;\n text-align: center;\n color: black;\n background-color: white;\n}\n",
+        "name": "TestApiModel",
+        "flds": [
+            {
+                "name": "Field1",
+                "ord": 0,
+                "sticky": False,
+                "rtl": False,
+                "font": "Arial",
+                "size": 20,
+                "media": [],
+            },
+            {
+                "name": "Field2",
+                "ord": 1,
+                "sticky": False,
+                "rtl": False,
+                "font": "Arial",
+                "size": 20,
+                "media": [],
+            },
+        ],
+        "tmpls": [
+            {
+                "name": "My Card 1",
+                "ord": 0,
+                "qfmt": "",
+                "afmt": "This is the back of the card {{Field2}}",
+                "did": None,
+                "bqfmt": "",
+                "bafmt": "",
+            }
+        ],
+        "tags": [],
+        "id": 1551462107104,
+        "req": [[0, "none", []]],
+    }
     ```
     </details>
 
@@ -1831,18 +1762,17 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> modelTemplates("Basic (and reversed card)")
-        {
-            "Card 1": {
-                "Front": "{{Front}}",
-                "Back": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Back}}",
-            },
-            "Card 2": {
-                "Front": "{{Back}}",
-                "Back": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Front}}",
-            },
-        }
+    >>> modelTemplates("Basic (and reversed card)")
+    {
+        "Card 1": {
+            "Front": "{{Front}}",
+            "Back": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Back}}",
+        },
+        "Card 2": {
+            "Front": "{{Back}}",
+            "Back": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Front}}",
+        },
+    }
     ```
     </details>
 
@@ -1854,11 +1784,10 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> modelStyling("Basic (and reversed card)")
-        {
-            "css": ".card {\n font-family: arial;\n font-size: 20px;\n text-align: center;\n color: black;\n background-color: white;\n}\n"
-        }
+    >>> modelStyling("Basic (and reversed card)")
+    {
+        "css": ".card {\n font-family: arial;\n font-size: 20px;\n text-align: center;\n color: black;\n background-color: white;\n}\n"
+    }
     ```
     </details>
 
@@ -1872,14 +1801,13 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> updateModelTemplates(
-        ...     {
-        ...         "name": "Custom",
-        ...         "templates": {"Card 1": {"Front": "{{Question}}?", "Back": "{{Answer}}!"}},
-        ...     }
-        ... )
-        None
+    >>> updateModelTemplates(
+    ...     {
+    ...         "name": "Custom",
+    ...         "templates": {"Card 1": {"Front": "{{Question}}?", "Back": "{{Answer}}!"}},
+    ...     }
+    ... )
+    None
     ```
     </details>
 
@@ -1891,9 +1819,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> updateModelStyling({"name": "Custom", "css": "p { color: blue; }"})
-        None
+    >>> updateModelStyling({"name": "Custom", "css": "p { color: blue; }"})
+    None
     ```
     </details>
 
@@ -1906,18 +1833,17 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> findAndReplaceInModels(
-        ...     {
-        ...         "modelName": "",
-        ...         "findText": "text_to_replace",
-        ...         "replaceText": "replace_with_text",
-        ...         "front": True,
-        ...         "back": True,
-        ...         "css": True,
-        ...     }
-        ... )
-        1
+    >>> findAndReplaceInModels(
+    ...     {
+    ...         "modelName": "",
+    ...         "findText": "text_to_replace",
+    ...         "replaceText": "replace_with_text",
+    ...         "front": True,
+    ...         "back": True,
+    ...         "css": True,
+    ...     }
+    ... )
+    1
     ```
     </details>
 
@@ -1929,9 +1855,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> modelTemplateRename("Basic", "Card 1", "Card 1 renamed")
-        None
+    >>> modelTemplateRename("Basic", "Card 1", "Card 1 renamed")
+    None
     ```
     </details>
 
@@ -1946,9 +1871,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> modelTemplateReposition("Basic", "Card 1", 1)
-        None
+    >>> modelTemplateReposition("Basic", "Card 1", 1)
+    None
     ```
     </details>
 
@@ -1961,16 +1885,15 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> modelTemplateAdd(
-        ...     "Basic",
-        ...     {
-        ...         "Name": "Card 3",
-        ...         "Front": "Front html {{Field1}}",
-        ...         "Back": "Back html {{Field2}}",
-        ...     },
-        ... )
-        None
+    >>> modelTemplateAdd(
+    ...     "Basic",
+    ...     {
+    ...         "Name": "Card 3",
+    ...         "Front": "Front html {{Field1}}",
+    ...         "Back": "Back html {{Field2}}",
+    ...     },
+    ... )
+    None
     ```
     </details>
 
@@ -1982,9 +1905,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> modelTemplateRemove("Basic", "Card 1")
-        None
+    >>> modelTemplateRemove("Basic", "Card 1")
+    None
     ```
     </details>
 
@@ -1996,9 +1918,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> modelFieldRename("Basic", "Front", "FrontRenamed")
-        None
+    >>> modelFieldRename("Basic", "Front", "FrontRenamed")
+    None
     ```
     </details>
 
@@ -2013,9 +1934,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> modelFieldReposition("Basic", "Back", 0)
-        None
+    >>> modelFieldReposition("Basic", "Back", 0)
+    None
     ```
     </details>
 
@@ -2031,9 +1951,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> modelFieldAdd("Basic", "NewField", 0)
-        None
+    >>> modelFieldAdd("Basic", "NewField", 0)
+    None
     ```
     </details>
 
@@ -2045,9 +1964,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> modelFieldRemove("Basic", "Front")
-        None
+    >>> modelFieldRemove("Basic", "Front")
+    None
     ```
     </details>
 
@@ -2059,9 +1977,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> modelFieldSetFont("Basic", "Front", "Courier")
-        None
+    >>> modelFieldSetFont("Basic", "Front", "Courier")
+    None
     ```
     </details>
 
@@ -2073,9 +1990,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> modelFieldSetFontSize("Basic", "Front", 10)
-        None
+    >>> modelFieldSetFontSize("Basic", "Front", 10)
+    None
     ```
     </details>
 
@@ -2091,9 +2007,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> modelFieldSetDescription("Basic", "Front", "example field description")
-        True
+    >>> modelFieldSetDescription("Basic", "Front", "example field description")
+    True
     ```
     </details>
 
@@ -2135,49 +2050,48 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> addNote(
-        ...     {
-        ...         "deckName": "Default",
-        ...         "modelName": "Basic",
-        ...         "fields": {"Front": "front content", "Back": "back content"},
-        ...         "options": {
-        ...             "allowDuplicate": False,
-        ...             "duplicateScope": "deck",
-        ...             "duplicateScopeOptions": {
-        ...                 "deckName": "Default",
-        ...                 "checkChildren": False,
-        ...                 "checkAllModels": False,
-        ...             },
-        ...         },
-        ...         "tags": ["yomichan"],
-        ...         "audio": [
-        ...             {
-        ...                 "url": "https://assets.languagepod101.com/dictionary/japanese/audiomp3.php?kanji=猫&kana=ねこ",
-        ...                 "filename": "yomichan_ねこ_猫.mp3",
-        ...                 "skipHash": "7e2c2f954ef6051373ba916f000168dc",
-        ...                 "fields": ["Front"],
-        ...             }
-        ...         ],
-        ...         "video": [
-        ...             {
-        ...                 "url": "https://cdn.videvo.net/videvo_files/video/free/2015-06/small_watermarked/Contador_Glam_preview.mp4",
-        ...                 "filename": "countdown.mp4",
-        ...                 "skipHash": "4117e8aab0d37534d9c8eac362388bbe",
-        ...                 "fields": ["Back"],
-        ...             }
-        ...         ],
-        ...         "picture": [
-        ...             {
-        ...                 "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/A_black_cat_named_Tilly.jpg/220px-A_black_cat_named_Tilly.jpg",
-        ...                 "filename": "black_cat.jpg",
-        ...                 "skipHash": "8d6e4646dfae812bf39651b59d7429ce",
-        ...                 "fields": ["Back"],
-        ...             }
-        ...         ],
-        ...     }
-        ... )
-        1496198395707
+    >>> addNote(
+    ...     {
+    ...         "deckName": "Default",
+    ...         "modelName": "Basic",
+    ...         "fields": {"Front": "front content", "Back": "back content"},
+    ...         "options": {
+    ...             "allowDuplicate": False,
+    ...             "duplicateScope": "deck",
+    ...             "duplicateScopeOptions": {
+    ...                 "deckName": "Default",
+    ...                 "checkChildren": False,
+    ...                 "checkAllModels": False,
+    ...             },
+    ...         },
+    ...         "tags": ["yomichan"],
+    ...         "audio": [
+    ...             {
+    ...                 "url": "https://assets.languagepod101.com/dictionary/japanese/audiomp3.php?kanji=猫&kana=ねこ",
+    ...                 "filename": "yomichan_ねこ_猫.mp3",
+    ...                 "skipHash": "7e2c2f954ef6051373ba916f000168dc",
+    ...                 "fields": ["Front"],
+    ...             }
+    ...         ],
+    ...         "video": [
+    ...             {
+    ...                 "url": "https://cdn.videvo.net/videvo_files/video/free/2015-06/small_watermarked/Contador_Glam_preview.mp4",
+    ...                 "filename": "countdown.mp4",
+    ...                 "skipHash": "4117e8aab0d37534d9c8eac362388bbe",
+    ...                 "fields": ["Back"],
+    ...             }
+    ...         ],
+    ...         "picture": [
+    ...             {
+    ...                 "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/A_black_cat_named_Tilly.jpg/220px-A_black_cat_named_Tilly.jpg",
+    ...                 "filename": "black_cat.jpg",
+    ...                 "skipHash": "8d6e4646dfae812bf39651b59d7429ce",
+    ...                 "fields": ["Back"],
+    ...             }
+    ...         ],
+    ...     }
+    ... )
+    1496198395707
     ```
     </details>
 
@@ -2192,42 +2106,41 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> addNotes(
-        ...     [
-        ...         {
-        ...             "deckName": "Default",
-        ...             "modelName": "Basic",
-        ...             "fields": {"Front": "front content", "Back": "back content"},
-        ...             "tags": ["yomichan"],
-        ...             "audio": [
-        ...                 {
-        ...                     "url": "https://assets.languagepod101.com/dictionary/japanese/audiomp3.php?kanji=猫&kana=ねこ",
-        ...                     "filename": "yomichan_ねこ_猫.mp3",
-        ...                     "skipHash": "7e2c2f954ef6051373ba916f000168dc",
-        ...                     "fields": ["Front"],
-        ...                 }
-        ...             ],
-        ...             "video": [
-        ...                 {
-        ...                     "url": "https://cdn.videvo.net/videvo_files/video/free/2015-06/small_watermarked/Contador_Glam_preview.mp4",
-        ...                     "filename": "countdown.mp4",
-        ...                     "skipHash": "4117e8aab0d37534d9c8eac362388bbe",
-        ...                     "fields": ["Back"],
-        ...                 }
-        ...             ],
-        ...             "picture": [
-        ...                 {
-        ...                     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/A_black_cat_named_Tilly.jpg/220px-A_black_cat_named_Tilly.jpg",
-        ...                     "filename": "black_cat.jpg",
-        ...                     "skipHash": "8d6e4646dfae812bf39651b59d7429ce",
-        ...                     "fields": ["Back"],
-        ...                 }
-        ...             ],
-        ...         }
-        ...     ]
-        ... )
-        [1496198395707, None]
+    >>> addNotes(
+    ...     [
+    ...         {
+    ...             "deckName": "Default",
+    ...             "modelName": "Basic",
+    ...             "fields": {"Front": "front content", "Back": "back content"},
+    ...             "tags": ["yomichan"],
+    ...             "audio": [
+    ...                 {
+    ...                     "url": "https://assets.languagepod101.com/dictionary/japanese/audiomp3.php?kanji=猫&kana=ねこ",
+    ...                     "filename": "yomichan_ねこ_猫.mp3",
+    ...                     "skipHash": "7e2c2f954ef6051373ba916f000168dc",
+    ...                     "fields": ["Front"],
+    ...                 }
+    ...             ],
+    ...             "video": [
+    ...                 {
+    ...                     "url": "https://cdn.videvo.net/videvo_files/video/free/2015-06/small_watermarked/Contador_Glam_preview.mp4",
+    ...                     "filename": "countdown.mp4",
+    ...                     "skipHash": "4117e8aab0d37534d9c8eac362388bbe",
+    ...                     "fields": ["Back"],
+    ...                 }
+    ...             ],
+    ...             "picture": [
+    ...                 {
+    ...                     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/A_black_cat_named_Tilly.jpg/220px-A_black_cat_named_Tilly.jpg",
+    ...                     "filename": "black_cat.jpg",
+    ...                     "skipHash": "8d6e4646dfae812bf39651b59d7429ce",
+    ...                     "fields": ["Back"],
+    ...                 }
+    ...             ],
+    ...         }
+    ...     ]
+    ... )
+    [1496198395707, None]
     ```
     </details>
 
@@ -2241,18 +2154,17 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> canAddNotes(
-        ...     [
-        ...         {
-        ...             "deckName": "Default",
-        ...             "modelName": "Basic",
-        ...             "fields": {"Front": "front content", "Back": "back content"},
-        ...             "tags": ["yomichan"],
-        ...         }
-        ...     ]
-        ... )
-        [True]
+    >>> canAddNotes(
+    ...     [
+    ...         {
+    ...             "deckName": "Default",
+    ...             "modelName": "Basic",
+    ...             "fields": {"Front": "front content", "Back": "back content"},
+    ...             "tags": ["yomichan"],
+    ...         }
+    ...     ]
+    ... )
+    [True]
     ```
     </details>
 
@@ -2269,27 +2181,26 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> canAddNotesWithErrorDetail(
-        ...     [
-        ...         {
-        ...             "deckName": "Default",
-        ...             "modelName": "Basic",
-        ...             "fields": {"Front": "front content", "Back": "back content"},
-        ...             "tags": ["yomichan"],
-        ...         },
-        ...         {
-        ...             "deckName": "Default",
-        ...             "modelName": "Basic",
-        ...             "fields": {"Front": "front content 2", "Back": "back content 2"},
-        ...             "tags": ["yomichan"],
-        ...         },
-        ...     ]
-        ... )
-        [
-            {"canAdd": False, "error": "cannot create note because it is a duplicate"},
-            {"canAdd": True},
-        ]
+    >>> canAddNotesWithErrorDetail(
+    ...     [
+    ...         {
+    ...             "deckName": "Default",
+    ...             "modelName": "Basic",
+    ...             "fields": {"Front": "front content", "Back": "back content"},
+    ...             "tags": ["yomichan"],
+    ...         },
+    ...         {
+    ...             "deckName": "Default",
+    ...             "modelName": "Basic",
+    ...             "fields": {"Front": "front content 2", "Back": "back content 2"},
+    ...             "tags": ["yomichan"],
+    ...         },
+    ...     ]
+    ... )
+    [
+        {"canAdd": False, "error": "cannot create note because it is a duplicate"},
+        {"canAdd": True},
+    ]
     ```
     </details>
 
@@ -2308,22 +2219,21 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> updateNoteFields(
-        ...     {
-        ...         "id": 1514547547030,
-        ...         "fields": {"Front": "new front content", "Back": "new back content"},
-        ...         "audio": [
-        ...             {
-        ...                 "url": "https://assets.languagepod101.com/dictionary/japanese/audiomp3.php?kanji=猫&kana=ねこ",
-        ...                 "filename": "yomichan_ねこ_猫.mp3",
-        ...                 "skipHash": "7e2c2f954ef6051373ba916f000168dc",
-        ...                 "fields": ["Front"],
-        ...             }
-        ...         ],
-        ...     }
-        ... )
-        None
+    >>> updateNoteFields(
+    ...     {
+    ...         "id": 1514547547030,
+    ...         "fields": {"Front": "new front content", "Back": "new back content"},
+    ...         "audio": [
+    ...             {
+    ...                 "url": "https://assets.languagepod101.com/dictionary/japanese/audiomp3.php?kanji=猫&kana=ねこ",
+    ...                 "filename": "yomichan_ねこ_猫.mp3",
+    ...                 "skipHash": "7e2c2f954ef6051373ba916f000168dc",
+    ...                 "fields": ["Front"],
+    ...             }
+    ...         ],
+    ...     }
+    ... )
+    None
     ```
     </details>
 
@@ -2350,15 +2260,14 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> updateNote(
-        ...     {
-        ...         "id": 1514547547030,
-        ...         "fields": {"Front": "new front content", "Back": "new back content"},
-        ...         "tags": ["new", "tags"],
-        ...     }
-        ... )
-        None
+    >>> updateNote(
+    ...     {
+    ...         "id": 1514547547030,
+    ...         "fields": {"Front": "new front content", "Back": "new back content"},
+    ...         "tags": ["new", "tags"],
+    ...     }
+    ... )
+    None
     ```
     </details>
 
@@ -2370,9 +2279,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> updateNoteTags(1483959289817, ["european-languages"])
-        None
+    >>> updateNoteTags(1483959289817, ["european-languages"])
+    None
     ```
     </details>
 
@@ -2384,9 +2292,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> getNoteTags(1483959289817)
-        ["european-languages"]
+    >>> getNoteTags(1483959289817)
+    ["european-languages"]
     ```
     </details>
 
@@ -2398,9 +2305,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> addTags([1483959289817, 1483959291695], "european-languages")
-        None
+    >>> addTags([1483959289817, 1483959291695], "european-languages")
+    None
     ```
     </details>
 
@@ -2412,9 +2318,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> removeTags([1483959289817, 1483959291695], "european-languages")
-        None
+    >>> removeTags([1483959289817, 1483959291695], "european-languages")
+    None
     ```
     </details>
 
@@ -2426,9 +2331,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> getTags()
-        ["european-languages", "idioms"]
+    >>> getTags()
+    ["european-languages", "idioms"]
     ```
     </details>
 
@@ -2440,9 +2344,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> clearUnusedTags()
-        None
+    >>> clearUnusedTags()
+    None
     ```
     </details>
 
@@ -2454,9 +2357,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> replaceTags([1483959289817, 1483959291695], "european-languages", "french-languages")
-        None
+    >>> replaceTags([1483959289817, 1483959291695], "european-languages", "french-languages")
+    None
     ```
     </details>
 
@@ -2468,9 +2370,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> replaceTagsInAllNotes("european-languages", "french-languages")
-        None
+    >>> replaceTagsInAllNotes("european-languages", "french-languages")
+    None
     ```
     </details>
 
@@ -2483,9 +2384,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> findNotes("deck:current")
-        [1483959289817, 1483959291695]
+    >>> findNotes("deck:current")
+    [1483959289817, 1483959291695]
     ```
     </details>
 
@@ -2498,19 +2398,18 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> notesInfo([1502298033753])
-        [
-            {
-                "noteId": 1502298033753,
-                "modelName": "Basic",
-                "tags": ["tag", "another_tag"],
-                "fields": {
-                    "Front": {"value": "front content", "order": 0},
-                    "Back": {"value": "back content", "order": 1},
-                },
-            }
-        ]
+    >>> notesInfo([1502298033753])
+    [
+        {
+            "noteId": 1502298033753,
+            "modelName": "Basic",
+            "tags": ["tag", "another_tag"],
+            "fields": {
+                "Front": {"value": "front content", "order": 0},
+                "Back": {"value": "back content", "order": 1},
+            },
+        }
+    ]
     ```
     </details>
 
@@ -2523,9 +2422,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> deleteNotes([1502298033753])
-        None
+    >>> deleteNotes([1502298033753])
+    None
     ```
     </details>
 
@@ -2537,9 +2435,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> removeEmptyNotes()
-        None
+    >>> removeEmptyNotes()
+    None
     ```
     </details>
 
@@ -2554,9 +2451,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> getNumCardsReviewedToday()
-        0
+    >>> getNumCardsReviewedToday()
+    0
     ```
     </details>
 
@@ -2568,9 +2464,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> getNumCardsReviewedByDay()
-        [["2021-02-28", 124], ["2021-02-27", 261]]
+    >>> getNumCardsReviewedByDay()
+    [["2021-02-28", 124], ["2021-02-27", 261]]
     ```
     </details>
 
@@ -2582,9 +2477,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> getCollectionStatsHTML(True)
-        "<center> lots of HTML here </center>"
+    >>> getCollectionStatsHTML(True)
+    "<center> lots of HTML here </center>"
     ```
     </details>
 
@@ -2599,12 +2493,11 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> cardReviews("default", 1594194095740)
-        [
-            [1594194095746, 1485369733217, -1, 3, 4, -60, 2500, 6157, 0],
-            [1594201393292, 1485369902086, -1, 1, -60, -60, 0, 4846, 0],
-        ]
+    >>> cardReviews("default", 1594194095740)
+    [
+        [1594194095746, 1485369733217, -1, 3, 4, -60, 2500, 6157, 0],
+        [1594201393292, 1485369902086, -1, 1, -60, -60, 0, 4846, 0],
+    ]
     ```
     </details>
 
@@ -2631,32 +2524,31 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> getReviewsOfCards(["1653613948202"])
-        {
-            "1653613948202": [
-                {
-                    "id": 1653772912146,
-                    "usn": 1750,
-                    "ease": 1,
-                    "ivl": -20,
-                    "lastIvl": -20,
-                    "factor": 0,
-                    "time": 38192,
-                    "type": 0,
-                },
-                {
-                    "id": 1653772965429,
-                    "usn": 1750,
-                    "ease": 3,
-                    "ivl": -45,
-                    "lastIvl": -20,
-                    "factor": 0,
-                    "time": 15337,
-                    "type": 0,
-                },
-            ]
-        }
+    >>> getReviewsOfCards(["1653613948202"])
+    {
+        "1653613948202": [
+            {
+                "id": 1653772912146,
+                "usn": 1750,
+                "ease": 1,
+                "ivl": -20,
+                "lastIvl": -20,
+                "factor": 0,
+                "time": 38192,
+                "type": 0,
+            },
+            {
+                "id": 1653772965429,
+                "usn": 1750,
+                "ease": 3,
+                "ivl": -45,
+                "lastIvl": -20,
+                "factor": 0,
+                "time": 15337,
+                "type": 0,
+            },
+        ]
+    }
     ```
     </details>
 
@@ -2669,9 +2561,8 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> getLatestReviewID("default")
-        1594194095746
+    >>> getLatestReviewID("default")
+    1594194095746
     ```
     </details>
 
@@ -2685,14 +2576,13 @@ Search parameters are passed to Anki, check the docs for more information: https
     <summary><i>Example:</i></summary>
 
     ```python
-
-        >>> insertReviews(
-        ...     [
-        ...         [1594194095746, 1485369733217, -1, 3, 4, -60, 2500, 6157, 0],
-        ...         [1594201393292, 1485369902086, -1, 1, -60, -60, 0, 4846, 0],
-        ...     ]
-        ... )
-        None
+    >>> insertReviews(
+    ...     [
+    ...         [1594194095746, 1485369733217, -1, 3, 4, -60, 2500, 6157, 0],
+    ...         [1594201393292, 1485369902086, -1, 1, -60, -60, 0, 4846, 0],
+    ...     ]
+    ... )
+    None
     ```
     </details>
 
