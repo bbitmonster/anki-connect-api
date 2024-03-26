@@ -128,6 +128,9 @@ def traverse(t, level=0):
         
 
 def split_to_chunks(lines_gen, func_name):
+    """Simple state machine to split the text into the docstring, sample request and sample
+    result part."""
+    
     mode = 0
     doc = ""
     request = ""
