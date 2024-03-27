@@ -51,11 +51,9 @@ def write_json_func(fout, func_name, args, docstring):
 
     request_str = ""
     result_str = ""
-    print(repr(example))
     for line in example.rstrip().splitlines():
         if line.strip() == "":
             break
-        print(repr(line))
         if line.startswith("    >>> ") or line.startswith("    ... "):
             request_str += line[8:] + "\n"
         else:
@@ -93,7 +91,7 @@ def write_json_func(fout, func_name, args, docstring):
 
 script_dir = Path(__file__).absolute().parent
 
-with open(script_dir.parent / "anki_connect.py", 'r', encoding="utf-8") as file:
+with open(script_dir.parent / "anki_connect_api.py", 'r', encoding="utf-8") as file:
     tree = ast_comments.parse(file.read())
 
 with open(script_dir / "anki_connect.header.md", 'r', encoding="utf-8") as file:

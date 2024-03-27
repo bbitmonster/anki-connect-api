@@ -7,12 +7,12 @@
 
 #### Installation:
 ```
-pip install --upgrade anki-connect
+pip install --upgrade anki_connect_api
 ```
 
 #### Example Usage:
 ```python
->>> import anki_connect as ac
+>>> import anki_connect_api as ac
 >>> ac.deckNames()
 ["Default", "Japanese::JLPT N3"]
 ```

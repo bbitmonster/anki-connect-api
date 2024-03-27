@@ -5,7 +5,7 @@
 !README.md
 !LICENSE
 !/pyproject.toml
-!anki_connect.py
+!anki_connect_api.py
 
 !/tools/
 !tools/make_docs.py

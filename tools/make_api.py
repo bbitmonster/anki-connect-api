@@ -246,7 +246,7 @@ def line_generator(file):
             
 script_dir = Path(__file__).absolute().parent
 source_file_path = script_dir / "anki_connect.md"
-out_file_path = script_dir.parent / "anki_connect.py"
+out_file_path = script_dir.parent / "anki_connect_api.py"
 
 with (source_file_path.open('r', encoding="utf-8") as fin,
       out_file_path.open('w', encoding="utf-8") as fout):
