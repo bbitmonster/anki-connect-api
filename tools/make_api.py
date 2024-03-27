@@ -21,8 +21,8 @@ URL = 'http://127.0.0.1:8765'
 def invoke(action, **params):
     requestJson = json.dumps({
         'action': action, 
-        'params': params, 
-        'version': 6
+        'version': 6,
+        'params': params
     }).encode('utf-8')
     response = json.load(
         urllib.request.urlopen(urllib.request.Request(URL, requestJson))

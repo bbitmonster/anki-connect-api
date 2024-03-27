@@ -7,7 +7,7 @@
 
 #### Installation:
 ```
-pip install --upgrade anki_connect_api
+pip install --upgrade anki-connect-api
 ```
 
 #### Example Usage:
