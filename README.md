@@ -9,3 +9,10 @@
 ```
 pip install --upgrade anki-connect
 ```
+
+#### Example Usage:
+```python
+>>> import anki_connect as ac
+>>> ac.deckNames()
+["Default", "Japanese::JLPT N3"]
+```
