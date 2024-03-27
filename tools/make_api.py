@@ -4,11 +4,8 @@ import json
 from pathlib import Path
 
 import black
-import mistletoe
-from mistletoe.span_token import InlineCode, RawText, Link, LineBreak, Emphasis, Strong
-from mistletoe.block_token import Quote, ThematicBreak, Heading, Paragraph, CodeFence
-from mistletoe.block_token import HtmlBlock, List, ListItem, Document
-from mistletoe.markdown_renderer import BlankLine, MarkdownRenderer
+
+import markdown_parser
 
 REQUEST_SEARCH = re.compile("^<summary><i>Sample.* request.*</i></summary>")
 RESULT_SEARCH = re.compile("^<summary><i>Sample.* result.*</i></summary>")
@@ -17,8 +14,9 @@ HEADER = '''\
 __version__ = '24.2.26.0'
 
 import json
-from urllib.request import urlopen, Request
+import urllib.request
 
+URL = 'http://127.0.0.1:8765'
 
 def invoke(action, **params):
     requestJson = json.dumps({
@@ -26,7 +24,9 @@ def invoke(action, **params):
         'params': params, 
         'version': 6
     }).encode('utf-8')
-    response = json.load(urlopen(Request('http://127.0.0.1:8765', requestJson)))
+    response = json.load(
+        urllib.request.urlopen(urllib.request.Request(URL, requestJson))
+    )
     if len(response) != 2:
         raise Exception('response has an unexpected number of fields')
     if 'error' not in response:
@@ -44,16 +44,24 @@ CODE_TEMPLATE = '''\
 {doc}
     
     Example::
-{example}
-{example_return_value}
+{examples}
     """
-{code}
+{func_code}
 
 '''
-replace_data = {
-    "storeMediaFile": (
-        "def storeMediaFile(filename: str, *, data=None, path: str=None, url=None, deleteExisting: bool=True) -> str:",
-    """\
+
+exceptional_funcs = {}
+func_def = "def storeMediaFile(filename: str, *, data=None, path: str=None, url=None, deleteExisting: bool=True) -> str:"
+func_examples = '''\
+        >>> storeMediaFile("_hello.txt", data="SGVsbG8sIHdvcmxkIQ==")
+        "_hello.txt"
+
+        >>> storeMediaFile("_hello.txt", path="/path/to/file")
+        "_hello.txt"
+
+        >>> storeMediaFile("_hello.txt", url="https://url.to.file")
+        "_hello.txt"'''
+func_code = """\
     if data is not None:
         return invoke("storeMediaFile", filename=filename, data=data, deleteExisting=deleteExisting)
     elif path is not None:
@@ -62,73 +70,19 @@ replace_data = {
         return invoke("storeMediaFile", filename=filename, url=url, deleteExisting=deleteExisting)
     else:
         raise Exception("one argument of data, path or url must be supplied")"""
-    ),
-    "getIntervals": (
-        "def getIntervals(cards: list, complete: bool=False) -> list:",
-        '    return invoke("getIntervals", cards=cards, complete=complete)'
-    )
-}
 
+exceptional_funcs["storeMediaFile"] = (func_def, func_examples, func_code)
 
-def traverse(t, level=0):
-    """Recursively traverses a mistletoe AST and returns the content as Markdown. Used here as 
-    a kind of beautifier for the Markdown text."""
-    match t:
-        case RawText():
-            return t.content
-        case BlankLine():
-            return "\n"
-        case LineBreak():
-            return " "
-            #return "\n"
-        case ThematicBreak():
-            return "---\n"
-    sub = "".join(traverse(child, level+1) for child in t.children)
-    match t:
-        case Heading():
-            return f"{t.level*"#"} {sub}\n"
-        case Link():
-            return f"[{sub}]({t.target})"
-        case Emphasis():
-            return t.delimiter + sub + t.delimiter
-        case Strong():
-            return 2 * t.delimiter + sub + 2 * t.delimiter
-        case List():
-            return sub
-        case ListItem():
-            first_indent = (
-                t.indentation * " "
-                + t.leader 
-                + (t.prepend - len(t.leader) - t.indentation) * " "
-            )
-            next_indent = " " * len(first_indent)
-            lines = sub.splitlines()
-            res = first_indent + lines[0] + "\n"
-            for line in lines[1:]:
-                if line.strip() == "":
-                    res += "\n"
-                else:
-                    res += next_indent + line + "\n"
-            return res
-        case Paragraph():
-            return sub + "\n"
-        case HtmlBlock():
-            return sub + "\n"
-        case CodeFence():
-            return f"```{t.language}\n{sub}```\n"
-        case Document():
-            return sub
-        case InlineCode():
-            return t.delimiter + sub + t.delimiter
-        case Quote():
-            s = ""
-            for line in sub.splitlines():
-                s += f"> {line}\n"
-            return s
-        case _:
-            print("unknown AST type:", str(type(t)))
-            return ""
-        
+func_def = "def getIntervals(cards: list, complete: bool=False) -> list:"
+func_examples = '''\
+        >>> getIntervals([1502298033753, 1502298036657])
+        [-14400, 3]
+
+        >>> getIntervals([1502298033753, 1502298036657], True)
+        [[-120, -180, -240, -300, -360, -14400], [-120, -180, -240, -300, -360, -14400, 1, 3]]'''
+func_code = '    return invoke("getIntervals", cards=cards, complete=complete)'
+exceptional_funcs["getIntervals"] = (func_def, func_examples, func_code)
+
 
 def split_to_chunks(lines_gen, func_name):
     """Simple state machine to split the text into the docstring, sample request and sample
@@ -194,56 +148,66 @@ def make_func(func_name, doc, requests, results):
     if len(results) > 1:
         print(func_name, len(results), "results")
 
-    with MarkdownRenderer():
-        doc = traverse(mistletoe.Document(doc))
+    doc = markdown_parser.beautify(doc)
     doc = " " + doc.strip()[1:] # remove the list asterisk
     doc = doc.replace("`null`", "`None`")
     doc = doc.replace("`true`", "`True`")
     doc = doc.replace("`false`", "`False`")
     doc = textwrap.dedent(doc)
 
-    request = requests[0]
-    # process sample request 
-    data = json.loads(request)
-    invoke_args = [f'"{func_name}"']
-    example_args = ""
-    func_args = []
-    if "params" in data:
-        for arg, value in data["params"].items():
-            invoke_args.append(f"{arg}={arg}")
-            func_args.append(f"{arg}: {type(value).__name__}")
-        example_args = ", ".join((f"{v!r}" for k,v in data["params"].items()))
-    invoke_args_str = ", ".join(invoke_args)
-    func_args_str = ", ".join(func_args)
+    examples = []
+    for i in range(len(requests)):
+        request = requests[i]
+        result = results[i]
 
-    result = results[0]
-    # process sample result
-    data = json.loads(result)
-    if data["result"] is None:
-        return_type = "None"
+        # process sample request 
+        try:
+            data = json.loads(request)
+        except:
+            print(func_name)
+            raise
+        invoke_args = [f'"{func_name}"']
+        example_args = ""
+        func_args = []
+        if "params" in data:
+            for arg, value in data["params"].items():
+                invoke_args.append(f"{arg}={arg}")
+                func_args.append(f"{arg}: {type(value).__name__}")
+            example_args = ", ".join((f"{v!r}" for k,v in data["params"].items()))
+        invoke_args_str = ", ".join(invoke_args)
+        func_args_str = ", ".join(func_args)
+
+        # process sample result
+        try:
+            data = json.loads(result)
+        except:
+            print(func_name)
+            raise
+        if data["result"] is None:
+            return_type = "None"
+        else:
+            return_type = type(data["result"]).__name__
+
+        # use black to format and beautify the example invokation
+        example = black.format_str(f"{func_name}({example_args})", mode=black.Mode())
+        # add doctest delimiters to the code
+        lines = example.splitlines()
+        example = ">>> " + lines[0] + "\n"
+        for line in lines[1:]:
+            example += "... " + line+ "\n"
+        if data["result"] is not None:
+            example += black.format_str(repr(data["result"]), mode=black.Mode())
+        example = textwrap.indent(example, "        ").rstrip()
+        examples.append(example)
+    examples = "\n\n".join(examples)
+
+    if func_name in exceptional_funcs:
+        func_def, examples, func_code = exceptional_funcs[func_name]
     else:
-        return_type = type(data["result"]).__name__
+        func_def = f"def {func_name}({func_args_str}) -> {return_type}:"
+        func_code = f'    return invoke({invoke_args_str})'
 
-    func_def = f"def {func_name}({func_args_str}) -> {return_type}:"
-
-    # use black to format and beautify the example invokation
-    example = black.format_str(f"{func_name}({example_args})", mode=black.Mode())
-    # add doctest delimiters to the code
-    lines = example.splitlines()
-    example = "        >>> " + lines[0] + "\n"
-    for line in lines[1:]:
-        example += "        ... " + line+ "\n"
-    example = example.rstrip()
-
-    example_return_value = black.format_str(repr(data["result"]), mode=black.Mode())
-    example_return_value = textwrap.indent(example_return_value, "        ").rstrip()
-
-    code = f'    return invoke({invoke_args_str})'
-
-    if func_name in replace_data:
-        func_def, code = replace_data[func_name]
-
-    if "\\" in doc or "\\" in example or "\\" in example_return_value:
+    if "\\" in doc or "\\" in example:
         initial_indent = '    r"""'
     else:
         initial_indent = '    """'
@@ -262,7 +226,14 @@ def make_func(func_name, doc, requests, results):
     doc = "\n".join(p)
 
     # write every part of the function to the .py file
-    fout.write(CODE_TEMPLATE.format(**locals()))
+    fout.write(
+        CODE_TEMPLATE.format(
+            func_def=func_def,
+            doc=doc,
+            examples=examples,
+            func_code=func_code,
+        )
+    )
 
 
 def line_generator(file):

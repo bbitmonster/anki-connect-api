@@ -195,5 +195,3 @@ Search parameters are passed to Anki, check the docs for more information: https
 * [Note Actions](#note-actions)
 * [Statistic Actions](#statistic-actions)
 
----
-

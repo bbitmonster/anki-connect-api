@@ -5,9 +5,11 @@ from pathlib import Path
 
 import ast_comments
 import jsbeautifier
+import markdown_parser
 
 opts = jsbeautifier.default_options()
 opts.indent_size = 4
+opts.wrap_line_length = 100
 
 HEADER = """
 <!-- This file is auto-generated from <anki_connect.py>, do not edit it by hand. -->
@@ -25,8 +27,8 @@ CODE_TEMPLATE = """\
 
 """
 
-def return_args(*args):
-    return args
+def return_args(*args, **kwargs):
+    return (args, kwargs)
 
 def write_python_func(fout, func_name, args, docstring):
     args = ", ".join(args)
@@ -40,35 +42,47 @@ def write_python_func(fout, func_name, args, docstring):
     fout.write(indent(s, "    "))
 
 def write_json_func(fout, func_name, args, docstring):
-    desc, example = docstring.split("Example::")
+    desc, example = docstring.split("Example::\n")
     desc = desc.replace("`None`", "`null`")
     desc = desc.replace("`True`", "`true`")
     desc = desc.replace("`False`", "`false`")
     desc = indent(desc, "    ")
     desc = "*" + desc[1:]
 
-    lines = example.splitlines()
     request_str = ""
-    for i, line in enumerate(lines):
+    result_str = ""
+    print(repr(example))
+    for line in example.rstrip().splitlines():
         if line.strip() == "":
-            continue
-        if not (line.startswith("    >>> ") or line.startswith("    ... ")):
             break
-        request_str += line[8:] + "\n"
-    result_str = "".join(line + "\n" for line in lines[i:])
-    result_values = eval(result_str)
+        print(repr(line))
+        if line.startswith("    >>> ") or line.startswith("    ... "):
+            request_str += line[8:] + "\n"
+        else:
+            result_str += line[4:] + "\n"
+    
+    if result_str:
+        result_values = eval(result_str)
+    else:
+        result_values = None
 
     request = {"action": func_name, "version": 6}
     result = {"result": result_values, "error": None}
     if len(args):
         request_str = request_str.replace(func_name, "return_args", 1)
-        request_values = eval(request_str, {"return_args": return_args})
+        request_args, request_kwargs = eval(request_str, {"return_args": return_args})
         request["params"] = {
-            k: request_values[i] 
-            for i, k in enumerate(args) if i < len(request_values)
+            k: request_args[i] 
+            for i, k in enumerate(args) if i < len(request_args)
         }
+        for k, v in request_kwargs.items():
+            request["params"][k] = v
+
     request_json = jsbeautifier.beautify(json.dumps(request), opts)
     result_json = jsbeautifier.beautify(json.dumps(result), opts)
+
+    # request_json = json.dumps(request, indent=4)
+    # result_json = json.dumps(result, indent=4)
 
     fout.write(f"#### `{func_name}`\n\n")
     fout.write(desc)
@@ -90,9 +104,9 @@ jobs = (
     (script_dir.parent / "docs" / "anki_connect.json.md", write_json_func),
     
 )
-for filename, write_func in jobs:
-    with open(filename, "w", encoding="utf-8") as fout:
-        fout.write(HEADER)
+for filepath, write_func in jobs:
+    with filepath.open("w", encoding="utf-8") as fout:
+        #fout.write(HEADER)
         fout.write(header)
         for node in tree.body:
             if isinstance(node, ast.FunctionDef):
@@ -103,5 +117,17 @@ for filename, write_func in jobs:
                 args = [arg.arg for arg in node.args.args]
                 write_func(fout, func_name, args, docstring)
             elif isinstance(node, ast_comments.Comment):
-                fout.write("##" + node.value + "\n\n")
+                fout.write("---\n\n##" + node.value + "\n\n")
+    with filepath.open("r", encoding="utf-8") as file:
+        unformatted = file.read()
+    formatted = markdown_parser.beautify(unformatted)
+    with filepath.open("w", encoding="utf-8") as file:
+        file.write(formatted)
 
+with open(script_dir / "anki_connect.md", 'r', encoding="utf-8") as file:
+    unformatted = file.read()
+
+formatted = markdown_parser.beautify(unformatted)
+
+with open(script_dir / "anki_connect.formatted.md", 'w', encoding="utf-8") as file:
+    file.write(formatted)

@@ -1,8 +1,9 @@
 __version__ = '24.2.26.0'
 
 import json
-from urllib.request import urlopen, Request
+import urllib.request
 
+URL = 'http://127.0.0.1:8765'
 
 def invoke(action, **params):
     requestJson = json.dumps({
@@ -10,7 +11,9 @@ def invoke(action, **params):
         'params': params, 
         'version': 6
     }).encode('utf-8')
-    response = json.load(urlopen(Request('http://127.0.0.1:8765', requestJson)))
+    response = json.load(
+        urllib.request.urlopen(urllib.request.Request(URL, requestJson))
+    )
     if len(response) != 2:
         raise Exception('response has an unexpected number of fields')
     if 'error' not in response:
@@ -118,6 +121,9 @@ def getIntervals(cards: list, complete: bool=False) -> list:
     Example::
         >>> getIntervals([1502298033753, 1502298036657])
         [-14400, 3]
+
+        >>> getIntervals([1502298033753, 1502298036657], True)
+        [[-120, -180, -240, -300, -360, -14400], [-120, -180, -240, -300, -360, -14400, 1, 3]]
     """
     return invoke("getIntervals", cards=cards, complete=complete)
 
@@ -213,7 +219,6 @@ def forgetCards(cards: list) -> None:
     
     Example::
         >>> forgetCards([1498938915662, 1502098034048])
-        None
     """
     return invoke("forgetCards", cards=cards)
 
@@ -222,7 +227,6 @@ def relearnCards(cards: list) -> None:
     
     Example::
         >>> relearnCards([1498938915662, 1502098034048])
-        None
     """
     return invoke("relearnCards", cards=cards)
 
@@ -283,7 +287,6 @@ def changeDeck(cards: list, deck: str) -> None:
     
     Example::
         >>> changeDeck([1502098034045, 1502098034048, 1502298033753], "Japanese::JLPT N3")
-        None
     """
     return invoke("changeDeck", cards=cards, deck=deck)
 
@@ -293,7 +296,6 @@ def deleteDecks(decks: list, cardsToo: bool) -> None:
     
     Example::
         >>> deleteDecks(["Japanese::JLPT N5", "Easy Spanish"], True)
-        None
     """
     return invoke("deleteDecks", decks=decks, cardsToo=cardsToo)
 
@@ -535,7 +537,6 @@ def guiEditNote(note: int) -> None:
     
     Example::
         >>> guiEditNote(1649198355435)
-        None
     """
     return invoke("guiEditNote", note=note)
 
@@ -628,7 +629,6 @@ def guiDeckBrowser() -> None:
     
     Example::
         >>> guiDeckBrowser()
-        None
     """
     return invoke("guiDeckBrowser")
 
@@ -650,7 +650,6 @@ def guiImportFile(path: str) -> None:
     
     Example::
         >>> guiImportFile("C:/Users/Desktop/cards.txt")
-        None
     """
     return invoke("guiImportFile", path=path)
 
@@ -660,7 +659,6 @@ def guiExitAnki() -> None:
     
     Example::
         >>> guiExitAnki()
-        None
     """
     return invoke("guiExitAnki")
 
@@ -689,7 +687,13 @@ def storeMediaFile(filename: str, *, data=None, path: str=None, url=None, delete
     name](https://github.com/ankitects/anki/blob/aeba725d3ea9628c73300648f748140db3fdd5ed/rslib/src/media/files.rs#L194).
     
     Example::
-        >>> storeMediaFile("_hello.txt", "SGVsbG8sIHdvcmxkIQ==")
+        >>> storeMediaFile("_hello.txt", data="SGVsbG8sIHdvcmxkIQ==")
+        "_hello.txt"
+
+        >>> storeMediaFile("_hello.txt", path="/path/to/file")
+        "_hello.txt"
+
+        >>> storeMediaFile("_hello.txt", url="https://url.to.file")
         "_hello.txt"
     """
     if data is not None:
@@ -735,7 +739,6 @@ def deleteMediaFile(filename: str) -> None:
     
     Example::
         >>> deleteMediaFile("_hello.txt")
-        None
     """
     return invoke("deleteMediaFile", filename=filename)
 
@@ -804,7 +807,6 @@ def sync() -> None:
     
     Example::
         >>> sync()
-        None
     """
     return invoke("sync")
 
@@ -875,7 +877,6 @@ def reloadCollection() -> None:
     
     Example::
         >>> reloadCollection()
-        None
     """
     return invoke("reloadCollection")
 
@@ -1347,7 +1348,6 @@ def updateModelTemplates(model: dict) -> None:
         ...         "templates": {"Card 1": {"Front": "{{Question}}?", "Back": "{{Answer}}!"}},
         ...     }
         ... )
-        None
     """
     return invoke("updateModelTemplates", model=model)
 
@@ -1356,7 +1356,6 @@ def updateModelStyling(model: dict) -> None:
     
     Example::
         >>> updateModelStyling({"name": "Custom", "css": "p { color: blue; }"})
-        None
     """
     return invoke("updateModelStyling", model=model)
 
@@ -1384,7 +1383,6 @@ def modelTemplateRename(modelName: str, oldTemplateName: str, newTemplateName: s
     
     Example::
         >>> modelTemplateRename("Basic", "Card 1", "Card 1 renamed")
-        None
     """
     return invoke("modelTemplateRename", modelName=modelName, oldTemplateName=oldTemplateName, newTemplateName=newTemplateName)
 
@@ -1396,7 +1394,6 @@ def modelTemplateReposition(modelName: str, templateName: str, index: int) -> No
     
     Example::
         >>> modelTemplateReposition("Basic", "Card 1", 1)
-        None
     """
     return invoke("modelTemplateReposition", modelName=modelName, templateName=templateName, index=index)
 
@@ -1413,7 +1410,6 @@ def modelTemplateAdd(modelName: str, template: dict) -> None:
         ...         "Back": "Back html {{Field2}}",
         ...     },
         ... )
-        None
     """
     return invoke("modelTemplateAdd", modelName=modelName, template=template)
 
@@ -1422,7 +1418,6 @@ def modelTemplateRemove(modelName: str, templateName: str) -> None:
     
     Example::
         >>> modelTemplateRemove("Basic", "Card 1")
-        None
     """
     return invoke("modelTemplateRemove", modelName=modelName, templateName=templateName)
 
@@ -1431,7 +1426,6 @@ def modelFieldRename(modelName: str, oldFieldName: str, newFieldName: str) -> No
     
     Example::
         >>> modelFieldRename("Basic", "Front", "FrontRenamed")
-        None
     """
     return invoke("modelFieldRename", modelName=modelName, oldFieldName=oldFieldName, newFieldName=newFieldName)
 
@@ -1443,7 +1437,6 @@ def modelFieldReposition(modelName: str, fieldName: str, index: int) -> None:
     
     Example::
         >>> modelFieldReposition("Basic", "Back", 0)
-        None
     """
     return invoke("modelFieldReposition", modelName=modelName, fieldName=fieldName, index=index)
 
@@ -1456,7 +1449,6 @@ def modelFieldAdd(modelName: str, fieldName: str, index: int) -> None:
     
     Example::
         >>> modelFieldAdd("Basic", "NewField", 0)
-        None
     """
     return invoke("modelFieldAdd", modelName=modelName, fieldName=fieldName, index=index)
 
@@ -1465,7 +1457,6 @@ def modelFieldRemove(modelName: str, fieldName: str) -> None:
     
     Example::
         >>> modelFieldRemove("Basic", "Front")
-        None
     """
     return invoke("modelFieldRemove", modelName=modelName, fieldName=fieldName)
 
@@ -1474,7 +1465,6 @@ def modelFieldSetFont(modelName: str, fieldName: str, font: str) -> None:
     
     Example::
         >>> modelFieldSetFont("Basic", "Front", "Courier")
-        None
     """
     return invoke("modelFieldSetFont", modelName=modelName, fieldName=fieldName, font=font)
 
@@ -1483,7 +1473,6 @@ def modelFieldSetFontSize(modelName: str, fieldName: str, fontSize: int) -> None
     
     Example::
         >>> modelFieldSetFontSize("Basic", "Front", 10)
-        None
     """
     return invoke("modelFieldSetFontSize", modelName=modelName, fieldName=fieldName, fontSize=fontSize)
 
@@ -1701,7 +1690,6 @@ def updateNoteFields(note: dict) -> None:
         ...         ],
         ...     }
         ... )
-        None
     """
     return invoke("updateNoteFields", note=note)
 
@@ -1731,7 +1719,6 @@ def updateNote(note: dict) -> None:
         ...         "tags": ["new", "tags"],
         ...     }
         ... )
-        None
     """
     return invoke("updateNote", note=note)
 
@@ -1740,7 +1727,6 @@ def updateNoteTags(note: int, tags: list) -> None:
     
     Example::
         >>> updateNoteTags(1483959289817, ["european-languages"])
-        None
     """
     return invoke("updateNoteTags", note=note, tags=tags)
 
@@ -1758,7 +1744,6 @@ def addTags(notes: list, tags: str) -> None:
     
     Example::
         >>> addTags([1483959289817, 1483959291695], "european-languages")
-        None
     """
     return invoke("addTags", notes=notes, tags=tags)
 
@@ -1767,7 +1752,6 @@ def removeTags(notes: list, tags: str) -> None:
     
     Example::
         >>> removeTags([1483959289817, 1483959291695], "european-languages")
-        None
     """
     return invoke("removeTags", notes=notes, tags=tags)
 
@@ -1785,7 +1769,6 @@ def clearUnusedTags() -> None:
     
     Example::
         >>> clearUnusedTags()
-        None
     """
     return invoke("clearUnusedTags")
 
@@ -1794,7 +1777,6 @@ def replaceTags(notes: list, tag_to_replace: str, replace_with_tag: str) -> None
     
     Example::
         >>> replaceTags([1483959289817, 1483959291695], "european-languages", "french-languages")
-        None
     """
     return invoke("replaceTags", notes=notes, tag_to_replace=tag_to_replace, replace_with_tag=replace_with_tag)
 
@@ -1803,7 +1785,6 @@ def replaceTagsInAllNotes(tag_to_replace: str, replace_with_tag: str) -> None:
     
     Example::
         >>> replaceTagsInAllNotes("european-languages", "french-languages")
-        None
     """
     return invoke("replaceTagsInAllNotes", tag_to_replace=tag_to_replace, replace_with_tag=replace_with_tag)
 
@@ -1843,7 +1824,6 @@ def deleteNotes(notes: list) -> None:
     
     Example::
         >>> deleteNotes([1502298033753])
-        None
     """
     return invoke("deleteNotes", notes=notes)
 
@@ -1852,7 +1832,6 @@ def removeEmptyNotes() -> None:
     
     Example::
         >>> removeEmptyNotes()
-        None
     """
     return invoke("removeEmptyNotes")
 
@@ -1970,7 +1949,6 @@ def insertReviews(reviews: list) -> None:
         ...         [1594201393292, 1485369902086, -1, 1, -60, -60, 0, 4846, 0],
         ...     ]
         ... )
-        None
     """
     return invoke("insertReviews", reviews=reviews)
 
