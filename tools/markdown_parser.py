@@ -20,7 +20,7 @@ def traverse(t, level=0):
     sub = "".join(traverse(child, level+1) for child in t.children)
     match t:
         case Heading():
-            return f"{t.level*"#"} {sub}\n"
+            return f"{t.level * '#'} {sub}\n"
         case Link():
             return f"[{sub}]({t.target})"
         case Emphasis():
