@@ -3,7 +3,7 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "anki_connect"
+name = "anki_connect_api"
 dynamic = ["version"]
 license = {file = "LICENSE"}
 authors = [
@@ -22,7 +22,7 @@ classifiers = [
 Homepage = "https://github.com/bbitmonster/anki-connect-api"
 
 [tool.setuptools]
-py-modules = ["anki_connect"]
+py-modules = ["anki_connect_api"]
 
 [tool.setuptools.dynamic]
-version = {attr = "anki_connect.__version__"}
+version = {attr = "anki_connect_api.__version__"}

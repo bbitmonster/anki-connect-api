@@ -11,8 +11,7 @@ black_mode = black.Mode(line_length=80)
 REQUEST_SEARCH = re.compile("^<summary><i>Sample.* request.*</i></summary>")
 RESULT_SEARCH = re.compile("^<summary><i>Sample.* result.*</i></summary>")
 
-HEADER = r'''\
-__version__ = '24.2.26.0'
+HEADER = r'''__version__ = '24.2.26.0'
 
 import json
 import urllib.request
