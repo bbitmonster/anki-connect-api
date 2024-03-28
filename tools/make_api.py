@@ -7,7 +7,7 @@ import black
 
 import markdown_parser
 
-black_mode = black.Mode(line_length=80)
+black_mode = black.Mode(line_length=80, preview=True)
 REQUEST_SEARCH = re.compile("^<summary><i>Sample.* request.*</i></summary>")
 RESULT_SEARCH = re.compile("^<summary><i>Sample.* result.*</i></summary>")
 
@@ -18,9 +18,10 @@ import urllib.request
 
 URL = 'http://127.0.0.1:8765'
 
+
 def invoke(action: str, **params):
     requestJson = json.dumps({
-        'action': action, 
+        'action': action,
         'version': 6,
         'params': params
     }).encode('utf-8')
@@ -39,10 +40,10 @@ def invoke(action: str, **params):
 
 '''
 
-CODE_TEMPLATE = '''\
+CODE_TEMPLATE = '''
 {func_def}
 {doc}
-    
+
     Example::
 {examples}
     """
@@ -51,7 +52,15 @@ CODE_TEMPLATE = '''\
 '''
 
 exceptional_funcs = {}
-func_def = "def storeMediaFile(filename: str, *, data: str=None, path: str=None, url: str=None, deleteExisting: bool=True) -> str:"
+func_def = """\
+def storeMediaFile(
+    filename: str,
+    *,
+    data: str = None,
+    path: str = None,
+    url: str = None,
+    deleteExisting: bool = True
+) -> str:"""
 func_examples = '''\
         >>> storeMediaFile("_hello.txt", data="SGVsbG8sIHdvcmxkIQ==")
         "_hello.txt"
@@ -63,16 +72,33 @@ func_examples = '''\
         "_hello.txt"'''
 func_code = """\
     if data is not None:
-        return invoke("storeMediaFile", filename=filename, data=data, deleteExisting=deleteExisting)
+        return invoke(
+            "storeMediaFile",
+            filename=filename,
+            data=data,
+            deleteExisting=deleteExisting
+        )
     elif path is not None:
-        return invoke("storeMediaFile", filename=filename, path=str(path), deleteExisting=deleteExisting)
+        return invoke(
+            "storeMediaFile",
+            filename=filename,
+            path=str(path),
+            deleteExisting=deleteExisting
+        )
     elif url is not None:
-        return invoke("storeMediaFile", filename=filename, url=url, deleteExisting=deleteExisting)
+        return invoke(
+            "storeMediaFile",
+            filename=filename,
+            url=url,
+            deleteExisting=deleteExisting
+        )
     else:
-        raise Exception("one argument of data, path or url must be supplied")"""
+        raise Exception(
+            "one argument of data, path or url must be supplied"
+        )"""
 exceptional_funcs["storeMediaFile"] = (func_def, func_examples, func_code)
 
-func_def = "def getIntervals(cards: list, complete: bool=False) -> list:"
+func_def = "def getIntervals(cards: list, complete: bool = False) -> list:"
 func_examples = '''\
         >>> getIntervals([1502298033753, 1502298036657])
         [-14400, 3]
@@ -87,8 +113,8 @@ exceptional_funcs["getIntervals"] = (func_def, func_examples, func_code)
 
 
 def split_to_chunks(lines_gen, func_name):
-    """Simple state machine to split the text into the docstring, sample request and sample
-    result parts."""
+    """Simple state machine to split the text into the docstring, sample
+    request and sample result parts."""
 
     state = 0
     doc = ""
@@ -137,8 +163,9 @@ def split_to_chunks(lines_gen, func_name):
                     state = 5
                 # wait for start of next function definition
                 elif line.strip().startswith("###"):
-                    # send the line back to the generator, so the caller can take care of it
-                    lines_gen.send(line) 
+                    # send the line back to the generator, so the caller can
+                    # take care of it
+                    lines_gen.send(line)
                     # we are done with this block
                     break
     return doc, requests, results
@@ -151,7 +178,7 @@ def make_func(func_name, doc, requests, results):
         print(func_name, len(results), "results")
 
     doc = markdown_parser.beautify(doc)
-    doc = " " + doc.strip()[1:] # remove the list asterisk
+    doc = " " + doc.strip()[1:]  # remove the list asterisk
     doc = doc.replace("`null`", "`None`")
     doc = doc.replace("`true`", "`True`")
     doc = doc.replace("`false`", "`False`")
@@ -162,10 +189,10 @@ def make_func(func_name, doc, requests, results):
         request = requests[i]
         result = results[i]
 
-        # process sample request 
+        # process sample request
         try:
             data = json.loads(request)
-        except:
+        except Exception:
             print(func_name)
             raise
         invoke_args = [f'"{func_name}"']
@@ -175,14 +202,14 @@ def make_func(func_name, doc, requests, results):
             for arg, value in data["params"].items():
                 invoke_args.append(f"{arg}={arg}")
                 func_args.append(f"{arg}: {type(value).__name__}")
-            example_args = ", ".join((f"{v!r}" for k,v in data["params"].items()))
+            example_args = ", ".join(f"{v!r}" for v in data["params"].values())
         invoke_args_str = ", ".join(invoke_args)
         func_args_str = ", ".join(func_args)
 
         # process sample result
         try:
             data = json.loads(result)
-        except:
+        except Exception:
             print(func_name)
             raise
         if data["result"] is None:
@@ -191,12 +218,14 @@ def make_func(func_name, doc, requests, results):
             return_type = type(data["result"]).__name__
 
         # use black to format and beautify the example invokation
-        example = black.format_str(f"{func_name}({example_args})", mode=black_mode)
+        example = black.format_str(
+            f"{func_name}({example_args})", mode=black_mode
+        )
         # add doctest delimiters to the code
         lines = example.splitlines()
         example = ">>> " + lines[0] + "\n"
         for line in lines[1:]:
-            example += "... " + line+ "\n"
+            example += "... " + line + "\n"
         if data["result"] is not None:
             example += black.format_str(repr(data["result"]), mode=black_mode)
         example = textwrap.indent(example, "        ").rstrip()
@@ -217,10 +246,10 @@ def make_func(func_name, doc, requests, results):
     for line in doc.splitlines():
         p.append(
             textwrap.fill(
-                line, 
-                width=90, 
-                break_long_words=False, 
-                initial_indent=initial_indent, 
+                line,
+                width=90,
+                break_long_words=False,
+                initial_indent=initial_indent,
                 subsequent_indent="    "
             )
         )
@@ -228,14 +257,14 @@ def make_func(func_name, doc, requests, results):
     doc = "\n".join(p)
 
     # write every part of the function to the .py file
-    fout.write(
-        CODE_TEMPLATE.format(
+    code = CODE_TEMPLATE.format(
             func_def=func_def,
             doc=doc,
             examples=examples,
             func_code=func_code,
-        )
     )
+    code = black.format_str(code, mode=black_mode)
+    fout.write(code + "\n\n")
 
 
 def line_generator(file):
@@ -245,7 +274,8 @@ def line_generator(file):
         while line is not None:
             yield
             line = yield line
-            
+
+
 script_dir = Path(__file__).absolute().parent
 source_file_path = script_dir / "anki_connect.md"
 out_file_path = script_dir.parent / "anki_connect_api.py"

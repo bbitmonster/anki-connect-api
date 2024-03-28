@@ -5,9 +5,10 @@ import urllib.request
 
 URL = 'http://127.0.0.1:8765'
 
+
 def invoke(action: str, **params):
     requestJson = json.dumps({
-        'action': action, 
+        'action': action,
         'version': 6,
         'params': params
     }).encode('utf-8')
@@ -29,22 +30,24 @@ def invoke(action: str, **params):
 def getEaseFactors(cards: list) -> list:
     """Returns an array with the ease factor for each of the given cards (in the same
     order).
-    
+
     Example::
         >>> getEaseFactors([1483959291685, 1483959293217])
         [4100, 3900]
     """
     return invoke("getEaseFactors", cards=cards)
 
+
 def setEaseFactors(cards: list, easeFactors: list) -> list:
     """Sets ease factor of cards by card ID; returns `True` if successful (all cards
     existed) or `False` otherwise.
-    
+
     Example::
         >>> setEaseFactors([1483959291685, 1483959293217], [4100, 3900])
         [True, True]
     """
     return invoke("setEaseFactors", cards=cards, easeFactors=easeFactors)
+
 
 def setSpecificValueOfCard(card: int, keys: list, newValues: list) -> list:
     """Sets specific value of a single card. Given the risk of wreaking havor in the
@@ -54,70 +57,78 @@ def setSpecificValueOfCard(card: int, keys: list, newValues: list) -> list:
     "data" (not currently used by anki apparantly), and many other values. A list of
     values and explanation of their respective utility can be found at [AnkiDroid's
     wiki](https://github.com/ankidroid/Anki-Android/wiki/Database-Structure).
-    
+
     Example::
         >>> setSpecificValueOfCard(1483959291685, ["flags", "odue"], ["1", "-100"])
         [True, True]
     """
-    return invoke("setSpecificValueOfCard", card=card, keys=keys, newValues=newValues)
+    return invoke(
+        "setSpecificValueOfCard", card=card, keys=keys, newValues=newValues
+    )
+
 
 def suspend(cards: list) -> bool:
     """Suspend cards by card ID; returns `True` if successful (at least one card wasn't
     already suspended) or `False` otherwise.
-    
+
     Example::
         >>> suspend([1483959291685, 1483959293217])
         True
     """
     return invoke("suspend", cards=cards)
 
+
 def unsuspend(cards: list) -> bool:
     """Unsuspend cards by card ID; returns `True` if successful (at least one card was
     previously suspended) or `False` otherwise.
-    
+
     Example::
         >>> unsuspend([1483959291685, 1483959293217])
         True
     """
     return invoke("unsuspend", cards=cards)
 
+
 def suspended(card: int) -> bool:
     """Check if card is suspended by its ID. Returns `True` if suspended, `False`
     otherwise.
-    
+
     Example::
         >>> suspended(1483959293217)
         True
     """
     return invoke("suspended", card=card)
 
+
 def areSuspended(cards: list) -> list:
     """Returns an array indicating whether each of the given cards is suspended (in the
     same order). If card doesn't exist returns `None`.
-    
+
     Example::
         >>> areSuspended([1483959291685, 1483959293217, 1234567891234])
         [False, True, None]
     """
     return invoke("areSuspended", cards=cards)
 
+
 def areDue(cards: list) -> list:
     """Returns an array indicating whether each of the given cards is due (in the same
     order). *Note*: cards in the learning queue with a large interval (over 20 minutes)
     are treated as not due until the time of their interval has passed, to match the way
     Anki treats them when reviewing.
-    
+
     Example::
         >>> areDue([1483959291685, 1483959293217])
         [False, True]
     """
     return invoke("areDue", cards=cards)
 
-def getIntervals(cards: list, complete: bool=False) -> list:
+
+def getIntervals(cards: list, complete: bool = False) -> list:
     """Returns an array of the most recent intervals for each given card ID, or a
     2-dimensional array of all the intervals for each given card ID when `complete` is
     `True`. Negative intervals are in seconds and positive intervals in days.
-    
+
     Example::
         >>> getIntervals([1502298033753, 1502298036657])
         [-14400, 3]
@@ -130,41 +141,45 @@ def getIntervals(cards: list, complete: bool=False) -> list:
     """
     return invoke("getIntervals", cards=cards, complete=complete)
 
+
 def findCards(query: str) -> list:
     """Returns an array of card IDs for a given query. Functionally identical to
     `guiBrowse` but doesn't use the GUI for better performance.
-    
+
     Example::
         >>> findCards("deck:current")
         [1494723142483, 1494703460437, 1494703479525]
     """
     return invoke("findCards", query=query)
 
+
 def cardsToNotes(cards: list) -> list:
     """Returns an unordered array of note IDs for the given card IDs. For cards with the
     same note, the ID is only given once in the array.
-    
+
     Example::
         >>> cardsToNotes([1502098034045, 1502098034048, 1502298033753])
         [1502098029797, 1502298025183]
     """
     return invoke("cardsToNotes", cards=cards)
 
+
 def cardsModTime(cards: list) -> list:
     """Returns a list of objects containings for each card ID the modification time. This
     function is about 15 times faster than executing `cardsInfo`.
-    
+
     Example::
         >>> cardsModTime([1498938915662, 1502098034048])
         [{"cardId": 1498938915662, "mod": 1629454092}]
     """
     return invoke("cardsModTime", cards=cards)
 
+
 def cardsInfo(cards: list) -> list:
     """Returns a list of objects containing for each card ID the card fields, front and
     back sides including CSS, note type, the note that the card belongs to, and deck name,
     last modification timestamp as well as ease and interval.
-    
+
     Example::
         >>> cardsInfo([1498938915662, 1502098034048])
         [
@@ -217,26 +232,29 @@ def cardsInfo(cards: list) -> list:
     """
     return invoke("cardsInfo", cards=cards)
 
+
 def forgetCards(cards: list) -> None:
     """Forget cards, making the cards new again.
-    
+
     Example::
         >>> forgetCards([1498938915662, 1502098034048])
     """
     return invoke("forgetCards", cards=cards)
 
+
 def relearnCards(cards: list) -> None:
     """Make cards be "relearning".
-    
+
     Example::
         >>> relearnCards([1498938915662, 1502098034048])
     """
     return invoke("relearnCards", cards=cards)
 
+
 def answerCards(answers: list) -> list:
     """Answer cards. Ease is between 1 (Again) and 4 (Easy). Will start the timer
     immediately before answering. Returns `True` if card exists, `False` otherwise.
-    
+
     Example::
         >>> answerCards(
         ...     [{"cardId": 1498938915662, "ease": 2}, {"cardId": 1502098034048, "ease": 4}]
@@ -245,30 +263,33 @@ def answerCards(answers: list) -> list:
     """
     return invoke("answerCards", answers=answers)
 
+
 # Deck Actions
 
 def deckNames() -> list:
     """Gets the complete list of deck names for the current user.
-    
+
     Example::
         >>> deckNames()
         ["Default"]
     """
     return invoke("deckNames")
 
+
 def deckNamesAndIds() -> dict:
     """Gets the complete list of deck names and their respective IDs for the current user.
-    
+
     Example::
         >>> deckNamesAndIds()
         {"Default": 1}
     """
     return invoke("deckNamesAndIds")
 
+
 def getDecks(cards: list) -> dict:
     """Accepts an array of card IDs and returns an object with each deck name as a key,
     and its value an array of the given cards which belong to it.
-    
+
     Example::
         >>> getDecks([1502298036657, 1502298033753, 1502032366472])
         {
@@ -278,36 +299,40 @@ def getDecks(cards: list) -> dict:
     """
     return invoke("getDecks", cards=cards)
 
+
 def createDeck(deck: str) -> int:
     """Create a new empty deck. Will not overwrite a deck that exists with the same name.
-    
+
     Example::
         >>> createDeck("Japanese::Tokyo")
         1519323742721
     """
     return invoke("createDeck", deck=deck)
 
+
 def changeDeck(cards: list, deck: str) -> None:
     """Moves cards with the given IDs to a different deck, creating the deck if it doesn't
     exist yet.
-    
+
     Example::
         >>> changeDeck([1502098034045, 1502098034048, 1502298033753], "Japanese::JLPT N3")
     """
     return invoke("changeDeck", cards=cards, deck=deck)
 
+
 def deleteDecks(decks: list, cardsToo: bool) -> None:
     """Deletes decks with the given names. The argument `cardsToo` *must* be specified and
     set to `True`.
-    
+
     Example::
         >>> deleteDecks(["Japanese::JLPT N5", "Easy Spanish"], True)
     """
     return invoke("deleteDecks", decks=decks, cardsToo=cardsToo)
 
+
 def getDeckConfig(deck: str) -> dict:
     """Gets the configuration group object for the given deck.
-    
+
     Example::
         >>> getDeckConfig("Default")
         {
@@ -349,10 +374,11 @@ def getDeckConfig(deck: str) -> dict:
     """
     return invoke("getDeckConfig", deck=deck)
 
+
 def saveDeckConfig(config: dict) -> bool:
     """Saves the given configuration group, returning `True` on success or `False` if the
     ID of the configuration group is invalid (such as when it does not exist).
-    
+
     Example::
         >>> saveDeckConfig(
         ...     {
@@ -396,43 +422,47 @@ def saveDeckConfig(config: dict) -> bool:
     """
     return invoke("saveDeckConfig", config=config)
 
+
 def setDeckConfigId(decks: list, configId: int) -> bool:
     """Changes the configuration group for the given decks to the one with the given ID.
     Returns `True` on success or `False` if the given configuration group or any of the
     given decks do not exist.
-    
+
     Example::
         >>> setDeckConfigId(["Default"], 1)
         True
     """
     return invoke("setDeckConfigId", decks=decks, configId=configId)
 
+
 def cloneDeckConfigId(name: str, cloneFrom: int) -> int:
     """Creates a new configuration group with the given name, cloning from the group with
     the given ID, or from the default group if this is unspecified. Returns the ID of the
     new configuration group, or `False` if the specified group to clone from does not
     exist.
-    
+
     Example::
         >>> cloneDeckConfigId("Copy of Default", 1)
         1502972374573
     """
     return invoke("cloneDeckConfigId", name=name, cloneFrom=cloneFrom)
 
+
 def removeDeckConfigId(configId: int) -> bool:
     """Removes the configuration group with the given ID, returning `True` if successful,
     or `False` if attempting to remove either the default configuration group (ID = 1) or
     a configuration group that does not exist.
-    
+
     Example::
         >>> removeDeckConfigId(1502972374573)
         True
     """
     return invoke("removeDeckConfigId", configId=configId)
 
+
 def getDeckStats(decks: list) -> dict:
     """Gets statistics such as total cards and cards due for the given decks.
-    
+
     Example::
         >>> getDeckStats(["Japanese::JLPT N5", "Easy Spanish"])
         {
@@ -456,6 +486,7 @@ def getDeckStats(decks: list) -> dict:
     """
     return invoke("getDeckStats", decks=decks)
 
+
 # Graphical Actions
 
 def guiBrowse(query: str, reorderCards: dict) -> list:
@@ -469,33 +500,36 @@ def guiBrowse(query: str, reorderCards: dict) -> list:
     several column identifiers (as documented in the [Anki source
     code](https://github.com/ankitects/anki/blob/main/rslib/src/browser_table.rs)). The
     specified column needs to be visible in the *Card Browser*.
-    
+
     Example::
         >>> guiBrowse("deck:current", {"order": "descending", "columnId": "noteCrt"})
         [1494723142483, 1494703460437, 1494703479525]
     """
     return invoke("guiBrowse", query=query, reorderCards=reorderCards)
 
+
 def guiSelectNote(note: int) -> bool:
     """Finds the open instance of the *Card Browser* dialog and selects a note given a
     note identifier. Returns `True` if the *Card Browser* is open, `False` otherwise.
-    
+
     Example::
         >>> guiSelectNote(1494723142483)
         True
     """
     return invoke("guiSelectNote", note=note)
 
+
 def guiSelectedNotes() -> list:
     """Finds the open instance of the *Card Browser* dialog and returns an array of
     identifiers of the notes that are selected. Returns an empty list if the browser is
     not open.
-    
+
     Example::
         >>> guiSelectedNotes()
         [1494723142483, 1494703460437, 1494703479525]
     """
     return invoke("guiSelectedNotes")
+
 
 def guiAddCards(note: dict) -> int:
     """Invokes the *Add Cards* dialog, presets the note using the given deck and model,
@@ -508,7 +542,7 @@ def guiAddCards(note: dict) -> int:
 
     The result is the ID of the note which would be added, if the user chose to confirm
     the *Add Cards* dialogue.
-    
+
     Example::
         >>> guiAddCards(
         ...     {
@@ -532,6 +566,7 @@ def guiAddCards(note: dict) -> int:
     """
     return invoke("guiAddCards", note=note)
 
+
 def guiEditNote(note: int) -> None:
     """Opens the *Edit* dialog with a note corresponding to given note ID. The dialog is
     similar to the *Edit Current* dialog, but:
@@ -540,15 +575,16 @@ def guiEditNote(note: int) -> None:
     * has a Browse button to open the browser with these cards
     * has Previous/Back buttons to navigate the history of the dialog
     * has no bar with the Close button
-    
+
     Example::
         >>> guiEditNote(1649198355435)
     """
     return invoke("guiEditNote", note=note)
 
+
 def guiCurrentCard() -> dict:
     """Returns information about the current card or `None` if not in review mode.
-    
+
     Example::
         >>> guiCurrentCard()
         {
@@ -569,119 +605,138 @@ def guiCurrentCard() -> dict:
     """
     return invoke("guiCurrentCard")
 
+
 def guiStartCardTimer() -> bool:
     """Starts or resets the `timerStarted` value for the current card. This is useful for
     deferring the start time to when it is displayed via the API, allowing the recorded
     time taken to answer the card to be more accurate when calling `guiAnswerCard`.
-    
+
     Example::
         >>> guiStartCardTimer()
         True
     """
     return invoke("guiStartCardTimer")
 
+
 def guiShowQuestion() -> bool:
     """Shows question text for the current card; returns `True` if in review mode or
     `False` otherwise.
-    
+
     Example::
         >>> guiShowQuestion()
         True
     """
     return invoke("guiShowQuestion")
 
+
 def guiShowAnswer() -> bool:
     """Shows answer text for the current card; returns `True` if in review mode or `False`
     otherwise.
-    
+
     Example::
         >>> guiShowAnswer()
         True
     """
     return invoke("guiShowAnswer")
 
+
 def guiAnswerCard(ease: int) -> bool:
     """Answers the current card; returns `True` if succeeded or `False` otherwise. Note
     that the answer for the current card must be displayed before before any answer can be
     accepted by Anki.
-    
+
     Example::
         >>> guiAnswerCard(1)
         True
     """
     return invoke("guiAnswerCard", ease=ease)
 
+
 def guiUndo() -> bool:
     """Undo the last action / card; returns `True` if succeeded or `False` otherwise.
-    
+
     Example::
         >>> guiUndo()
         True
     """
     return invoke("guiUndo")
 
+
 def guiDeckOverview(name: str) -> bool:
     """Opens the *Deck Overview* dialog for the deck with the given name; returns `True`
     if succeeded or `False` otherwise.
-    
+
     Example::
         >>> guiDeckOverview("Default")
         True
     """
     return invoke("guiDeckOverview", name=name)
 
+
 def guiDeckBrowser() -> None:
     """Opens the *Deck Browser* dialog.
-    
+
     Example::
         >>> guiDeckBrowser()
     """
     return invoke("guiDeckBrowser")
 
+
 def guiDeckReview(name: str) -> bool:
     """Starts review for the deck with the given name; returns `True` if succeeded or
     `False` otherwise.
-    
+
     Example::
         >>> guiDeckReview("Default")
         True
     """
     return invoke("guiDeckReview", name=name)
 
+
 def guiImportFile(path: str) -> None:
     """Invokes the *Import... (Ctrl+Shift+I)* dialog with an optional file path. Brings up
     the dialog for user to review the import. Supports all file types that Anki supports.
     Brings open file dialog if no path is provided. Forward slashes must be used in the
     path on Windows. Only supported for Anki 2.1.52+.
-    
+
     Example::
         >>> guiImportFile("C:/Users/Desktop/cards.txt")
     """
     return invoke("guiImportFile", path=path)
 
+
 def guiExitAnki() -> None:
     """Schedules a request to gracefully close Anki. This operation is asynchronous, so it
     will return immediately and won't wait until the Anki process actually terminates.
-    
+
     Example::
         >>> guiExitAnki()
     """
     return invoke("guiExitAnki")
 
+
 def guiCheckDatabase() -> bool:
     """Requests a database check, but returns immediately without waiting for the check to
     complete. Therefore, the action will always return `True` even if errors are detected
     during the database check.
-    
+
     Example::
         >>> guiCheckDatabase()
         True
     """
     return invoke("guiCheckDatabase")
 
+
 # Media Actions
 
-def storeMediaFile(filename: str, *, data: str=None, path: str=None, url: str=None, deleteExisting: bool=True) -> str:
+def storeMediaFile(
+    filename: str,
+    *,
+    data: str = None,
+    path: str = None,
+    url: str = None,
+    deleteExisting: bool = True
+) -> str:
     """Stores a file with the specified base64-encoded contents inside the media folder.
     Alternatively you can specify a absolute file path, or a url from where the file shell
     be downloaded. If more than one of `data`, `path` and `url` are provided, the `data`
@@ -691,7 +746,7 @@ def storeMediaFile(filename: str, *, data: str=None, path: str=None, url: str=No
     existing file with the same name is deleted by default. Set `deleteExisting` to false
     to prevent that by [letting Anki give the new file a non-conflicting
     name](https://github.com/ankitects/anki/blob/aeba725d3ea9628c73300648f748140db3fdd5ed/rslib/src/media/files.rs#L194).
-    
+
     Example::
         >>> storeMediaFile("_hello.txt", data="SGVsbG8sIHdvcmxkIQ==")
         "_hello.txt"
@@ -703,50 +758,70 @@ def storeMediaFile(filename: str, *, data: str=None, path: str=None, url: str=No
         "_hello.txt"
     """
     if data is not None:
-        return invoke("storeMediaFile", filename=filename, data=data, deleteExisting=deleteExisting)
+        return invoke(
+            "storeMediaFile",
+            filename=filename,
+            data=data,
+            deleteExisting=deleteExisting,
+        )
     elif path is not None:
-        return invoke("storeMediaFile", filename=filename, path=str(path), deleteExisting=deleteExisting)
+        return invoke(
+            "storeMediaFile",
+            filename=filename,
+            path=str(path),
+            deleteExisting=deleteExisting,
+        )
     elif url is not None:
-        return invoke("storeMediaFile", filename=filename, url=url, deleteExisting=deleteExisting)
+        return invoke(
+            "storeMediaFile",
+            filename=filename,
+            url=url,
+            deleteExisting=deleteExisting,
+        )
     else:
         raise Exception("one argument of data, path or url must be supplied")
+
 
 def retrieveMediaFile(filename: str) -> str:
     """Retrieves the base64-encoded contents of the specified file, returning `False` if
     the file does not exist.
-    
+
     Example::
         >>> retrieveMediaFile("_hello.txt")
         "SGVsbG8sIHdvcmxkIQ=="
     """
     return invoke("retrieveMediaFile", filename=filename)
 
+
 def getMediaFilesNames(pattern: str) -> list:
     """Gets the names of media files matched the pattern. Returning all names by default.
-    
+
     Example::
         >>> getMediaFilesNames("_hell*.txt")
         ["_hello.txt"]
     """
     return invoke("getMediaFilesNames", pattern=pattern)
 
+
 def getMediaDirPath() -> str:
     """Gets the full path to the `collection.media` folder of the currently opened
     profile.
-    
+
     Example::
         >>> getMediaDirPath()
         "/home/user/.local/share/Anki2/Main/collection.media"
     """
     return invoke("getMediaDirPath")
 
+
 def deleteMediaFile(filename: str) -> None:
     """Deletes the specified file inside the media folder.
-    
+
     Example::
         >>> deleteMediaFile("_hello.txt")
     """
     return invoke("deleteMediaFile", filename=filename)
+
 
 # Miscellaneous Actions
 
@@ -771,22 +846,24 @@ def requestPermission() -> dict:
     Connect are able to communicate properly with each other. New versions of Anki-Connect
     are backwards compatible; as long as you are using actions which are available in the
     reported Anki-Connect version or earlier, everything should work fine.
-    
+
     Example::
         >>> requestPermission()
         {"permission": "granted", "requireApiKey": False, "version": 6}
     """
     return invoke("requestPermission")
 
+
 def version() -> int:
     """Gets the version of the API exposed by this plugin. Currently versions `1` through
     `6` are defined.
-    
+
     Example::
         >>> version()
         6
     """
     return invoke("version")
+
 
 def apiReflect(scopes: list, actions: list) -> dict:
     """Gets information about the AnkiConnect APIs available. The request supports the
@@ -801,43 +878,47 @@ def apiReflect(scopes: list, actions: list) -> dict:
     The result will contain a list of which scopes were used and a value for each scope.
     For example, the `"actions"` scope will contain a `"actions"` property which contains
     a list of supported action names.
-    
+
     Example::
         >>> apiReflect(["actions", "invalidType"], ["apiReflect", "invalidMethod"])
         {"scopes": ["actions"], "actions": ["apiReflect"]}
     """
     return invoke("apiReflect", scopes=scopes, actions=actions)
 
+
 def sync() -> None:
     """Synchronizes the local Anki collections with AnkiWeb.
-    
+
     Example::
         >>> sync()
     """
     return invoke("sync")
 
+
 def getProfiles() -> list:
     """Retrieve the list of profiles.
-    
+
     Example::
         >>> getProfiles()
         ["User 1"]
     """
     return invoke("getProfiles")
 
+
 def loadProfile(name: str) -> bool:
     """Selects the profile specified in request.
-    
+
     Example::
         >>> loadProfile("user1")
         True
     """
     return invoke("loadProfile", name=name)
 
+
 def multi(actions: list) -> list:
     """Performs multiple actions in one request, returning an array with the response of
     each action (in the given order).
-    
+
     Example::
         >>> multi(
         ...     [
@@ -860,51 +941,58 @@ def multi(actions: list) -> list:
     """
     return invoke("multi", actions=actions)
 
+
 def exportPackage(deck: str, path: str, includeSched: bool) -> bool:
     """Exports a given deck in `.apkg` format. Returns `True` if successful or `False`
     otherwise. The optional property `includeSched` (default is `False`) can be specified
     to include the cards' scheduling data.
-    
+
     Example::
         >>> exportPackage("Default", "/data/Deck.apkg", True)
         True
     """
-    return invoke("exportPackage", deck=deck, path=path, includeSched=includeSched)
+    return invoke(
+        "exportPackage", deck=deck, path=path, includeSched=includeSched
+    )
+
 
 def importPackage(path: str) -> bool:
     """Imports a file in `.apkg` format into the collection. Returns `True` if successful
     or `False` otherwise. Note that the file path is relative to Anki's collection.media
     folder, not to the client.
-    
+
     Example::
         >>> importPackage("/data/Deck.apkg")
         True
     """
     return invoke("importPackage", path=path)
 
+
 def reloadCollection() -> None:
     """Tells anki to reload all data from the database.
-    
+
     Example::
         >>> reloadCollection()
     """
     return invoke("reloadCollection")
 
+
 # Model Actions
 
 def modelNames() -> list:
     """Gets the complete list of model names for the current user.
-    
+
     Example::
         >>> modelNames()
         ["Basic", "Basic (and reversed card)"]
     """
     return invoke("modelNames")
 
+
 def modelNamesAndIds() -> dict:
     """Gets the complete list of model names and their corresponding IDs for the current
     user.
-    
+
     Example::
         >>> modelNamesAndIds()
         {
@@ -916,9 +1004,10 @@ def modelNamesAndIds() -> dict:
     """
     return invoke("modelNamesAndIds")
 
+
 def findModelsById(modelIds: list) -> list:
     r"""Gets a list of models  for the provided model IDs from the current user.
-    
+
     Example::
         >>> findModelsById([1704387367119, 1704387398570])
         [
@@ -1060,9 +1149,10 @@ def findModelsById(modelIds: list) -> list:
     """
     return invoke("findModelsById", modelIds=modelIds)
 
+
 def findModelsByName(modelNames: list) -> list:
     r"""Gets a list of models for the provided model names from the current user.
-    
+
     Example::
         >>> findModelsByName(["Basic", "Basic (and reversed card)"])
         [
@@ -1204,46 +1294,57 @@ def findModelsByName(modelNames: list) -> list:
     """
     return invoke("findModelsByName", modelNames=modelNames)
 
+
 def modelFieldNames(modelName: str) -> list:
     """Gets the complete list of field names for the provided model name.
-    
+
     Example::
         >>> modelFieldNames("Basic")
         ["Front", "Back"]
     """
     return invoke("modelFieldNames", modelName=modelName)
 
+
 def modelFieldDescriptions(modelName: str) -> list:
     """Gets the complete list of field descriptions (the text seen in the gui editor when
     a field is empty) for the provided model name.
-    
+
     Example::
         >>> modelFieldDescriptions("Basic")
         ["", ""]
     """
     return invoke("modelFieldDescriptions", modelName=modelName)
 
+
 def modelFieldFonts(modelName: str) -> dict:
     """Gets the complete list of fonts along with their font sizes.
-    
+
     Example::
         >>> modelFieldFonts("Basic")
         {"Front": {"font": "Arial", "size": 20}, "Back": {"font": "Arial", "size": 20}}
     """
     return invoke("modelFieldFonts", modelName=modelName)
 
+
 def modelFieldsOnTemplates(modelName: str) -> dict:
     """Returns an object indicating the fields on the question and answer side of each
     card template for the given model name. The question side is given first in each
     array.
-    
+
     Example::
         >>> modelFieldsOnTemplates("Basic (and reversed card)")
         {"Card 1": [["Front"], ["Back"]], "Card 2": [["Back"], ["Front"]]}
     """
     return invoke("modelFieldsOnTemplates", modelName=modelName)
 
-def createModel(modelName: str, inOrderFields: list, css: str, isCloze: bool, cardTemplates: list) -> dict:
+
+def createModel(
+    modelName: str,
+    inOrderFields: list,
+    css: str,
+    isCloze: bool,
+    cardTemplates: list,
+) -> dict:
     r"""Creates a new model to be used in Anki. User must provide the `modelName`,
     `inOrderFields` and `cardTemplates` to be used in the model. There are optional fields
     `css` and `isCloze`. If not specified, `css` will use the default Anki css and
@@ -1252,7 +1353,7 @@ def createModel(modelName: str, inOrderFields: list, css: str, isCloze: bool, ca
 
     Optionally the `Name` field can be provided for each entry of `cardTemplates`. By
     default the card names will be `Card 1`, `Card 2`, and so on.
-    
+
     Example::
         >>> createModel(
         ...     "newModelName",
@@ -1314,12 +1415,20 @@ def createModel(modelName: str, inOrderFields: list, css: str, isCloze: bool, ca
             "req": [[0, "none", []]],
         }
     """
-    return invoke("createModel", modelName=modelName, inOrderFields=inOrderFields, css=css, isCloze=isCloze, cardTemplates=cardTemplates)
+    return invoke(
+        "createModel",
+        modelName=modelName,
+        inOrderFields=inOrderFields,
+        css=css,
+        isCloze=isCloze,
+        cardTemplates=cardTemplates,
+    )
+
 
 def modelTemplates(modelName: str) -> dict:
     r"""Returns an object indicating the template content for each card connected to the
     provided model by name.
-    
+
     Example::
         >>> modelTemplates("Basic (and reversed card)")
         {
@@ -1335,9 +1444,10 @@ def modelTemplates(modelName: str) -> dict:
     """
     return invoke("modelTemplates", modelName=modelName)
 
+
 def modelStyling(modelName: str) -> dict:
     r"""Gets the CSS styling for the provided model by name.
-    
+
     Example::
         >>> modelStyling("Basic (and reversed card)")
         {
@@ -1346,11 +1456,12 @@ def modelStyling(modelName: str) -> dict:
     """
     return invoke("modelStyling", modelName=modelName)
 
+
 def updateModelTemplates(model: dict) -> None:
     """Modify the templates of an existing model by name. Only specifies cards and
     specified sides will be modified. If an existing card or side is not included in the
     request, it will be left unchanged.
-    
+
     Example::
         >>> updateModelTemplates(
         ...     {
@@ -1363,18 +1474,20 @@ def updateModelTemplates(model: dict) -> None:
     """
     return invoke("updateModelTemplates", model=model)
 
+
 def updateModelStyling(model: dict) -> None:
     """Modify the CSS styling of an existing model by name.
-    
+
     Example::
         >>> updateModelStyling({"name": "Custom", "css": "p { color: blue; }"})
     """
     return invoke("updateModelStyling", model=model)
 
+
 def findAndReplaceInModels(model: dict) -> int:
     """Find and replace string in existing model by model name. Customise to replace in
     front, back or css by setting to true/false.
-    
+
     Example::
         >>> findAndReplaceInModels(
         ...     {
@@ -1390,29 +1503,46 @@ def findAndReplaceInModels(model: dict) -> int:
     """
     return invoke("findAndReplaceInModels", model=model)
 
-def modelTemplateRename(modelName: str, oldTemplateName: str, newTemplateName: str) -> None:
+
+def modelTemplateRename(
+    modelName: str, oldTemplateName: str, newTemplateName: str
+) -> None:
     """Renames a template in an existing model.
-    
+
     Example::
         >>> modelTemplateRename("Basic", "Card 1", "Card 1 renamed")
     """
-    return invoke("modelTemplateRename", modelName=modelName, oldTemplateName=oldTemplateName, newTemplateName=newTemplateName)
+    return invoke(
+        "modelTemplateRename",
+        modelName=modelName,
+        oldTemplateName=oldTemplateName,
+        newTemplateName=newTemplateName,
+    )
 
-def modelTemplateReposition(modelName: str, templateName: str, index: int) -> None:
+
+def modelTemplateReposition(
+    modelName: str, templateName: str, index: int
+) -> None:
     """Repositions a template in an existing model.
 
     The value of `index` starts at 0. For example, an index of `0` puts the template in
     the first position, and an index of `2` puts the template in the third position.
-    
+
     Example::
         >>> modelTemplateReposition("Basic", "Card 1", 1)
     """
-    return invoke("modelTemplateReposition", modelName=modelName, templateName=templateName, index=index)
+    return invoke(
+        "modelTemplateReposition",
+        modelName=modelName,
+        templateName=templateName,
+        index=index,
+    )
+
 
 def modelTemplateAdd(modelName: str, template: dict) -> None:
     """Adds a template to an existing model by name. If you want to update an existing
     template, use `updateModelTemplates`.
-    
+
     Example::
         >>> modelTemplateAdd(
         ...     "Basic",
@@ -1425,32 +1555,50 @@ def modelTemplateAdd(modelName: str, template: dict) -> None:
     """
     return invoke("modelTemplateAdd", modelName=modelName, template=template)
 
+
 def modelTemplateRemove(modelName: str, templateName: str) -> None:
     """Removes a template from an existing model.
-    
+
     Example::
         >>> modelTemplateRemove("Basic", "Card 1")
     """
-    return invoke("modelTemplateRemove", modelName=modelName, templateName=templateName)
+    return invoke(
+        "modelTemplateRemove", modelName=modelName, templateName=templateName
+    )
 
-def modelFieldRename(modelName: str, oldFieldName: str, newFieldName: str) -> None:
+
+def modelFieldRename(
+    modelName: str, oldFieldName: str, newFieldName: str
+) -> None:
     """Rename the field name of a given model.
-    
+
     Example::
         >>> modelFieldRename("Basic", "Front", "FrontRenamed")
     """
-    return invoke("modelFieldRename", modelName=modelName, oldFieldName=oldFieldName, newFieldName=newFieldName)
+    return invoke(
+        "modelFieldRename",
+        modelName=modelName,
+        oldFieldName=oldFieldName,
+        newFieldName=newFieldName,
+    )
+
 
 def modelFieldReposition(modelName: str, fieldName: str, index: int) -> None:
     """Reposition the field within the field list of a given model.
 
     The value of `index` starts at 0. For example, an index of `0` puts the field in the
     first position, and an index of `2` puts the field in the third position.
-    
+
     Example::
         >>> modelFieldReposition("Basic", "Back", 0)
     """
-    return invoke("modelFieldReposition", modelName=modelName, fieldName=fieldName, index=index)
+    return invoke(
+        "modelFieldReposition",
+        modelName=modelName,
+        fieldName=fieldName,
+        index=index,
+    )
+
 
 def modelFieldAdd(modelName: str, fieldName: str, index: int) -> None:
     """Creates a new field within a given model.
@@ -1458,48 +1606,71 @@ def modelFieldAdd(modelName: str, fieldName: str, index: int) -> None:
     Optionally, the `index` value can be provided, which works exactly the same as the
     index in `modelFieldReposition`. By default, the field is added to the end of the
     field list.
-    
+
     Example::
         >>> modelFieldAdd("Basic", "NewField", 0)
     """
-    return invoke("modelFieldAdd", modelName=modelName, fieldName=fieldName, index=index)
+    return invoke(
+        "modelFieldAdd", modelName=modelName, fieldName=fieldName, index=index
+    )
+
 
 def modelFieldRemove(modelName: str, fieldName: str) -> None:
     """Deletes a field within a given model.
-    
+
     Example::
         >>> modelFieldRemove("Basic", "Front")
     """
     return invoke("modelFieldRemove", modelName=modelName, fieldName=fieldName)
 
+
 def modelFieldSetFont(modelName: str, fieldName: str, font: str) -> None:
     """Sets the font for a field within a given model.
-    
+
     Example::
         >>> modelFieldSetFont("Basic", "Front", "Courier")
     """
-    return invoke("modelFieldSetFont", modelName=modelName, fieldName=fieldName, font=font)
+    return invoke(
+        "modelFieldSetFont", modelName=modelName, fieldName=fieldName, font=font
+    )
 
-def modelFieldSetFontSize(modelName: str, fieldName: str, fontSize: int) -> None:
+
+def modelFieldSetFontSize(
+    modelName: str, fieldName: str, fontSize: int
+) -> None:
     """Sets the font size for a field within a given model.
-    
+
     Example::
         >>> modelFieldSetFontSize("Basic", "Front", 10)
     """
-    return invoke("modelFieldSetFontSize", modelName=modelName, fieldName=fieldName, fontSize=fontSize)
+    return invoke(
+        "modelFieldSetFontSize",
+        modelName=modelName,
+        fieldName=fieldName,
+        fontSize=fontSize,
+    )
 
-def modelFieldSetDescription(modelName: str, fieldName: str, description: str) -> bool:
+
+def modelFieldSetDescription(
+    modelName: str, fieldName: str, description: str
+) -> bool:
     """Sets the description (the text seen in the gui editor when a field is empty) for a
     field within a given model.
 
     Older versions of Anki (2.1.49 and below) do not have field descriptions. In that
     case, this will return with `False`.
-    
+
     Example::
         >>> modelFieldSetDescription("Basic", "Front", "example field description")
         True
     """
-    return invoke("modelFieldSetDescription", modelName=modelName, fieldName=fieldName, description=description)
+    return invoke(
+        "modelFieldSetDescription",
+        modelName=modelName,
+        fieldName=fieldName,
+        description=description,
+    )
+
 
 # Note Actions
 
@@ -1533,7 +1704,7 @@ def addNote(note: dict) -> int:
     checked in child decks. The default value is `False`.
     * `duplicateScopeOptions.checkAllModels` specifies whether duplicate checks are
     performed across all note types. The default value is `False`.
-    
+
     Example::
         >>> addNote(
         ...     {
@@ -1580,12 +1751,13 @@ def addNote(note: dict) -> int:
     """
     return invoke("addNote", note=note)
 
+
 def addNotes(notes: list) -> list:
     """Creates multiple notes using the given deck and model, with the provided field
     values and tags. Returns an array of identifiers of the created notes (notes that
     could not be created will have a `None` identifier). Please see the documentation for
     `addNote` for an explanation of objects in the `notes` array.
-    
+
     Example::
         >>> addNotes(
         ...     [
@@ -1625,11 +1797,12 @@ def addNotes(notes: list) -> list:
     """
     return invoke("addNotes", notes=notes)
 
+
 def canAddNotes(notes: list) -> list:
     """Accepts an array of objects which define parameters for candidate notes (see
     `addNote`) and returns an array of booleans indicating whether or not the parameters
     at the corresponding index could be used to create a new note.
-    
+
     Example::
         >>> canAddNotes(
         ...     [
@@ -1645,6 +1818,7 @@ def canAddNotes(notes: list) -> list:
     """
     return invoke("canAddNotes", notes=notes)
 
+
 def canAddNotesWithErrorDetail(notes: list) -> list:
     """Accepts an array of objects which define parameters for candidate notes (see
     `addNote`) and returns an array of objects with fields `canAdd` and `error`.
@@ -1652,7 +1826,7 @@ def canAddNotesWithErrorDetail(notes: list) -> list:
     * `canAdd` indicates whether or not the parameters at the corresponding index could be
     used to create a new note.
     * `error` contains an explanation of why a note cannot be added.
-    
+
     Example::
         >>> canAddNotesWithErrorDetail(
         ...     [
@@ -1677,6 +1851,7 @@ def canAddNotesWithErrorDetail(notes: list) -> list:
     """
     return invoke("canAddNotesWithErrorDetail", notes=notes)
 
+
 def updateNoteFields(note: dict) -> None:
     """Modify the fields of an existing note. You can also include audio, video, or
     picture files which will be added to the note with an optional `audio`, `video`, or
@@ -1686,7 +1861,7 @@ def updateNoteFields(note: dict) -> None:
     > **Warning**: You must not be viewing the note that you are updating on your Anki
     browser, otherwise the fields will not update. See [this
     issue](https://github.com/FooSoft/anki-connect/issues/82) for further details.
-    
+
     Example::
         >>> updateNoteFields(
         ...     {
@@ -1705,6 +1880,7 @@ def updateNoteFields(note: dict) -> None:
     """
     return invoke("updateNoteFields", note=note)
 
+
 def updateNote(note: dict) -> None:
     """Modify the fields and/or tags of an existing note. In other words, combines
     `updateNoteFields` and `updateNoteTags`. Please see their documentation for an
@@ -1722,7 +1898,7 @@ def updateNote(note: dict) -> None:
     > **Warning** You must not be viewing the note that you are updating on your Anki
     browser, otherwise the fields will not update. See [this
     issue](https://github.com/FooSoft/anki-connect/issues/82) for further details.
-    
+
     Example::
         >>> updateNote(
         ...     {
@@ -1734,88 +1910,109 @@ def updateNote(note: dict) -> None:
     """
     return invoke("updateNote", note=note)
 
+
 def updateNoteTags(note: int, tags: list) -> None:
     """Set a note's tags by note ID. Old tags will be removed.
-    
+
     Example::
         >>> updateNoteTags(1483959289817, ["european-languages"])
     """
     return invoke("updateNoteTags", note=note, tags=tags)
 
+
 def getNoteTags(note: int) -> list:
     """Get a note's tags by note ID.
-    
+
     Example::
         >>> getNoteTags(1483959289817)
         ["european-languages"]
     """
     return invoke("getNoteTags", note=note)
 
+
 def addTags(notes: list, tags: str) -> None:
     """Adds tags to notes by note ID.
-    
+
     Example::
         >>> addTags([1483959289817, 1483959291695], "european-languages")
     """
     return invoke("addTags", notes=notes, tags=tags)
 
+
 def removeTags(notes: list, tags: str) -> None:
     """Remove tags from notes by note ID.
-    
+
     Example::
         >>> removeTags([1483959289817, 1483959291695], "european-languages")
     """
     return invoke("removeTags", notes=notes, tags=tags)
 
+
 def getTags() -> list:
     """Gets the complete list of tags for the current user.
-    
+
     Example::
         >>> getTags()
         ["european-languages", "idioms"]
     """
     return invoke("getTags")
 
+
 def clearUnusedTags() -> None:
     """Clears all the unused tags in the notes for the current user.
-    
+
     Example::
         >>> clearUnusedTags()
     """
     return invoke("clearUnusedTags")
 
-def replaceTags(notes: list, tag_to_replace: str, replace_with_tag: str) -> None:
+
+def replaceTags(
+    notes: list, tag_to_replace: str, replace_with_tag: str
+) -> None:
     """Replace tags in notes by note ID.
-    
+
     Example::
         >>> replaceTags(
         ...     [1483959289817, 1483959291695], "european-languages", "french-languages"
         ... )
     """
-    return invoke("replaceTags", notes=notes, tag_to_replace=tag_to_replace, replace_with_tag=replace_with_tag)
+    return invoke(
+        "replaceTags",
+        notes=notes,
+        tag_to_replace=tag_to_replace,
+        replace_with_tag=replace_with_tag,
+    )
+
 
 def replaceTagsInAllNotes(tag_to_replace: str, replace_with_tag: str) -> None:
     """Replace tags in all the notes for the current user.
-    
+
     Example::
         >>> replaceTagsInAllNotes("european-languages", "french-languages")
     """
-    return invoke("replaceTagsInAllNotes", tag_to_replace=tag_to_replace, replace_with_tag=replace_with_tag)
+    return invoke(
+        "replaceTagsInAllNotes",
+        tag_to_replace=tag_to_replace,
+        replace_with_tag=replace_with_tag,
+    )
+
 
 def findNotes(query: str) -> list:
     """Returns an array of note IDs for a given query. Query syntax is [documented
     here](https://docs.ankiweb.net/searching.html).
-    
+
     Example::
         >>> findNotes("deck:current")
         [1483959289817, 1483959291695]
     """
     return invoke("findNotes", query=query)
 
+
 def notesInfo(notes: list) -> list:
     """Returns a list of objects containing for each note ID the note fields, tags, note
     type and the cards belonging to the note.
-    
+
     Example::
         >>> notesInfo([1502298033753])
         [
@@ -1832,59 +2029,65 @@ def notesInfo(notes: list) -> list:
     """
     return invoke("notesInfo", notes=notes)
 
+
 def deleteNotes(notes: list) -> None:
     """Deletes notes with the given ids. If a note has several cards associated with it,
     all associated cards will be deleted.
-    
+
     Example::
         >>> deleteNotes([1502298033753])
     """
     return invoke("deleteNotes", notes=notes)
 
+
 def removeEmptyNotes() -> None:
     """Removes all the empty notes for the current user.
-    
+
     Example::
         >>> removeEmptyNotes()
     """
     return invoke("removeEmptyNotes")
+
 
 # Statistic Actions
 
 def getNumCardsReviewedToday() -> int:
     """Gets the count of cards that have been reviewed in the current day (with day start
     time as configured by user in anki)
-    
+
     Example::
         >>> getNumCardsReviewedToday()
         0
     """
     return invoke("getNumCardsReviewedToday")
 
+
 def getNumCardsReviewedByDay() -> list:
     """Gets the number of cards reviewed as a list of pairs of `(dateString, number)`
-    
+
     Example::
         >>> getNumCardsReviewedByDay()
         [["2021-02-28", 124], ["2021-02-27", 261]]
     """
     return invoke("getNumCardsReviewedByDay")
 
+
 def getCollectionStatsHTML(wholeCollection: bool) -> str:
     """Gets the collection statistics report
-    
+
     Example::
         >>> getCollectionStatsHTML(True)
         "<center> lots of HTML here </center>"
     """
     return invoke("getCollectionStatsHTML", wholeCollection=wholeCollection)
 
+
 def cardReviews(deck: str, startID: int) -> list:
     """Requests all card reviews for a specified deck after a certain time. `startID` is
     the latest unix time not included in the result. Returns a list of 9-tuples
     `(reviewTime, cardID, usn, buttonPressed, newInterval, previousInterval, newFactor,
     reviewDuration, reviewType)`
-    
+
     Example::
         >>> cardReviews("default", 1594194095740)
         [
@@ -1893,6 +2096,7 @@ def cardReviews(deck: str, startID: int) -> list:
         ]
     """
     return invoke("cardReviews", deck=deck, startID=startID)
+
 
 def getReviewsOfCards(cards: list) -> dict:
     """Requests all card reviews for each card ID. Returns a dictionary mapping each card
@@ -1911,7 +2115,7 @@ def getReviewsOfCards(cards: list) -> dict:
     ```
     The reason why these key values are used instead of the more descriptive counterparts
     is because these are the exact key values used in Anki's database.
-    
+
     Example::
         >>> getReviewsOfCards(["1653613948202"])
         {
@@ -1941,21 +2145,23 @@ def getReviewsOfCards(cards: list) -> dict:
     """
     return invoke("getReviewsOfCards", cards=cards)
 
+
 def getLatestReviewID(deck: str) -> int:
     """Returns the unix time of the latest review for the given deck. 0 if no review has
     ever been made for the deck.
-    
+
     Example::
         >>> getLatestReviewID("default")
         1594194095746
     """
     return invoke("getLatestReviewID", deck=deck)
 
+
 def insertReviews(reviews: list) -> None:
     """Inserts the given reviews into the database. Required format: list of 9-tuples
     `(reviewTime, cardID, usn, buttonPressed, newInterval, previousInterval, newFactor,
     reviewDuration, reviewType)`
-    
+
     Example::
         >>> insertReviews(
         ...     [
@@ -1965,4 +2171,5 @@ def insertReviews(reviews: list) -> None:
         ... )
     """
     return invoke("insertReviews", reviews=reviews)
+
 

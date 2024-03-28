@@ -1,12 +1,15 @@
 import mistletoe
-from mistletoe.span_token import InlineCode, RawText, Link, LineBreak, Emphasis, Strong
-from mistletoe.block_token import Quote, ThematicBreak, Heading, Paragraph, CodeFence
-from mistletoe.block_token import HtmlBlock, List, ListItem, Document
+from mistletoe.span_token import InlineCode, RawText, Link, LineBreak
+from mistletoe.span_token import Emphasis, Strong
+from mistletoe.block_token import Quote, ThematicBreak, Heading, Paragraph
+from mistletoe.block_token import HtmlBlock, List, ListItem, Document, CodeFence
 from mistletoe.markdown_renderer import BlankLine, MarkdownRenderer
 
+
 def traverse(t, level=0):
-    """Recursively traverses a mistletoe AST and returns the content as Markdown. Used here as 
-    a kind of beautifier for the Markdown text."""
+    """Recursively traverses a mistletoe AST and returns the content as
+    Markdown. Used here as a kind of beautifier for the Markdown text."""
+
     match t:
         case RawText():
             return t.content
@@ -14,7 +17,7 @@ def traverse(t, level=0):
             return "\n"
         case LineBreak():
             return " "
-            #return "\n"
+            # return "\n"
         case ThematicBreak():
             return "---\n"
     sub = "".join(traverse(child, level+1) for child in t.children)
@@ -32,7 +35,7 @@ def traverse(t, level=0):
         case ListItem():
             first_indent = (
                 t.indentation * " "
-                + t.leader 
+                + t.leader
                 + (t.prepend - len(t.leader) - t.indentation) * " "
             )
             next_indent = " " * len(first_indent)
@@ -62,8 +65,8 @@ def traverse(t, level=0):
         case _:
             print("unknown AST type:", str(type(t)))
             return ""
-        
+
+
 def beautify(text):
     with MarkdownRenderer():
         return traverse(mistletoe.Document(text))
-
