@@ -205,6 +205,8 @@ def make_func(func_name, doc, requests, results):
             example_args = ", ".join(f"{v!r}" for v in data["params"].values())
         invoke_args_str = ", ".join(invoke_args)
         func_args_str = ", ".join(func_args)
+        if data["action"] != func_name:
+            print("mismatch in action parameter", func_name)
 
         # process sample result
         try:

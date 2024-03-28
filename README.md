@@ -12,7 +12,7 @@ pip install --upgrade anki-connect-api
 
 #### Example Usage:
 ```python
->>> import anki_connect_api as ac
->>> ac.deckNames()
+>>> import anki_connect_api as anki
+>>> anki.deckNames()
 ["Default", "My other deck"]
 ```

@@ -2171,5 +2171,3 @@ def insertReviews(reviews: list) -> None:
         ... )
     """
     return invoke("insertReviews", reviews=reviews)
-
-
