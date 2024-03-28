@@ -1,3 +1,4 @@
+\
 __version__ = '24.2.26.0'
 
 import json
@@ -5,7 +6,7 @@ import urllib.request
 
 URL = 'http://127.0.0.1:8765'
 
-def invoke(action, **params):
+def invoke(action: str, **params):
     requestJson = json.dumps({
         'action': action, 
         'version': 6,
@@ -123,7 +124,10 @@ def getIntervals(cards: list, complete: bool=False) -> list:
         [-14400, 3]
 
         >>> getIntervals([1502298033753, 1502298036657], True)
-        [[-120, -180, -240, -300, -360, -14400], [-120, -180, -240, -300, -360, -14400, 1, 3]]
+        [
+            [-120, -180, -240, -300, -360, -14400],
+            [-120, -180, -240, -300, -360, -14400, 1, 3]
+        ]
     """
     return invoke("getIntervals", cards=cards, complete=complete)
 
@@ -268,7 +272,10 @@ def getDecks(cards: list) -> dict:
     
     Example::
         >>> getDecks([1502298036657, 1502298033753, 1502032366472])
-        {"Default": [1502032366472], "Japanese::JLPT N3": [1502298036657, 1502298033753]}
+        {
+            "Default": [1502032366472],
+            "Japanese::JLPT N3": [1502298036657, 1502298033753],
+        }
     """
     return invoke("getDecks", cards=cards)
 
@@ -675,7 +682,7 @@ def guiCheckDatabase() -> bool:
 
 # Media Actions
 
-def storeMediaFile(filename: str, *, data=None, path: str=None, url=None, deleteExisting: bool=True) -> str:
+def storeMediaFile(filename: str, *, data: str=None, path: str=None, url: str=None, deleteExisting: bool=True) -> str:
     """Stores a file with the specified base64-encoded contents inside the media folder.
     Alternatively you can specify a absolute file path, or a url from where the file shell
     be downloaded. If more than one of `data`, `path` and `url` are provided, the `data`
@@ -838,7 +845,11 @@ def multi(actions: list) -> list:
         ...         {"action": "deckNames"},
         ...         {"action": "deckNames", "version": 6},
         ...         {"action": "invalidAction", "params": {"useless": "param"}},
-        ...         {"action": "invalidAction", "params": {"useless": "param"}, "version": 6},
+        ...         {
+        ...             "action": "invalidAction",
+        ...             "params": {"useless": "param"},
+        ...             "version": 6,
+        ...         },
         ...     ]
         ... )
         [
@@ -1345,7 +1356,9 @@ def updateModelTemplates(model: dict) -> None:
         >>> updateModelTemplates(
         ...     {
         ...         "name": "Custom",
-        ...         "templates": {"Card 1": {"Front": "{{Question}}?", "Back": "{{Answer}}!"}},
+        ...         "templates": {
+        ...             "Card 1": {"Front": "{{Question}}?", "Back": "{{Answer}}!"}
+        ...         },
         ...     }
         ... )
     """
@@ -1776,7 +1789,9 @@ def replaceTags(notes: list, tag_to_replace: str, replace_with_tag: str) -> None
     """Replace tags in notes by note ID.
     
     Example::
-        >>> replaceTags([1483959289817, 1483959291695], "european-languages", "french-languages")
+        >>> replaceTags(
+        ...     [1483959289817, 1483959291695], "european-languages", "french-languages"
+        ... )
     """
     return invoke("replaceTags", notes=notes, tag_to_replace=tag_to_replace, replace_with_tag=replace_with_tag)
 

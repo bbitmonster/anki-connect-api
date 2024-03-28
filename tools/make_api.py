@@ -7,10 +7,11 @@ import black
 
 import markdown_parser
 
+black_mode = black.Mode(line_length=80)
 REQUEST_SEARCH = re.compile("^<summary><i>Sample.* request.*</i></summary>")
 RESULT_SEARCH = re.compile("^<summary><i>Sample.* result.*</i></summary>")
 
-HEADER = '''\
+HEADER = r'''\
 __version__ = '24.2.26.0'
 
 import json
@@ -18,7 +19,7 @@ import urllib.request
 
 URL = 'http://127.0.0.1:8765'
 
-def invoke(action, **params):
+def invoke(action: str, **params):
     requestJson = json.dumps({
         'action': action, 
         'version': 6,
@@ -51,7 +52,7 @@ CODE_TEMPLATE = '''\
 '''
 
 exceptional_funcs = {}
-func_def = "def storeMediaFile(filename: str, *, data=None, path: str=None, url=None, deleteExisting: bool=True) -> str:"
+func_def = "def storeMediaFile(filename: str, *, data: str=None, path: str=None, url: str=None, deleteExisting: bool=True) -> str:"
 func_examples = '''\
         >>> storeMediaFile("_hello.txt", data="SGVsbG8sIHdvcmxkIQ==")
         "_hello.txt"
@@ -70,7 +71,6 @@ func_code = """\
         return invoke("storeMediaFile", filename=filename, url=url, deleteExisting=deleteExisting)
     else:
         raise Exception("one argument of data, path or url must be supplied")"""
-
 exceptional_funcs["storeMediaFile"] = (func_def, func_examples, func_code)
 
 func_def = "def getIntervals(cards: list, complete: bool=False) -> list:"
@@ -79,7 +79,10 @@ func_examples = '''\
         [-14400, 3]
 
         >>> getIntervals([1502298033753, 1502298036657], True)
-        [[-120, -180, -240, -300, -360, -14400], [-120, -180, -240, -300, -360, -14400, 1, 3]]'''
+        [
+            [-120, -180, -240, -300, -360, -14400],
+            [-120, -180, -240, -300, -360, -14400, 1, 3]
+        ]'''
 func_code = '    return invoke("getIntervals", cards=cards, complete=complete)'
 exceptional_funcs["getIntervals"] = (func_def, func_examples, func_code)
 
@@ -189,14 +192,14 @@ def make_func(func_name, doc, requests, results):
             return_type = type(data["result"]).__name__
 
         # use black to format and beautify the example invokation
-        example = black.format_str(f"{func_name}({example_args})", mode=black.Mode())
+        example = black.format_str(f"{func_name}({example_args})", mode=black_mode)
         # add doctest delimiters to the code
         lines = example.splitlines()
         example = ">>> " + lines[0] + "\n"
         for line in lines[1:]:
             example += "... " + line+ "\n"
         if data["result"] is not None:
-            example += black.format_str(repr(data["result"]), mode=black.Mode())
+            example += black.format_str(repr(data["result"]), mode=black_mode)
         example = textwrap.indent(example, "        ").rstrip()
         examples.append(example)
     examples = "\n\n".join(examples)

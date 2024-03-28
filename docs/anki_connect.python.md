@@ -272,7 +272,10 @@ Documentation for currently supported actions is split up by category and is ref
     [-14400, 3]
 
     >>> getIntervals([1502298033753, 1502298036657], True)
-    [[-120, -180, -240, -300, -360, -14400], [-120, -180, -240, -300, -360, -14400, 1, 3]]
+    [
+        [-120, -180, -240, -300, -360, -14400],
+        [-120, -180, -240, -300, -360, -14400, 1, 3]
+    ]
     ```
     </details>
 
@@ -442,7 +445,10 @@ Documentation for currently supported actions is split up by category and is ref
 
     ```python
     >>> getDecks([1502298036657, 1502298033753, 1502032366472])
-    {"Default": [1502032366472], "Japanese::JLPT N3": [1502298036657, 1502298033753]}
+    {
+        "Default": [1502032366472],
+        "Japanese::JLPT N3": [1502298036657, 1502298033753],
+    }
     ```
     </details>
 
@@ -1054,7 +1060,11 @@ Documentation for currently supported actions is split up by category and is ref
     ...         {"action": "deckNames"},
     ...         {"action": "deckNames", "version": 6},
     ...         {"action": "invalidAction", "params": {"useless": "param"}},
-    ...         {"action": "invalidAction", "params": {"useless": "param"}, "version": 6},
+    ...         {
+    ...             "action": "invalidAction",
+    ...             "params": {"useless": "param"},
+    ...             "version": 6,
+    ...         },
     ...     ]
     ... )
     [
@@ -1592,7 +1602,9 @@ Documentation for currently supported actions is split up by category and is ref
     >>> updateModelTemplates(
     ...     {
     ...         "name": "Custom",
-    ...         "templates": {"Card 1": {"Front": "{{Question}}?", "Back": "{{Answer}}!"}},
+    ...         "templates": {
+    ...             "Card 1": {"Front": "{{Question}}?", "Back": "{{Answer}}!"}
+    ...         },
     ...     }
     ... )
     ```
@@ -2056,7 +2068,9 @@ Documentation for currently supported actions is split up by category and is ref
     <summary><i>Example:</i></summary>
 
     ```python
-    >>> replaceTags([1483959289817, 1483959291695], "european-languages", "french-languages")
+    >>> replaceTags(
+    ...     [1483959289817, 1483959291695], "european-languages", "french-languages"
+    ... )
     ```
     </details>
 

@@ -14,5 +14,5 @@ pip install --upgrade anki-connect-api
 ```python
 >>> import anki_connect_api as ac
 >>> ac.deckNames()
-["Default", "Japanese::JLPT N3"]
+["Default", "My other deck"]
 ```
