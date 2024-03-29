@@ -261,7 +261,7 @@ def make_func(func_name, doc, requests, results):
     flake8_ignore = ""
     max_len = max(len(line) for line in examples.splitlines())
     if max_len > 95:
-        flake8_ignore = "  # noqa; E501"
+        flake8_ignore = "  # noqa: E501"
     print(max_len)
 
     # write every part of the function to the .py file
