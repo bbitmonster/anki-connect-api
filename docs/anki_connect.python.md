@@ -57,6 +57,8 @@ Every request consists of a JSON-encoded object containing an `action`, a `versi
 
 For compatibility with clients designed to work with older versions of Anki-Connect, failing to provide a `version` field in the request will make the version default to 4. Furthermore, when the provided version is level 4 or below, the API response will only contain the value of the `result`; no `error` field is available for error handling.
 
+You can use whatever language or tool you like to issue request to Anki-Connect, but a couple of simple examples are included below as reference.
+
 ### Authentication
 
 Anki-Connect supports requiring authentication in order to make API requests. This support is *disabled* by default, but can be enabled by setting the `apiKey` field of Anki-Config's settings (Tools->Add-ons->AnkiConnect->Config) to a desired string. If you have done so, you should see the [`requestPermission`](#requestpermission) API request return `true` for `requireApiKey`. You then must include an additional parameter called `key` in any further API request bodies, whose value must match the configured API key.
