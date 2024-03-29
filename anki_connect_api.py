@@ -27,6 +27,7 @@ def invoke(action: str, **params):
 
 # Card Actions
 
+
 def getEaseFactors(cards: list) -> list:
     """Returns an array with the ease factor for each of the given cards (in the same
     order).

@@ -12,7 +12,7 @@ opts.indent_size = 4
 opts.wrap_line_length = 100
 
 HEADER = """
-<!-- This file is auto-generated from <anki_connect.py>, do not edit it by hand. -->
+<!-- This file is auto-generated from <anki_connect_api.py>, do not edit it by hand. -->
 
 """
 
@@ -27,8 +27,10 @@ CODE_TEMPLATE = """\
 
 """
 
+
 def return_args(*args, **kwargs):
     return (args, kwargs)
+
 
 def write_python_func(fout, func_name, args, docstring):
     args = ", ".join(args)
@@ -40,6 +42,7 @@ def write_python_func(fout, func_name, args, docstring):
     fout.write(desc)
     s = CODE_TEMPLATE.format(desc="Example", lang="python", code=example)
     fout.write(indent(s, "    "))
+
 
 def write_json_func(fout, func_name, args, docstring):
     desc, example = docstring.split("Example::\n")
@@ -58,7 +61,7 @@ def write_json_func(fout, func_name, args, docstring):
             request_str += line[8:] + "\n"
         else:
             result_str += line[4:] + "\n"
-    
+
     if result_str:
         result_values = eval(result_str)
     else:
@@ -70,8 +73,7 @@ def write_json_func(fout, func_name, args, docstring):
         request_str = request_str.replace(func_name, "return_args", 1)
         request_args, request_kwargs = eval(request_str, {"return_args": return_args})
         request["params"] = {
-            k: request_args[i] 
-            for i, k in enumerate(args) if i < len(request_args)
+            k: request_args[i] for i, k in enumerate(args) if i < len(request_args)
         }
         for k, v in request_kwargs.items():
             request["params"][k] = v
@@ -100,11 +102,11 @@ with open(script_dir / "anki_connect.header.md", 'r', encoding="utf-8") as file:
 jobs = (
     (script_dir.parent / "docs" / "anki_connect.python.md", write_python_func),
     (script_dir.parent / "docs" / "anki_connect.json.md", write_json_func),
-    
+
 )
 for filepath, write_func in jobs:
     with filepath.open("w", encoding="utf-8") as fout:
-        #fout.write(HEADER)
+        # fout.write(HEADER)
         fout.write(header)
         for node in tree.body:
             if isinstance(node, ast.FunctionDef):
