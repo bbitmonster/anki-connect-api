@@ -300,7 +300,7 @@ with (source_file_path.open('r', encoding="utf-8") as fin,
     for line in lines_gen:
         if line.startswith("### "):
             # new section heading
-            fout.write("\n# " + line[4:].strip())
+            fout.write("\n# " + line[4:].strip() + "\n")
         elif line.startswith("#### "):
             # new function
             func_name = line[5:].strip().replace("`", "")

@@ -28,6 +28,7 @@ def invoke(action: str, **params):
 
 # Card Actions
 
+
 def getEaseFactors(cards: list) -> list:
     """Returns an array with the ease factor for each of the given cards (in the same
     order).
@@ -266,6 +267,7 @@ def answerCards(answers: list) -> list:
 
 # Deck Actions
 
+
 def deckNames() -> list:
     """Gets the complete list of deck names for the current user.
 
@@ -487,6 +489,7 @@ def getDeckStats(decks: list) -> dict:
     return invoke("getDeckStats", decks=decks)
 
 # Graphical Actions
+
 
 def guiBrowse(query: str, reorderCards: dict) -> list:
     """Invokes the *Card Browser* dialog and searches for a given query. Returns an array
@@ -727,6 +730,7 @@ def guiCheckDatabase() -> bool:
 
 # Media Actions
 
+
 def storeMediaFile(
     filename: str,
     *,
@@ -821,6 +825,7 @@ def deleteMediaFile(filename: str) -> None:
     return invoke("deleteMediaFile", filename=filename)
 
 # Miscellaneous Actions
+
 
 def requestPermission() -> dict:
     """Requests permission to use the API exposed by this plugin. This method does not
@@ -974,6 +979,7 @@ def reloadCollection() -> None:
     return invoke("reloadCollection")
 
 # Model Actions
+
 
 def modelNames() -> list:
     """Gets the complete list of model names for the current user.
@@ -1669,6 +1675,7 @@ def modelFieldSetDescription(
 
 # Note Actions
 
+
 def addNote(note: dict) -> int:
     """Creates a note using the given deck and model, with the provided field values and
     tags. Returns the identifier of the created note created on success, and `None` on
@@ -2044,6 +2051,7 @@ def removeEmptyNotes() -> None:
     return invoke("removeEmptyNotes")
 
 # Statistic Actions
+
 
 def getNumCardsReviewedToday() -> int:
     """Gets the count of cards that have been reviewed in the current day (with day start
