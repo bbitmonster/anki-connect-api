@@ -12,7 +12,9 @@
 !tools/make_api.py
 !tools/markdown_parser.py
 !tools/requirements.txt
-!tools/anki_connect.header.md
+!tools/header.python.md
+!tools/header.json.md
+!tools/source.md
 
 !/docs/
 !docs/anki_connect.json.md

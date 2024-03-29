@@ -96,16 +96,24 @@ script_dir = Path(__file__).absolute().parent
 with open(script_dir.parent / "anki_connect_api.py", 'r', encoding="utf-8") as file:
     tree = ast_comments.parse(file.read())
 
-with open(script_dir / "anki_connect.header.md", 'r', encoding="utf-8") as file:
-    header = file.read()
 
 jobs = (
-    (script_dir.parent / "docs" / "anki_connect.python.md", write_python_func),
-    (script_dir.parent / "docs" / "anki_connect.json.md", write_json_func),
+    (
+        script_dir.parent / "docs" / "anki_connect.python.md",
+        script_dir / "header.python.md",
+        write_python_func
+    ), (
+        script_dir.parent / "docs" / "anki_connect.json.md",
+        script_dir / "header.json.md",
+        write_json_func
+    ),
 
 )
-for filepath, write_func in jobs:
-    with filepath.open("w", encoding="utf-8") as fout:
+
+for out_filepath, header_filepath, write_func in jobs:
+    with out_filepath.open("w", encoding="utf-8") as fout:
+        with header_filepath.open('r', encoding="utf-8") as file:
+            header = file.read()
         # fout.write(HEADER)
         fout.write(header)
         for node in tree.body:
@@ -118,16 +126,14 @@ for filepath, write_func in jobs:
                 write_func(fout, func_name, args, docstring)
             elif isinstance(node, ast_comments.Comment):
                 fout.write("---\n\n##" + node.value + "\n\n")
-    with filepath.open("r", encoding="utf-8") as file:
+    with out_filepath.open("r", encoding="utf-8") as file:
         unformatted = file.read()
     formatted = markdown_parser.beautify(unformatted)
-    with filepath.open("w", encoding="utf-8") as file:
+    with out_filepath.open("w", encoding="utf-8") as file:
         file.write(formatted)
 
-with open(script_dir / "anki_connect.md", 'r', encoding="utf-8") as file:
+with open(script_dir / "source.md", 'r', encoding="utf-8") as file:
     unformatted = file.read()
-
 formatted = markdown_parser.beautify(unformatted)
-
-with open(script_dir / "anki_connect.formatted.md", 'w', encoding="utf-8") as file:
+with open(script_dir / "source.formatted.md", 'w', encoding="utf-8") as file:
     file.write(formatted)

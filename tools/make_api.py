@@ -262,7 +262,6 @@ def make_func(func_name, doc, requests, results):
     max_len = max(len(line) for line in examples.splitlines())
     if max_len > 95:
         flake8_ignore = "  # noqa: E501"
-    print(max_len)
 
     # write every part of the function to the .py file
     code = CODE_TEMPLATE.format(
@@ -286,7 +285,7 @@ def line_generator(file):
 
 
 script_dir = Path(__file__).absolute().parent
-source_file_path = script_dir / "anki_connect.md"
+source_file_path = script_dir / "source.md"
 out_file_path = script_dir.parent / "anki_connect_api.py"
 
 with (source_file_path.open('r', encoding="utf-8") as fin,
