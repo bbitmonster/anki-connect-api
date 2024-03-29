@@ -1,3 +1,6 @@
+
+<!-- This file is auto-generated from <anki_connect_api.py>, do not edit it by hand. -->
+
 # Anki-Connect
 
 Anki-Connect enables external applications such as [Yomichan](https://foosoft.net/projects/yomichan/) to communicate with [Anki](https://apps.ankiweb.net/) over a simple HTTP API. Its capabilities include executing queries against the user's card deck, automatically creating new cards, and more. Anki-Connect is compatible with the latest stable (2.1.x) releases of Anki; older versions (2.0.x and below) are no longer supported.

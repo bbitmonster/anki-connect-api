@@ -114,7 +114,7 @@ for out_filepath, header_filepath, write_func in jobs:
     with out_filepath.open("w", encoding="utf-8") as fout:
         with header_filepath.open('r', encoding="utf-8") as file:
             header = file.read()
-        # fout.write(HEADER)
+        fout.write(HEADER)
         fout.write(header)
         for node in tree.body:
             if isinstance(node, ast.FunctionDef):
@@ -132,8 +132,8 @@ for out_filepath, header_filepath, write_func in jobs:
     with out_filepath.open("w", encoding="utf-8") as file:
         file.write(formatted)
 
-with open(script_dir / "source.md", 'r', encoding="utf-8") as file:
+with open(script_dir / "original.README.md", 'r', encoding="utf-8") as file:
     unformatted = file.read()
 formatted = markdown_parser.beautify(unformatted)
-with open(script_dir / "source.formatted.md", 'w', encoding="utf-8") as file:
+with open(script_dir / "formatted.README.md", 'w', encoding="utf-8") as file:
     file.write(formatted)

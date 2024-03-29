@@ -285,7 +285,7 @@ def line_generator(file):
 
 
 script_dir = Path(__file__).absolute().parent
-source_file_path = script_dir / "source.md"
+source_file_path = script_dir / "original.README.md"
 out_file_path = script_dir.parent / "anki_connect_api.py"
 
 with (source_file_path.open('r', encoding="utf-8") as fin,

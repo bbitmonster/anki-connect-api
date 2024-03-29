@@ -4,7 +4,7 @@
 .gitignore
 !README.md
 !LICENSE
-!/pyproject.toml
+!pyproject.toml
 !anki_connect_api.py
 
 !/tools/
@@ -14,7 +14,7 @@
 !tools/requirements.txt
 !tools/header.python.md
 !tools/header.json.md
-!tools/source.md
+!tools/original.README.md
 
 !/docs/
 !docs/anki_connect.json.md
