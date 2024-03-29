@@ -25,8 +25,8 @@ def invoke(action: str, **params):
         raise Exception(response['error'])
     return response['result']
 
-# Card Actions
 
+# Card Actions
 
 def getEaseFactors(cards: list) -> list:
     """Returns an array with the ease factor for each of the given cards (in the same
@@ -264,7 +264,6 @@ def answerCards(answers: list) -> list:
     """
     return invoke("answerCards", answers=answers)
 
-
 # Deck Actions
 
 def deckNames() -> list:
@@ -487,7 +486,6 @@ def getDeckStats(decks: list) -> dict:
     """
     return invoke("getDeckStats", decks=decks)
 
-
 # Graphical Actions
 
 def guiBrowse(query: str, reorderCards: dict) -> list:
@@ -564,7 +562,7 @@ def guiAddCards(note: dict) -> int:
         ...     }
         ... )
         1496198395707
-    """
+    """  # noqa; E501
     return invoke("guiAddCards", note=note)
 
 
@@ -727,7 +725,6 @@ def guiCheckDatabase() -> bool:
     """
     return invoke("guiCheckDatabase")
 
-
 # Media Actions
 
 def storeMediaFile(
@@ -822,7 +819,6 @@ def deleteMediaFile(filename: str) -> None:
         >>> deleteMediaFile("_hello.txt")
     """
     return invoke("deleteMediaFile", filename=filename)
-
 
 # Miscellaneous Actions
 
@@ -976,7 +972,6 @@ def reloadCollection() -> None:
         >>> reloadCollection()
     """
     return invoke("reloadCollection")
-
 
 # Model Actions
 
@@ -1147,7 +1142,7 @@ def findModelsById(modelIds: list) -> list:
                 "originalStockKind": 1,
             },
         ]
-    """
+    """  # noqa; E501
     return invoke("findModelsById", modelIds=modelIds)
 
 
@@ -1292,7 +1287,7 @@ def findModelsByName(modelNames: list) -> list:
                 "originalStockKind": 1,
             },
         ]
-    """
+    """  # noqa; E501
     return invoke("findModelsByName", modelNames=modelNames)
 
 
@@ -1415,7 +1410,7 @@ def createModel(
             "id": 1551462107104,
             "req": [[0, "none", []]],
         }
-    """
+    """  # noqa; E501
     return invoke(
         "createModel",
         modelName=modelName,
@@ -1454,7 +1449,7 @@ def modelStyling(modelName: str) -> dict:
         {
             "css": ".card {\n font-family: arial;\n font-size: 20px;\n text-align: center;\n color: black;\n background-color: white;\n}\n"
         }
-    """
+    """  # noqa; E501
     return invoke("modelStyling", modelName=modelName)
 
 
@@ -1672,7 +1667,6 @@ def modelFieldSetDescription(
         description=description,
     )
 
-
 # Note Actions
 
 def addNote(note: dict) -> int:
@@ -1749,7 +1743,7 @@ def addNote(note: dict) -> int:
         ...     }
         ... )
         1496198395707
-    """
+    """  # noqa; E501
     return invoke("addNote", note=note)
 
 
@@ -1795,7 +1789,7 @@ def addNotes(notes: list) -> list:
         ...     ]
         ... )
         [1496198395707, None]
-    """
+    """  # noqa; E501
     return invoke("addNotes", notes=notes)
 
 
@@ -1878,7 +1872,7 @@ def updateNoteFields(note: dict) -> None:
         ...         ],
         ...     }
         ... )
-    """
+    """  # noqa; E501
     return invoke("updateNoteFields", note=note)
 
 
@@ -2048,7 +2042,6 @@ def removeEmptyNotes() -> None:
         >>> removeEmptyNotes()
     """
     return invoke("removeEmptyNotes")
-
 
 # Statistic Actions
 

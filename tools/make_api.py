@@ -41,15 +41,14 @@ def invoke(action: str, **params):
 '''
 
 CODE_TEMPLATE = '''
+
 {func_def}
 {doc}
 
     Example::
 {examples}
-    """
-{func_code}
-
-'''
+    """{flake8_ignore}
+{func_code}'''
 
 exceptional_funcs = {}
 func_def = """\
@@ -258,15 +257,23 @@ def make_func(func_name, doc, requests, results):
         initial_indent = '    '
     doc = "\n".join(p)
 
+    # make flake8 happy for now, if the docstring exceeds the line length
+    flake8_ignore = ""
+    max_len = max(len(line) for line in examples.splitlines())
+    if max_len > 95:
+        flake8_ignore = "  # noqa; E501"
+    print(max_len)
+
     # write every part of the function to the .py file
     code = CODE_TEMPLATE.format(
             func_def=func_def,
             doc=doc,
             examples=examples,
             func_code=func_code,
+            flake8_ignore=flake8_ignore,
     )
     code = black.format_str(code, mode=black_mode)
-    fout.write(code + "\n\n")
+    fout.write("\n\n" + code)
 
 
 def line_generator(file):
@@ -294,7 +301,7 @@ with (source_file_path.open('r', encoding="utf-8") as fin,
     for line in lines_gen:
         if line.startswith("### "):
             # new section heading
-            fout.write("\n# " + line[4:] + "\n")
+            fout.write("\n# " + line[4:].strip())
         elif line.startswith("#### "):
             # new function
             func_name = line[5:].strip().replace("`", "")
