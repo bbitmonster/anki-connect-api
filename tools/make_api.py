@@ -288,8 +288,8 @@ script_dir = Path(__file__).absolute().parent
 source_file_path = script_dir / "original.README.md"
 out_file_path = script_dir.parent / "anki_connect_api.py"
 
-with (source_file_path.open('r', encoding="utf-8") as fin,
-      out_file_path.open('w', encoding="utf-8") as fout):
+with (source_file_path.open('r') as fin,
+      out_file_path.open('w') as fout):
     lines_gen = line_generator(fin)
     fout.write(HEADER)
     # ignore everything till the first thematic break

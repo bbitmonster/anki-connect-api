@@ -93,7 +93,7 @@ def write_json_func(fout, func_name, args, docstring):
 
 script_dir = Path(__file__).absolute().parent
 
-with open(script_dir.parent / "anki_connect_api.py", 'r', encoding="utf-8") as file:
+with open(script_dir.parent / "anki_connect_api.py", 'r') as file:
     tree = ast_comments.parse(file.read())
 
 
@@ -111,8 +111,8 @@ jobs = (
 )
 
 for out_filepath, header_filepath, write_func in jobs:
-    with out_filepath.open("w", encoding="utf-8") as fout:
-        with header_filepath.open('r', encoding="utf-8") as file:
+    with out_filepath.open("w") as fout:
+        with header_filepath.open('r') as file:
             header = file.read()
         fout.write(HEADER)
         fout.write(header)
@@ -126,14 +126,14 @@ for out_filepath, header_filepath, write_func in jobs:
                 write_func(fout, func_name, args, docstring)
             elif isinstance(node, ast_comments.Comment):
                 fout.write("---\n\n##" + node.value + "\n\n")
-    with out_filepath.open("r", encoding="utf-8") as file:
+    with out_filepath.open("r") as file:
         unformatted = file.read()
     formatted = markdown_parser.beautify(unformatted)
-    with out_filepath.open("w", encoding="utf-8") as file:
+    with out_filepath.open("w") as file:
         file.write(formatted)
 
-with open(script_dir / "original.README.md", 'r', encoding="utf-8") as file:
+with open(script_dir / "original.README.md", 'r') as file:
     unformatted = file.read()
 formatted = markdown_parser.beautify(unformatted)
-with open(script_dir / "formatted.README.md", 'w', encoding="utf-8") as file:
+with open(script_dir / "formatted.README.md", 'w') as file:
     file.write(formatted)
