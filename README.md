@@ -5,9 +5,9 @@
 #### [JSON API Documentation](https://github.com/bbitmonster/anki-connect-api/blob/master/docs/anki_connect.json.md)
 
 
-#### Installation:
+#### Installation/Update:
 ```
-pip install --upgrade anki-connect-api
+pip install -U anki-connect-api
 ```
 
 #### Example Usage:
